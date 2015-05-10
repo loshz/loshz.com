@@ -1,0 +1,75 @@
+header {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:$header;
+	transition:all $transition;
+	z-index:999;
+	color:$darkgrey;
+
+	&.scroll {
+		top:-$header;
+	}
+
+	&.active {
+
+		div.inner {
+			background:$yellow;
+		}
+
+		div.menu-action {
+			background:url('../imgs/icons/close.png') no-repeat center;
+			background-size:25px;
+
+			&:before {
+				content: "Close";
+			}
+		}
+	}
+
+	a {
+		text-decoration:none;
+		color:$darkgrey;
+	}
+
+	div.inner {
+		padding:12px 25px;
+		height:100%;
+		max-width:$maxwidth;
+		transition:background $transition;
+		background:#FFF;
+	}
+
+	h1 {
+		display:inline-block;
+		font-size:45px;
+		transition:all $transition;
+		line-height:45px;
+		margin-top:5px;
+
+		&:hover {
+			border-bottom:4px solid $darkgrey;
+		}
+	}
+
+	div.menu-action {
+		cursor:pointer;
+		position:relative;
+		display:block;
+		margin-top:10px;
+		background:url('../imgs/icons/menu.png') no-repeat center;
+		width:35px;
+		height:35px;
+		float:right;
+		background-size:25px;
+
+		&:before {
+			content: "Menu";
+			position:absolute;
+			top:6px;
+			left:-52px;
+			padding-right:5px;
+		}
+	}
+}

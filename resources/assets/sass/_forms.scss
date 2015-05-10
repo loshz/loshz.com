@@ -1,0 +1,94 @@
+form.contact-form {
+	padding:0 0 $header 0;
+	@extend .cf;
+
+	div.row {
+		float:left;
+		margin-bottom:25px;
+
+		&.name, &.telephone, &.message {
+			float:left;
+		}
+
+		&.email, &.url {
+			float:right;
+		}
+
+		&.field {
+			width:49%;
+		}
+
+		&.textarea {
+			width:100%;
+		}
+
+		&.submit {
+			width:100%;
+
+			input {
+				background:$green;
+				width:100%;
+				color:#FFF;
+				cursor:pointer;
+				font-weight:bold;
+				transition:background $transition;
+				text-transform:uppercase;
+
+				&:hover {
+					background:#02A382;
+				}
+			}
+		}
+
+		label {
+			float:left;
+			margin-bottom:5px;
+
+			&.optional {
+
+				&:after {
+					content: "(Optional)";
+					font-style:italic;
+					color:$mediumgrey;
+					font-size:12px;
+					font-family:$merriweather;
+					margin-left:5px;
+				}
+
+			}
+		}
+
+		input, textarea {
+			width:100%;
+			float:left;
+			padding:15px;
+			font-size:16px;
+			line-height:24px;
+			letter-spacing:$letterspacing;
+			border:1px solid #FFF;
+			transition:all $transition;
+			border-radius:$borderradius;
+			font-family:$fontfamily;
+			clear:both;
+
+			&:focus {
+				border:1px solid $mediumgrey;
+			}
+		}
+
+		textarea {
+			resize:none;
+			height:200px;
+		}
+
+		div.error {
+			color:$red;
+			font-size:12px;
+			font-style:italic;
+			float:left;
+			margin:4px 0 0 5px;
+		}
+
+	}
+
+}

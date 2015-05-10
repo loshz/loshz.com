@@ -1,0 +1,29 @@
+div.twitter-feed {
+	width:100%;
+	background:#FFF;
+	float:left;
+	text-align:center;
+	padding:100px 0;
+
+	h3 {
+		font-size:18px;
+		margin:0 0 20px;
+		font-family:$merriweather;
+		font-style:italic;
+		color:$mediumgrey;
+		line-height:28px;
+	}
+
+	h4 {
+		font-size:13px;
+	}
+
+	a {
+		color:$mediumgrey;
+		text-decoration:underline;
+
+		&:hover {
+			color:$darkgrey;
+		}
+	}
+}

@@ -1,0 +1,96 @@
+footer {
+	width:100%;
+	height:125px;
+	background:$darkgrey;
+	padding:50px 0 0 0;
+	color:$lightgrey;
+	font-size:11px;
+	text-transform:uppercase;
+	font-weight:400;
+	position:relative;
+
+	div.backToTop {
+		position:absolute;
+		border-radius:$borderradius;
+		width:26px;
+		height:26px;
+		left:50%;
+		margin-left:-13px;
+		top:-13px;
+		transform:rotate(45deg);
+		cursor:pointer;
+		background:$mediumgrey;
+
+		span {
+			background:url('../imgs/icons/arrow.png') no-repeat center;
+			background-size:12px;
+			width:12px;
+			height:12px;
+			display:block;
+			transform:rotate(-135deg);
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin:-6px 0 0 -6px;
+		}
+	}
+
+	div.inner {
+
+		ul.links {
+			float:left;
+
+			li {
+				float:left;
+				margin:0 10px 0 0;
+
+				a {
+					color:$lightgrey;
+					text-decoration:none;
+					display:block;
+					margin:3px 0 0 0;
+
+					&.text:hover {
+						border-bottom:1px solid #FFF;
+					}
+
+					&.github, &.twitter, &.linkedin {
+						height:15px;
+						width:18px;
+						text-indent: 100%;
+						white-space: nowrap;
+						overflow: hidden;
+						color:transparent;
+					}
+
+					&.github {
+						background:url('../imgs/icons/github.png') no-repeat center;
+						background-size:15px;
+					}
+
+					&.twitter {
+						background:url('../imgs/icons/twitter.png') no-repeat center;
+						background-size:15px;
+					}
+
+					&.linkedin {
+						background:url('../imgs/icons/linkedin.png') no-repeat center;
+						background-size:15px;
+					}
+				}
+
+				iframe {
+					height:21px;
+					width:130px;
+				}
+			}
+
+		}
+
+		h4 {
+			float:right;
+			font-weight:400;
+			padding:4px 0 0 0;
+		}
+	}
+}

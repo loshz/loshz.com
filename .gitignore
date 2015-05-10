@@ -1,0 +1,13 @@
+/vendor
+/node_modules
+.env
+composer.phar
+composer.lock
+.DS_Store
+Thumbs.db
+.idea/*
+.sass-cache
+npm-debug.log
+public/assets/css/site.min.css
+public/assets/js/site.min.js
+

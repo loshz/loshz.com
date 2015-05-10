@@ -1,0 +1,80 @@
+$tablet: 920px;
+$mobile: 600px;
+$lightgrey: #F6F6F6;
+$mediumgrey: #97999F;
+$darkgrey: #292929;
+$yellow: #ffee00;
+$green: #1BBC9B;
+$red: #FF4056;
+$silver:#E9F0F4;
+$purple:#3A2772;
+$highlight: $yellow;
+$fontfamily: 'Open Sans', Arial, sans-serif;
+$merriweather: 'Merriweather', Arial, sans-serif;
+$letterspacing: 1px;
+$maxwidth: 1264px;
+$header: 80px;
+$borderradius: 2px;
+$transition:0.2s ease-in-out;
+$topcontent: 650px;
+$largetitle:3em;
+
+.borderButton {
+	border:2px solid #FFF;
+	display:inline-block;
+	font-weight: 700;
+	padding:10px 30px;
+	font-size:14px;
+	letter-spacing: 2px;
+	margin:20px 0 0 0;
+	cursor: pointer;
+	border-radius:$borderradius;
+	text-transform:uppercase;
+	text-decoration:none;
+	color:#FFF;
+
+	@media screen and (min-width:$mobile) {
+		background: none;
+	}
+}
+
+.cf:after {
+	content: " ";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.body-copy {
+	font-family: 'Merriweather';
+	font-style:italic;
+	color:$mediumgrey;
+	line-height:24px;
+
+	&.space {
+		margin:0 0 15px 0;
+	}
+
+	span.bold {
+		font-weight:bold;
+		color:$darkgrey;
+	}
+}
+
+.text-link {
+	color:$darkgrey;
+	text-decoration:none;
+	font-weight:bold;
+
+	&:hover {
+		text-decoration:underline;
+	}
+}
+
+hr {
+	width:75px;
+	height:3px;
+	background:$darkgrey;
+	margin:15px 0;
+	display:inline-block;
+}
