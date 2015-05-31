@@ -1,29 +1,39 @@
 div.twitter-feed {
-	width:100%;
-	background:#FFF;
-	float:left;
-	text-align:center;
-	padding:100px 0;
+  width:100%;
+  background:$lightgrey;
+  float:left;
+  text-align:center;
+  padding:100px 0;
 
-	h3 {
-		font-size:18px;
-		margin:0 0 20px;
-		font-family:$merriweather;
-		font-style:italic;
-		color:$mediumgrey;
-		line-height:28px;
-	}
+  h3 {
+    font-size:22px;
+  }
 
-	h4 {
-		font-size:13px;
-	}
+  img {
+    width:40px;
+  }
 
-	a {
-		color:$mediumgrey;
-		text-decoration:underline;
+  h4 {
+    font-size:16px;
+    margin:20px 0;
+    font-style:italic;
+    color:$mediumgrey;
+    font-weight:400;
+    line-height:28px;
+    font-family:$merriweather;
+  }
 
-		&:hover {
-			color:$darkgrey;
-		}
-	}
+  p {
+    font-size:13px;
+    font-weight:bold;
+  }
+
+  a {
+    color:$mediumgrey;
+    text-decoration:underline;
+
+    &:hover {
+      color:$darkgrey;
+    }
+  }
 }

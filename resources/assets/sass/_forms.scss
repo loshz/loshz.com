@@ -1,94 +1,71 @@
 form.contact-form {
-	padding:0 0 $header 0;
-	@extend .cf;
+  padding:($header/2) 0;
+  width:100%;
+  max-width:470px;
+  margin:0 auto;
+  @extend .cf;
 
-	div.row {
-		float:left;
-		margin-bottom:25px;
+  div.row {
+    float:left;
+    margin-bottom:25px;
+    width:100%;
 
-		&.name, &.telephone, &.message {
-			float:left;
-		}
+    &.submit {
+      width:100%;
 
-		&.email, &.url {
-			float:right;
-		}
+      input {
+        @extend .cta;
+      }
+    }
 
-		&.field {
-			width:49%;
-		}
+    label {
+      float:left;
+      margin-bottom:5px;
+      font-size:14px;
 
-		&.textarea {
-			width:100%;
-		}
+      &.optional {
 
-		&.submit {
-			width:100%;
+        &:after {
+          content: "(Optional)";
+          color:$mediumgrey;
+          font-size:10px;
+          margin-left:5px;
+        }
 
-			input {
-				background:$green;
-				width:100%;
-				color:#FFF;
-				cursor:pointer;
-				font-weight:bold;
-				transition:background $transition;
-				text-transform:uppercase;
+      }
+    }
 
-				&:hover {
-					background:#02A382;
-				}
-			}
-		}
+    input.field, textarea {
+      width:100%;
+      float:left;
+      padding:10px;
+      font-size:14px;
+      line-height:24px;
+      letter-spacing:$letterspacing;
+      border:1px solid #CFD9DB;
+      transition:all $transition;
+      border-radius:$borderradius;
+      font-family:$fontfamily;
+      clear:both;
 
-		label {
-			float:left;
-			margin-bottom:5px;
+      &:focus {
+        border:1px solid $mediumgrey;
+      }
+    }
 
-			&.optional {
+    textarea {
+      resize:none;
+      height:200px;
+    }
 
-				&:after {
-					content: "(Optional)";
-					font-style:italic;
-					color:$mediumgrey;
-					font-size:12px;
-					font-family:$merriweather;
-					margin-left:5px;
-				}
+    div.error {
+      color:$red;
+      font-size:12px;
+      font-style:italic;
+      float:right;
+      margin:4px 0 0 5px;
+    }
 
-			}
-		}
-
-		input, textarea {
-			width:100%;
-			float:left;
-			padding:15px;
-			font-size:16px;
-			line-height:24px;
-			letter-spacing:$letterspacing;
-			border:1px solid #FFF;
-			transition:all $transition;
-			border-radius:$borderradius;
-			font-family:$fontfamily;
-			clear:both;
-
-			&:focus {
-				border:1px solid $mediumgrey;
-			}
-		}
-
-		textarea {
-			resize:none;
-			height:200px;
-		}
-
-		div.error {
-			color:$red;
-			font-size:12px;
-			font-style:italic;
-			float:left;
-			margin:4px 0 0 5px;
-		}
-
-	}
+  }
 
 }

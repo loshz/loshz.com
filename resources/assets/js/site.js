@@ -12,6 +12,13 @@ $(document).ready(function() {
 		$('body').toggleClass('no-scroll');
 	});
 
+    $('.arrow').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('#about').offset().top
+        });
+    });
+
 	$('.backToTop').on('click', function(event) {
 		event.preventDefault();
 		$('html, body').animate({scrollTop: 0});
@@ -22,16 +29,18 @@ $(document).ready(function() {
 
 		if (currentScroll > headerHeight) {
 		   if (currentScroll < previousScroll){
-		   	$('header').removeClass('scroll');
+               $('header').removeClass('scroll top');
 		   } else {
-		   	$('header').addClass('scroll');
+               $('header').addClass('scroll').delay(300).queue(function(){
+                   $(this).removeClass('top');
+               });
 		   }
 		}
 
 		previousScroll = currentScroll;
 
 		if(!$(window).scrollTop()) {
-		 $('header').removeClass('scroll');
+            $('header').removeClass('scroll').addClass('top');
 		}
 	}
 

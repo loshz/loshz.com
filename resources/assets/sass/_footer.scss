@@ -1,96 +1,160 @@
+div.contact {
+  background:$highlight;
+  padding:$header 0;
+  color:#FFF;
+  text-align: center;
+
+  h3 {
+    float:none;
+    margin:0 0 15px 0;
+    width: 100%;
+    display: inline-block;
+
+    @include bp(tablet) {
+      float: left;
+      width: 452px;
+    }
+  }
+
+  a {
+    float:none;
+    color:#FFF;
+    text-decoration:none;
+    border:2px solid #FFF;
+    border-radius:25px;
+    padding:10px 20px;
+    font-weight:700;
+    transition:all $transition;
+    background:$highlight;
+    display: inline-block;
+
+    @include bp(tablet) {
+      float: right;
+    }
+
+    &:hover {
+      background:#FFF;
+      color:$highlight;
+    }
+  }
+}
+
 footer {
-	width:100%;
-	height:125px;
-	background:$darkgrey;
-	padding:50px 0 0 0;
-	color:$lightgrey;
-	font-size:11px;
-	text-transform:uppercase;
-	font-weight:400;
-	position:relative;
+  width:100%;
+  height:125px;
+  background:$darkgrey;
+  padding:50px 0 0 0;
+  color:$lightgrey;
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:400;
+  position:relative;
 
-	div.backToTop {
-		position:absolute;
-		border-radius:$borderradius;
-		width:26px;
-		height:26px;
-		left:50%;
-		margin-left:-13px;
-		top:-13px;
-		transform:rotate(45deg);
-		cursor:pointer;
-		background:$mediumgrey;
+  div.backToTop {
+    position:absolute;
+    border-radius:$borderradius;
+    width:26px;
+    height:26px;
+    left:50%;
+    margin-left:-13px;
+    top:-13px;
+    transform:rotate(45deg);
+    cursor:pointer;
+    background:$lightgrey;
 
-		span {
-			background:url('../imgs/icons/arrow.png') no-repeat center;
-			background-size:12px;
-			width:12px;
-			height:12px;
-			display:block;
-			transform:rotate(-135deg);
-			position:absolute;
-			top:50%;
-			left:50%;
-			margin:-6px 0 0 -6px;
-		}
-	}
+    span {
+      background:url('../imgs/icons/arrow-dark.png') no-repeat center;
+      background-size:12px;
+      width:12px;
+      height:12px;
+      display:block;
+      transform:rotate(-135deg);
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin:-6px 0 0 -6px;
+    }
+  }
 
-	div.inner {
+  div.inner {
+    text-align:center;
 
-		ul.links {
-			float:left;
+    @include bp(tablet) {
+      text-align: left;
+    }
 
-			li {
-				float:left;
-				margin:0 10px 0 0;
+    ul.links {
+      float: none;
+      @extend .cf;
+      display:inline-block;
 
-				a {
-					color:$lightgrey;
-					text-decoration:none;
-					display:block;
-					margin:3px 0 0 0;
+      @include bp(tablet) {
+        float: left;
+      }
 
-					&.text:hover {
-						border-bottom:1px solid #FFF;
-					}
+      li {
+        float:left;
+        margin:0 10px 0 0;
 
-					&.github, &.twitter, &.linkedin {
-						height:15px;
-						width:18px;
-						text-indent: 100%;
-						white-space: nowrap;
-						overflow: hidden;
-						color:transparent;
-					}
+        a {
+          color:$lightgrey;
+          text-decoration:none;
+          display:block;
+          margin:3px 0 0 0;
 
-					&.github {
-						background:url('../imgs/icons/github.png') no-repeat center;
-						background-size:15px;
-					}
+          &.text:hover {
+            border-bottom:1px solid #FFF;
+          }
 
-					&.twitter {
-						background:url('../imgs/icons/twitter.png') no-repeat center;
-						background-size:15px;
-					}
+          &.github, &.twitter, &.linkedin {
+            height:15px;
+            width:18px;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            color:transparent;
+          }
 
-					&.linkedin {
-						background:url('../imgs/icons/linkedin.png') no-repeat center;
-						background-size:15px;
-					}
-				}
+          &.github {
+            background:url('../imgs/icons/github.png') no-repeat center;
+            background-size:15px;
+          }
 
-				iframe {
-					height:21px;
-					width:130px;
-				}
-			}
+          &.twitter {
+            background:url('../imgs/icons/twitter.png') no-repeat center;
+            background-size:15px;
+          }
 
-		}
+          &.linkedin {
+            background:url('../imgs/icons/linkedin.png') no-repeat center;
+            background-size:15px;
+          }
+        }
 
-		h4 {
-			float:right;
-			font-weight:400;
-			padding:4px 0 0 0;
-		}
-	}
+        iframe {
+          display: none;
+
+          @include bp(tablet) {
+            height: 21px;
+            width: 130px;
+            display: block;
+          }
+        }
+      }
+
+    }
+
+    h4 {
+      float:none;
+      font-weight:400;
+      padding:4px 0 0 0;
+      display: inline-block;
+      width:100%;
+
+      @include bp(tablet) {
+        float: right;
+        width: auto;
+      }
+    }
+  }
 }

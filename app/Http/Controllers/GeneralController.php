@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
+use Illuminate\Support\Facades\Mail;
 
 class GeneralController extends Controller {
 
@@ -46,7 +47,20 @@ class GeneralController extends Controller {
 
 	public function submitContactForm(ContactFormRequest $request)
 	{
-		return $request->all();
+		$data = [
+			'name' => $request->all()['name'],
+			'email' => $request->all()['email'],
+			'telephone' => ($request->all()['telephone'] != null) ? $request->all()['telephone'] : 'N/A',
+			'url' => ($request->all()['url'] != null) ? $request->all()['url'] : 'N/A',
+			'comments' => $request->all()['message'],
+		];
+
+		Mail::send('emails.contact-form', $data, function($message) use($data)
+		{
+			$message->to('danbondd@gmail.com', 'Dan Bond')->subject('Contact Form Enquiry');
+		});
+
+		return $data;
 	}
 
 }

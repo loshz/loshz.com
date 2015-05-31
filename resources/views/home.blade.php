@@ -5,20 +5,20 @@
 <main>
 	<div class="intro">
 		<div class="inner">
-			<h2>I'm a Software Developer.</h2>
-			<h2>I love: open-source projects, server administration, PHP development.</h2>
-			<h2>But, that's not all..</h2>
+			<h2>Building digital solutions led by<br>clarity, simplicity &amp; honesty</h2>
+            <div class="arrow"></div>
 		</div>
-		<div class="arrow"></div>
 	</div>
 </main>
 
-<main>
-	<div class="work">
-		<div class="inner">
-			<h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
-		</div>
-	</div>
+<main id="about">
+    <div class="inner">
+        <div class="statement">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
+            <hr/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveniet ex explicabo molestias nesciunt saepe sit soluta voluptas voluptatem! Dolores exercitationem modi quibusdam repellendus veritatis.</p>
+        </div>
+    </div>
 </main>
 
 @stop

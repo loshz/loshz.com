@@ -1,75 +1,79 @@
 header {
-	position:fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:$header;
-	transition:all $transition;
-	z-index:999;
-	color:$darkgrey;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:$header;
+  transition:all $transition;
+  z-index:999;
+  color:$darkgrey;
+  background:#FFF;
+  border-bottom:1px solid $lightgrey;
 
-	&.scroll {
-		top:-$header;
-	}
+  &.top {
+    background:$highlight;
+    color:#FFF;
+    border-bottom:none;
 
-	&.active {
+    div.menu-action {
+      background: url('../imgs/icons/menu-white.png') no-repeat center;
+      background-size:25px;
+    }
+  }
 
-		div.inner {
-			background:$yellow;
-		}
+  &.scroll {
+    top:-$header;
+  }
 
-		div.menu-action {
-			background:url('../imgs/icons/close.png') no-repeat center;
-			background-size:25px;
+  &.active {
+    background:$highlight;
+    border-bottom:none;
+    color:#FFF;
 
-			&:before {
-				content: "Close";
-			}
-		}
-	}
+    div.menu-action {
+      background:url('../imgs/icons/close-white.png') no-repeat center;
+      background-size:25px;
 
-	a {
-		text-decoration:none;
-		color:$darkgrey;
-	}
+      &:before {
+        content: "Close";
+      }
+    }
+  }
 
-	div.inner {
-		padding:12px 25px;
-		height:100%;
-		max-width:$maxwidth;
-		transition:background $transition;
-		background:#FFF;
-	}
+  div.inner {
+    padding:12px 25px;
+    height:100%;
+  }
 
-	h1 {
-		display:inline-block;
-		font-size:45px;
-		transition:all $transition;
-		line-height:45px;
-		margin-top:5px;
+  h1 {
+    display:inline-block;
+    font-size:45px;
+    transition:all $transition;
+    line-height:45px;
+    margin-top:5px;
 
-		&:hover {
-			border-bottom:4px solid $darkgrey;
-		}
-	}
+    &:hover {
+      border-bottom:4px solid #FFF;
+    }
+  }
 
-	div.menu-action {
-		cursor:pointer;
-		position:relative;
-		display:block;
-		margin-top:10px;
-		background:url('../imgs/icons/menu.png') no-repeat center;
-		width:35px;
-		height:35px;
-		float:right;
-		background-size:25px;
+  div.menu-action {
+    cursor:pointer;
+    position:relative;
+    display:block;
+    margin-top:10px;
+    background:url('../imgs/icons/menu.png') no-repeat center;
+    width:35px;
+    height:35px;
+    float:right;
+    background-size:25px;
 
-		&:before {
-			content: "Menu";
-			position:absolute;
-			top:6px;
-			left:-52px;
-			padding-right:5px;
-		}
-	}
+    &:before {
+      content: "Menu";
+      position:absolute;
+      top:6px;
+      left:-52px;
+      padding-right:5px;
+    }
+  }
 }
