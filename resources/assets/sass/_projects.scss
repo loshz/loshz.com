@@ -6,76 +6,22 @@ body.projects {
       padding:$header 0;
     }
 
-    div.work {
+    ul.brands {
       @extend .cf;
 
-      div.item {
-        width:48%;
-        margin:0 0 40px;
-        display:block;
-        background:#FFF;
-        position:relative;
-        border-radius:$borderradius;
+      li {
+        float: left;
+        width:18%;
+        margin:0 1%;
+        background: $lightgrey;
+        text-align: center;
+        padding:10px;
 
-        &:nth-child(odd) {
-          float:left;
-        }
-
-        &:nth-child(even) {
-          float:right;
-        }
-
-        &.wrangler {
-          img {
-            width: 50%;
-            margin-top: 100px;
-          }
-        }
-
-        &.lee {
-          img {
-            width: 100%;
-            margin-top: -100px;
-          }
-        }
-
-        &.eastpak-lookbook {
-          img {
-            width: 60%;
-            margin-top: 50px;
-          }
-        }
-
-        &.spotify-the-drop {
-          background: #000;
-
-          img {
-            width: 65%;
-            margin-top: 80px;
-          }
-        }
-
-        &.sfa-match-centre {
-          background: #182E54;
-
-          img {
-            height: 65%;
-            margin-top: 65px;
-          }
-        }
-
-        div.image {
-          height: 315px;
-          width: 100%;
-          position: relative;
-          text-align: center;
-          overflow: hidden;
-
-          img {
-            display: inline-block;
-          }
+        img {
+          display: block;
         }
       }
     }
+
   }
 }

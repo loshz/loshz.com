@@ -12,6 +12,7 @@ body.home {
 
       h2 {
         font-size:$largetitle;
+        padding:0 20px;
       }
     }
 
@@ -28,7 +29,127 @@ body.home {
   }
 
   div.statement {
-    padding:($header*2) 0;
+    padding:($header*2) 0 $header;
+  }
+
+  div.timeline {
+    margin-bottom:$header;
+    position: relative;
+
+    div.line {
+      position:absolute;
+      z-index:10;
+      width:4px;
+      height:100%;
+      background:$darkgrey;
+      top:0;
+      left:-1px;
+      margin-left:0;
+
+      @include bp(mobile) {
+        left:50%;
+        margin-left:-2px;
+      }
+    }
+
+    ul {
+      width:100%;
+      height:100%;
+      @extend .cf;
+
+      li {
+        width:100%;
+        position:relative;
+        clear:both;
+        margin:0 0 30px 0;
+
+        @include bp(mobile) {
+          width:50%;
+        }
+
+        &:before {
+          content: "";
+          width:16px;
+          height:16px;
+          background:$highlight;
+          border-radius:50%;
+          position:absolute;
+          border:2px solid #FFF;
+          z-index:12;
+          top:-1px;
+        }
+
+        &:last-child {
+          margin:0;
+        }
+
+        &:nth-child(odd) {
+          float: left;
+          text-align: left;
+          padding:0 0 0 20px;
+
+          @include bp(mobile) {
+            text-align: right;
+            padding:0 20px 0 0;
+          }
+
+          &:before {
+            left:-10px;
+            right:auto;
+
+            @include bp(mobile) {
+              right: -10px;
+              left:auto;
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          float: right;
+          text-align: left;
+          padding-left: 20px;
+
+          &:before {
+            left:-10px;
+          }
+        }
+
+        h4 {
+          margin-bottom:5px;
+        }
+
+        p {
+          font-size:14px;
+          line-height:20px;
+        }
+      }
+    }
+  }
+
+  div.tech-stack {
+    @extend .cf;
+    padding:0 0 ($header*2) 0;
+    text-align: center;
+
+    p {
+      font-size:16px;
+      line-height:24px;
+    }
+
+    ul {
+      float: left;
+      width: 33.33%;
+      margin-top: $header;
+
+      li {
+        font-size:14px;
+        line-height:24px;
+
+        h4 {
+          margin-bottom:10px;
+        }
+      }
+    }
   }
 
 }

@@ -13,14 +13,13 @@
     <div class="inner content">
         <img src="{{ Config::get('app.url') }}assets/imgs/dan-bond.jpg" alt="Dan Bond"/>
         <h3>Dan Bond</h3>
-        <h4>Software Developer / Gamer</h4>
-        @include('layouts.partials.social')
+        <h4>PHP Developer, Open Source Contributor, Tech Enthusiast.</h4>
 
         <div class="statement">
             <hr/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, autem consequuntur dolorum illum laborum maxime, nesciunt omnis perferendis quia tempora totam, voluptatum. Eligendi, error fugiat magnam mollitia odit porro velit?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cupiditate debitis deleniti ducimus esse, impedit minima nihil perferendis quam qui quidem, reiciendis temporibus ullam voluptatem.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi laborum tenetur. Aliquam commodi consectetur cupiditate dicta est ipsum maxime nulla, quam sed suscipit temporibus voluptate! Cumque esse expedita id, laudantium modi nobis soluta unde.</p>
+            <p>Hello all! As you've probably guessed by now, my name's Dan and I'm a PHP Developer. I started writing <i>"code"</i> back when I was in college. Well, at the time I thought I was writing proper code but I don't think HTML tables and AS2 really counts anymore... I quickly moved into the realms of server side coding, specifically PHP.</p>
+            <p>Over the last few years I've completed a large variety of projects in several different languages: PHP, Objective-C, Java. I regularly contribute to open source projects and at the moment I'm working on a few apps of my own.</p>
+            <p>My daily routine consists of either writing code, listening to code related podcasts, or reading articles/blogs on the latest software trends. I also have a keen interest in DevOps and Server Administration. I have a few droplets on <a href="https://www.digitalocean.com/?refcode=46c9d735380f" target="_blank">DigitalOcean</a> that I use for simply testing new software.</p>
         </div>
     </div>
 </main>

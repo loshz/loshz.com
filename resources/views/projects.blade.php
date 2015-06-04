@@ -12,26 +12,19 @@
         <div class="inner content">
 
             <div class="statement">
-                <h3>Get in touch</h3>
+                <h3>Projects</h3>
                 <hr/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae, rerum?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                <p>Take a look at some of the projects I've been working on, past and present.</p>
+                <p class="small">(Some work on behalf on Carpe Diem and Retrofuzz)</p>
             </div>
 
-            <div class="work">
-                <div class="item wrangler">
-                    <div class="image"><img src="{{ Config::get('app.url') }}assets/imgs/work/wrangler.jpg" alt=""/></div>
-                </div>
-                <div class="item eastpak-lookbook">
-                    <div class="image"><img src="{{ Config::get('app.url') }}assets/imgs/work/eastpak.png" alt=""/></div>
-                </div>
-                <div class="item spotify-the-drop">
-                    <div class="image"><img src="{{ Config::get('app.url') }}assets/imgs/work/spotify.jpg" alt=""/></div>
-                </div>
-                <div class="item sfa-match-centre">
-                    <div class="image"><img src="{{ Config::get('app.url') }}assets/imgs/work/sfa.png" alt=""/></div>
-                </div>
-            </div>
+            <ul class="brands">
+                <li><img src="{{ Config::get('app.url') }}assets/imgs/work/.png" alt=""/></li>
+                <li><img src="{{ Config::get('app.url') }}assets/imgs/work/.png" alt=""/></li>
+                <li><img src="{{ Config::get('app.url') }}assets/imgs/work/.png" alt=""/></li>
+                <li><img src="{{ Config::get('app.url') }}assets/imgs/work/.png" alt=""/></li>
+                <li><img src="{{ Config::get('app.url') }}assets/imgs/work/.png" alt=""/></li>
+            </ul>
 
         </div>
     </main>

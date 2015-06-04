@@ -60,7 +60,7 @@ class GeneralController extends Controller {
 			$message->to('danbondd@gmail.com', 'Dan Bond')->subject('Contact Form Enquiry');
 		});
 
-		return $data;
+		return redirect()->back()->with('message', 'Thank you, ' . $data['name']);
 	}
 
 }

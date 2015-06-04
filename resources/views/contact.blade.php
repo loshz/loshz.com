@@ -12,9 +12,14 @@
 	<div class="inner content">
 
         <div class="statement">
+            @if (Session::has('message'))
+            <h3>{!! Session::get('message') !!}</h3>
+            <hr/>
+            @else
             <h3>Get in touch</h3>
             <hr/>
             <p>Fill in the form below or send me an email: <a href="mailto:info@danbond.co">info@danbond.co</a>.</p>
+            @endif
             <p>I'll get back to you as soon as possible.</p>
         </div>
 
