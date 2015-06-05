@@ -12,7 +12,7 @@
 
 	<div class="inner">
 
-		<h1><a href="{{ url() }}">DB.</a></h1>
+		<h1><a href="{{ url() }}">DB</a></h1>
 
 		<div class="menu-action"></div>
 

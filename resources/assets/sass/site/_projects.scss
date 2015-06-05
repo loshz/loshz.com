@@ -1,0 +1,21 @@
+body.projects {
+
+  div.inner.content {
+
+    div.statement {
+      padding:$header 0;
+    }
+
+    div.lists {
+      margin-bottom: $header;
+
+      ul {
+        width: 50%;
+
+        a {
+          @extend .text-link;
+        }
+      }
+    }
+  }
+}

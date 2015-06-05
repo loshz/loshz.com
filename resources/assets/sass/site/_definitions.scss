@@ -40,7 +40,6 @@ $largetitle:3em;
 .text-link {
 	color:$darkgrey;
 	text-decoration:none;
-	font-weight:bold;
 
 	&:hover {
 		text-decoration:underline;
@@ -104,6 +103,29 @@ ul.social {
       color: transparent;
       width: 100%;
       height: 100%;
+    }
+  }
+}
+
+div.lists {
+  @extend .cf;
+  text-align: center;
+
+  p {
+    font-size:16px;
+    line-height:24px;
+  }
+
+  ul {
+    float: left;
+
+    li {
+      font-size:14px;
+      line-height:24px;
+
+      h4 {
+        margin-bottom:10px;
+      }
     }
   }
 }

@@ -52,8 +52,14 @@ header {
     line-height:45px;
     margin-top:5px;
 
-    &:hover {
-      border-bottom:4px solid #FFF;
+    a {
+      color:#FFF;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        border-bottom: 4px solid #FFF;
+      }
     }
   }
 

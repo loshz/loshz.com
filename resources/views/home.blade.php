@@ -46,7 +46,7 @@
             </ul>
         </div>
         
-        <div class="tech-stack">
+        <div class="lists tech-stack">
             <p>Check out my current tech stack.</p>
             <p>I use everything below in the majority of my projects.</p>
 

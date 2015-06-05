@@ -1,20 +1,6 @@
 body.home {
 
   div.intro {
-    background:$highlight;
-    position:relative;
-    color:#FFF;
-
-    div.inner {
-      position:relative;
-      text-align:center;
-      padding:($header*3) 0 ($header*2) 0;
-
-      h2 {
-        font-size:$largetitle;
-        padding:0 20px;
-      }
-    }
 
     div.arrow {
       background:url('../imgs/icons/arrow.png') no-repeat center;
@@ -25,11 +11,10 @@ body.home {
       margin:60px auto 0 auto;
       cursor:pointer;
     }
-
   }
 
   div.statement {
-    padding:($header*2) 0 $header;
+    padding:$header 0;
   }
 
   div.timeline {
@@ -127,29 +112,11 @@ body.home {
   }
 
   div.tech-stack {
-    @extend .cf;
-    padding:0 0 ($header*2) 0;
-    text-align: center;
-
-    p {
-      font-size:16px;
-      line-height:24px;
-    }
+    margin-bottom: $header;
 
     ul {
-      float: left;
       width: 33.33%;
       margin-top: $header;
-
-      li {
-        font-size:14px;
-        line-height:24px;
-
-        h4 {
-          margin-bottom:10px;
-        }
-      }
     }
   }
-
 }

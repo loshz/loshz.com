@@ -75,6 +75,24 @@ div.statement {
   }
 }
 
+div.intro {
+  background:$highlight;
+  position:relative;
+  color:#FFF;
+
+  div.inner {
+    position:relative;
+    text-align:center;
+    padding:($header*3) 0 ($header*2) 0;
+
+    h2 {
+      font-size:$largetitle;
+      padding:0 20px;
+    }
+  }
+
+}
+
 div.top {
   padding:($header*2) 0;
   background:$highlight;
@@ -87,6 +105,11 @@ div.top {
     h2 {
       clear:left;
       font-size:30px;
+    }
+
+    p {
+      font-style: italic;
+      margin-top:10px;
     }
   }
 }
