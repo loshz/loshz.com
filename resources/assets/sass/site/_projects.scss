@@ -1,13 +1,14 @@
 body.projects {
 
   div.inner.content {
+    @extend .cf;
 
     div.statement {
       padding:$header 0;
     }
 
     div.lists {
-      margin-bottom: $header;
+      padding-bottom: $header;
 
       ul {
         width: 50%;

@@ -1,20 +1,16 @@
-<main>
-	@include ('layouts.partials.twitter-feed')
-</main>
+@include ('layouts.partials.twitter-feed')
 
-<main>
-    <div class="contact">
-        <div class="inner">
-            @if(Request::segment(1) == 'contact')
-            <h3>Interested to see what I've been working on?</h3>
-            <a href="{{ url('projects') }}">Take a look</a>
-            @else
-            <h3>Have a project idea you'd like to discuss?</h3>
-            <a href="{{ url('contact') }}">Let's talk</a>
-            @endif
-        </div>
+<div class="contact">
+    <div class="inner">
+        @if(Request::segment(1) == 'contact')
+        <h3>Interested to see what I've been working on?</h3>
+        <a href="{{ url('projects') }}">Take a look</a>
+        @else
+        <h3>Have a project idea you'd like to discuss?</h3>
+        <a href="{{ url('contact') }}">Let's talk</a>
+        @endif
     </div>
-</main>
+</div>
 
 <footer>
 	<div class="inner">

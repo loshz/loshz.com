@@ -3,6 +3,8 @@ div.contact {
   padding:$header 0;
   color:#FFF;
   text-align: center;
+  float: left;
+  width: 100%;
 
   h3 {
     float:none;
@@ -49,6 +51,7 @@ footer {
   text-transform:uppercase;
   font-weight:400;
   position:relative;
+  float: left;
 
   div.backToTop {
     position:absolute;

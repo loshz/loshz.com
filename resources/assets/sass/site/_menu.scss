@@ -32,7 +32,7 @@ div.menu {
 
         a {
           text-transform:uppercase;
-          font-size:55px;
+          font-size:2em;
           font-weight:700;
           padding:10px 0;
           color:#FFF;
@@ -40,6 +40,10 @@ div.menu {
           display:inline-block;
           height:85px;
           transition:all $transition;
+
+          @include bp(mobile) {
+            font-size:3em;
+          }
 
           &:hover, &.active {
             border-bottom:5px solid #FFF;

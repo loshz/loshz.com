@@ -2,16 +2,14 @@
 
 @section('content')
 
-<main>
-	<div class="intro">
-		<div class="inner">
-			<h2>PHP Developer,<br/>Open Source Contributor,<br/>Tech Enthusiast.</h2>
-            <div class="arrow"></div>
-		</div>
-	</div>
-</main>
+<div class="intro">
+    <div class="inner">
+        <h2>PHP Developer,<br/>Open Source Contributor,<br/>Tech Enthusiast.</h2>
+        <div class="arrow"></div>
+    </div>
+</div>
 
-<main id="about">
+<div id="about">
     <div class="inner">
         <div class="statement">
             <h3>Every project needs to have a timeline.</h3>
@@ -84,6 +82,6 @@
             </ul>
         </div>
     </div>
-</main>
+</div>
 
 @stop
