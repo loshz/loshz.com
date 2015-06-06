@@ -1,5 +1,5 @@
 header {
-  position:fixed;
+  position:relative;
   top:0;
   left:0;
   width:100%;
@@ -10,10 +10,24 @@ header {
   background:#FFF;
   border-bottom:1px solid $lightgrey;
 
+  @include bp(mobile) {
+    position: fixed;
+  }
+
   &.top {
     background:$highlight;
     color:#FFF;
     border-bottom:none;
+
+    h1 {
+      a {
+        color:#FFF;
+
+        &:hover {
+          border-bottom: 4px solid #FFF;
+        }
+      }
+    }
 
     div.menu-action {
       background: url('../imgs/icons/menu-white.png') no-repeat center;
@@ -53,12 +67,12 @@ header {
     margin-top:5px;
 
     a {
-      color:#FFF;
+      color:$darkgrey;
       text-decoration: none;
       display: block;
 
       &:hover {
-        border-bottom: 4px solid #FFF;
+        border-bottom: 4px solid $darkgrey;
       }
     }
   }

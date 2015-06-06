@@ -18,7 +18,7 @@
             @else
             <h3>Get in touch</h3>
             <hr/>
-            <p>Fill in the form below or send me an email: <a href="mailto:info@danbond.co">info@danbond.co</a>.</p>
+            <p>Fill in the form below or send me an email: <a href="mailto:hello@danbond.co">hello@danbond.co</a>.</p>
             @endif
             <p>I'll get back to you as soon as possible.</p>
         </div>

@@ -9,7 +9,6 @@ $red: #FF4056;
 $silver:#E9F0F4;
 $purple:#3A2772;
 $blue:#5A80FF;
-//$blue:#007aff;
 $highlight:$blue;
 $fontfamily: 'Open Sans', Arial, sans-serif;
 $merriweather: 'Merriweather', Arial, sans-serif;
@@ -19,7 +18,6 @@ $header: 80px;
 $borderradius: 2px;
 $transition:0.2s ease-in-out;
 $topcontent: 650px;
-$largetitle:3em;
 
 @mixin bp($point) {
   @if $point == mobile {

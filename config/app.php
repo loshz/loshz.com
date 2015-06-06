@@ -26,7 +26,20 @@ return [
 	|
 	*/
 
-	'url' => 'http://danbondco.dev/',
+	'url' => env('APP_URL', ''),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Application Version Number
+	|--------------------------------------------------------------------------
+	|
+	| The specific version number of the application.
+	| Major, Minor, Bug Fix
+	| Update per release.
+	|
+	*/
+
+	'version' => '1.0.0',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +52,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/London',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +91,7 @@ return [
 	|
 	*/
 
-	'key' => env('APP_KEY', 'SomeRandomString'),
+	'key' => env('APP_KEY', ''),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 

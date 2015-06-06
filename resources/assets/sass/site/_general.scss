@@ -56,8 +56,13 @@ div.statement {
   text-align:center;
 
   p {
-    font-size:16px;
-    line-height:24px;
+    font-size:14px;
+    line-height:20px;
+
+    @include bp(mobile) {
+      font-size:16px;
+      line-height:24px;
+    }
     
     &.small {
       font-style: italic;
@@ -83,21 +88,33 @@ div.intro {
   div.inner {
     position:relative;
     text-align:center;
-    padding:($header*3) 0 ($header*2) 0;
+    padding:$header 0;
+
+    @include bp(mobile) {
+      padding:($header*3) 0 ($header*2) 0;
+    }
 
     h2 {
-      font-size:$largetitle;
+      font-size:2em;
       padding:0 20px;
+
+      @include bp(mobile) {
+        font-size: 3em;
+      }
     }
   }
 
 }
 
 div.top {
-  padding:($header*2) 0;
+  padding:$header 0;
   background:$highlight;
   color:#FFF;
   text-align:center;
+
+  @include bp(mobile) {
+    padding:($header*2) 0;
+  }
 
   div.inner {
     position:relative;
