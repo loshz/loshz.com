@@ -34,12 +34,12 @@ div.menu {
           text-transform:uppercase;
           font-size:2em;
           font-weight:700;
-          padding:10px 0;
+          padding:5px 0;
           color:#FFF;
           text-decoration:none;
           display:inline-block;
-          height:85px;
           transition:all $transition;
+          border-bottom:5px solid $highlight;
 
           @include bp(mobile) {
             font-size:3em;

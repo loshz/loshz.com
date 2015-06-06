@@ -30,4 +30,11 @@ class UrlTest extends TestCase {
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 
+	public function test404Page()
+	{
+		$response = $this->call('GET', '/foo');
+
+		$this->assertEquals(404, $response->getStatusCode());
+	}
+
 }
