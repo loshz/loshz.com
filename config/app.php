@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => env('APP_URL', ''),
+	'url' => env('APP_URL', 'http://danbond.co/'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
 	|
 	*/
 
-	'key' => env('APP_KEY', ''),
+	'key' => env('APP_KEY', 'SomeRandomString'),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
