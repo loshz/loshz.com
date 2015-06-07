@@ -15,24 +15,8 @@ return [
 	*/
 
 	'mailgun' => [
-		'domain' => 'sandbox0ea1e471a5ef4d4ba0dddb62166dfc6b.mailgun.org',
-		'secret' => 'key-01ff8e87dbbe343b68b9f1ae20aa3972',
-	],
-
-	'mandrill' => [
-		'secret' => '',
-	],
-
-	'ses' => [
-		'key' => '',
-		'secret' => '',
-		'region' => 'us-east-1',
-	],
-
-	'stripe' => [
-		'model'  => 'App\User',
-		'key' => '',
-		'secret' => '',
+		'domain' => 'danbond.co',
+		'secret' => env('MAILGUN_SECRET'),
 	],
 
 ];

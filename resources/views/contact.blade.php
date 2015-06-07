@@ -45,7 +45,7 @@
         <div class="row field url">
             {!! Form::label('url', 'Url', array('class' => 'optional')) !!}
             {!! $errors->first('url', '<div class="error">:message</div>') !!}
-            <input type="url" id="url" name="url" class="field" autocomplete="off" required />
+            <input type="url" id="url" name="url" class="field" autocomplete="off" />
         </div>
 
         <div class="row textarea message">
