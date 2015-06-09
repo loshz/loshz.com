@@ -17,48 +17,50 @@
         @else
         <h3>Get in touch</h3>
         <hr/>
-        <p>Fill in the form below or send me an email: <a href="mailto:hello@danbond.co">hello@danbond.co</a>.</p>
+        <p>Fill in the form below or send me an email: <a href="mailto:hello@danbond.co">hello@danbond.co</a></p>
         @endif
         <p>I'll get back to you as soon as possible.</p>
     </div>
 
-    {!! Form::open(array('class' => 'contact-form')) !!}
+    <form method="POST" action="contact" accept-charset="UTF-8" class="contact-form">
+
+        <input type="hidden" value="{!! csrf_token() !!}" name="_token"/>
 
         <div class="row field name">
-            {!! Form::label('name', 'Name') !!}
+            <label for="name">Name</label>
             {!! $errors->first('name', '<div class="error">:message</div>') !!}
-            <input type="text" id="name" name="name" class="field" autocomplete="off" required />
+            <input type="text" id="name" name="name" value="{{ old('name') }}" class="field" autocomplete="off" required />
         </div>
 
         <div class="row field email">
-            {!! Form::label('email', 'Email') !!}
+            <label for="email">Email</label>
             {!! $errors->first('email', '<div class="error">:message</div>') !!}
-            <input type="email" id="email" name="email" class="field" autocomplete="off" required />
+            <input type="email" id="email" name="email" value="{{ old('email') }}"class="field" autocomplete="off" required />
         </div>
 
         <div class="row field telephone">
-            {!! Form::label('telephone', 'Telephone', array('class' => 'optional')) !!}
+            <label for="telephone" class="optional">Telephone</label>
             {!! $errors->first('telephone', '<div class="error">:message</div>') !!}
-            <input type="tel" id="telephone" name="telephone" class="field" autocomplete="off"/>
+            <input type="tel" id="telephone" name="telephone" value="{{ old('telephone') }}" class="field" autocomplete="off"/>
         </div>
 
         <div class="row field url">
-            {!! Form::label('url', 'Url', array('class' => 'optional')) !!}
+            <label for="url" class="optional">Url</label>
             {!! $errors->first('url', '<div class="error">:message</div>') !!}
-            <input type="url" id="url" name="url" class="field" autocomplete="off" />
+            <input type="url" id="url" name="url" class="field" value="{{ old('url') }}" autocomplete="off" />
         </div>
 
         <div class="row textarea message">
-            {!! Form::label('message', 'Message') !!}
+            <label for="message">Message</label>
             {!! $errors->first('message', '<div class="error">:message</div>') !!}
-            <textarea name="message" id="message" class="field" required></textarea>
+            <textarea name="message" id="message" class="field" required>{{ old('message') }}</textarea>
         </div>
 
         <div class="row submit">
-            {!! Form::submit('Send') !!}
+            <input type="submit" value="Send"/>
         </div>
 
-    {!! Form::close() !!}
+    </form>
 
     @include('layouts.partials.social')
 </div>

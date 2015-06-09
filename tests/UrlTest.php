@@ -1,6 +1,7 @@
 <?php
 
-class UrlTest extends TestCase {
+class UrlTest extends TestCase
+{
 
 	public function testHomePage()
 	{

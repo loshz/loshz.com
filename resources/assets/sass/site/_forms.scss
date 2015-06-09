@@ -47,6 +47,7 @@ form.contact-form {
       border-radius:$borderradius;
       font-family:$fontfamily;
       clear:both;
+      outline:none;
 
       &:focus {
         border:1px solid $mediumgrey;

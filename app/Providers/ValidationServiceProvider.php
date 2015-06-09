@@ -1,26 +1,35 @@
-<?php namespace App\Providers;
+<?php
 
+namespace App\Providers;
+
+use Validator;
 use Illuminate\Support\ServiceProvider;
-use App\Services\Validation;
 
-class ValidationServiceProvider extends ServiceProvider {
+class ValidationServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+	    Validator::extend('name', function($attribute, $value, $parameters) {
+		    return preg_match('/^[a-z \-]+$/i', $value);
+	    });
 
-	public function register(){}
+	    Validator::extend('phone', function($attribute, $value, $parameters) {
+		    return preg_match("/^([0-9\s\-\+\(\)]*)$/", $value);
+	    });
+    }
 
-	/**
-	 * Bootstrap any application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		
-		$this->app->validator->resolver(function($translator, $data, $rules, $messages) {
-
-			return new Validation($translator, $data, $rules, $messages);
-
-		});
-
-	}
-
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
 }
