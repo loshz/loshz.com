@@ -26,7 +26,7 @@ return [
     |
     */
 
-	'url' => env('APP_URL', 'http://danbond.co/'),
+	'url' => env('APP_URL', 'https://danbond.co/'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'version' => '1.1.0',
+	'version' => '1.1.1',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
