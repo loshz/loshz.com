@@ -13,7 +13,7 @@ class GeneralController extends Controller {
 	public function showHome()
 	{
 		return view('home')->with([
-			'title' => 'Dan Bond: PHP Developer, Open Source Contributor, Tech Enthusiast.',
+			'title' => 'Dan Bond: Software Developer, Open Source Contributor, Tech Enthusiast.',
 		]);
 	}
 
@@ -25,7 +25,7 @@ class GeneralController extends Controller {
 	public function showAbout()
 	{
 		return view('about')->with([
-			'title' => 'About | Dan Bond: PHP Developer, Open Source Contributor, Tech Enthusiast.',
+			'title' => 'About | Dan Bond: Software Developer, Open Source Contributor, Tech Enthusiast.',
 		]);
 	}
 
@@ -37,7 +37,7 @@ class GeneralController extends Controller {
 	public function showProjects()
 	{
 		return view('projects')->with([
-			'title' => 'Projects | Dan Bond: PHP Developer, Open Source Contributor, Tech Enthusiast.',
+			'title' => 'Projects | Dan Bond: Software Developer, Open Source Contributor, Tech Enthusiast.',
 		]);
 	}
 
@@ -49,7 +49,7 @@ class GeneralController extends Controller {
 	public function showContact()
 	{
 		return view('contact')->with([
-			'title' => 'Contact | Dan Bond: PHP Developer, Open Source Contributor, Tech Enthusiast.',
+			'title' => 'Contact | Dan Bond: Software Developer, Open Source Contributor, Tech Enthusiast.',
 		]);
 	}
 

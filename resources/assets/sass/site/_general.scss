@@ -53,6 +53,7 @@ div.statement {
   p {
     font-size:14px;
     line-height:20px;
+    margin-bottom:15px;
 
     @include bp(mobile) {
       font-size:16px;

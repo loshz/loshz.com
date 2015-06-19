@@ -4,7 +4,7 @@
 
 <div class="intro">
     <div class="inner">
-        <h2>PHP Developer,<br/>Open Source Contributor,<br/>Tech Enthusiast.</h2>
+        <h2>Software Developer,<br/>Open Source Contributor,<br/>Tech Enthusiast.</h2>
         <div class="arrow"></div>
     </div>
 </div>
@@ -12,12 +12,12 @@
 <div id="about">
     <div class="inner">
         <div class="statement">
-            <h3>Every project needs to have a timeline.</h3>
+            <h3>Let's cut to the chase!</h3>
             <hr/>
-            <p>They key to a successful project is the steps put in place to support it.</p>
-            <p>All of my work follows a comprehensive structure:</p>
+            <p>I am a highly motivated and competent software developer with a penchant for creating robust and scalable applications. I have extensive knowledge in utilising advanced development methodologies and object oriented approaches, as well as experience in full life cycle development processes.</p>
+            <p>Why don't we keep it simple, this is how I work:</p>
         </div>
-        
+
         <div class="timeline">
             <div class="line"></div>
             <ul>
@@ -43,42 +43,39 @@
                 </li>
             </ul>
         </div>
-        
+
         <div class="lists tech-stack">
             <p>Check out my current tech stack.</p>
-            <p>I use everything below in the majority of my projects.</p>
+            <p>Here are some of my favourite programs: </p>
 
             <ul>
                 <li><h4>DevOps</h4></li>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Vagrant</li>
+                <li>Git / GitHub</li>
+                <li>Vagrant / VirtualBox</li>
+                <li>PhpStorm / Sublime Text</li>
                 <li>Travis CI</li>
-                <li>Gulp</li>
-                <li>NPM</li>
-                <li>VirtualBox</li>
-                <li>PhpStorm</li>
                 <li>Nagios</li>
+                <li>Pingdom</li>
+                <li>Gulp</li>
             </ul>
             <ul>
                 <li><h4>Application &amp; Data</h4></li>
-                <li>Ubuntu</li>
-                <li>PHP</li>
-                <li>MySQL</li>
-                <li>Laravel</li>
-                <li>Nginx</li>
-                <li>Redis</li>
+                <li>Ubuntu Server</li>
+                <li>PHP (Laravel)</li>
+                <li>Python (Django)</li>
+                <li>MySQL / SQLite</li>
+                <li>Redis / Memcached</li>
                 <li>Digital Ocean</li>
-                <li>SQLite</li>
+                <li>Nginx</li>
                 <li>HHVM</li>
             </ul>
             <ul>
                 <li><h4>Utilities</h4></li>
                 <li>Google Analytics</li>
-                <li>Slack</li>
-                <li>Mailgun</li>
-                <li>Disqus</li>
+                <li>Mailgun / Mailchimp</li>
                 <li>Elasticsearch</li>
+                <li>Disqus</li>
+                <li>Slack</li>
             </ul>
         </div>
     </div>
