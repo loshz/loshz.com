@@ -24,14 +24,13 @@
                 <li><a href="http://www.wrangler.co.uk/" target="_blank">Wrangler</a></li>
                 <li><a href="http://www.wrangler.co.uk/fitguide/men" target="_blank">Wrangler Fit Guide</a></li>
                 <li><a href="http://uk.lee.com/" target="_blank">Lee Jeans</a></li>
-                <li><a href="http://spotify-thedrop.com/" target="_blank">Spotify The Drop</a></li>
                 <li><a href="http://matchcentre.scottishfa.co.uk/" target="_blank">SFA - Match Centre</a></li>
-                <li><a href="http://www.knowledgebank.healthcare/" target="_blank">GSK - Knowledge Bank</a></li>
             </ul>
             <ul>
                 <li><h4>Open Source</h4></li>
                 <li><a href="http://github.com/danbondd/todolist-ios" target="_blank">iOS App - To Do List</a></li>
                 <li><a href="http://github.com/danbondd/danbondco" target="_blank">Portfolio Website</a></li>
+                <li><a href="https://github.com/danbondd/buylocalmilk" target="_blank">Buy Local Milk</a></li>
             </ul>
         </div>
 

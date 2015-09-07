@@ -8,7 +8,6 @@ var plumber = require('gulp-plumber');
 var gargoyle = require('gargoyle');
 var minifyCSS = require('gulp-minify-css');
 var livereload = require('gulp-livereload');
-var ngAnnotate = require('gulp-ng-annotate');
 
 var LIVERELOAD_PORT = 35729;
 
@@ -17,9 +16,6 @@ var targetCSSDir = 'public/assets/css/';
 
 var jsDir = 'resources/assets/js/';
 var targetJSDir = 'public/assets/js/';
-
-var imgDir = 'resources/assets/imgs/';
-var targetIMGDIR = 'public/assets/imgs/';
 
 function handleError(err) {
 	console.log(err.toString());

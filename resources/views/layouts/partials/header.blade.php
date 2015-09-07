@@ -12,9 +12,9 @@
 
 	<div class="inner">
 
-		<h1><a href="{{ url() }}">DB</a></h1>
+		<img src="" alt="Dan Bond" id="logo">
 
-		<div class="menu-action"></div>
+		<div id="menu-action"></div>
 
 	</div>
 

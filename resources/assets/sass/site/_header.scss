@@ -19,18 +19,8 @@ header {
     color:#FFF;
     border-bottom:none;
 
-    h1 {
-      a {
-        color:#FFF;
-
-        &:hover {
-          border-bottom: 4px solid #FFF;
-        }
-      }
-    }
-
-    div.menu-action {
-      background: url('../imgs/icons/menu-white.png') no-repeat center;
+    div#menu-action {
+      background: url('../images/icons/menu-white.png') no-repeat center;
       background-size:25px;
     }
   }
@@ -44,8 +34,8 @@ header {
     border-bottom:none;
     color:#FFF;
 
-    div.menu-action {
-      background:url('../imgs/icons/close-white.png') no-repeat center;
+    div#menu-action {
+      background:url('../images/icons/close-white.png') no-repeat center;
       background-size:25px;
 
       &:before {
@@ -59,30 +49,12 @@ header {
     height:100%;
   }
 
-  h1 {
-    display:inline-block;
-    font-size:45px;
-    transition:all $transition;
-    line-height:45px;
-    margin-top:5px;
-
-    a {
-      color:$darkgrey;
-      text-decoration: none;
-      display: block;
-
-      &:hover {
-        border-bottom: 4px solid $darkgrey;
-      }
-    }
-  }
-
-  div.menu-action {
+  div#menu-action {
     cursor:pointer;
     position:relative;
     display:block;
     margin-top:10px;
-    background:url('../imgs/icons/menu.png') no-repeat center;
+    background:url('../images/icons/menu.png') no-repeat center;
     width:35px;
     height:35px;
     float:right;

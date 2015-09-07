@@ -1,4 +1,17 @@
 {
+  "name": "danbondco",
+  "description": "Digital Portfolio of Dan Bond: Software Developer based in Manchester, UK.",
+  "author": {
+    "name": "Dan Bond",
+    "email": "danbondd@gmail.com",
+    "url": "https://danbond.co"
+  },
+  "version": "1.1.2",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danbondd/danbondco.git"
+  },
   "devDependencies": {
     "gargoyle": "^0.3.6",
     "gulp": "^3.8.9",
@@ -6,7 +19,6 @@
     "gulp-concat": "^2.4.1",
     "gulp-livereload": "^2.1.1",
     "gulp-minify-css": "^0.3.11",
-    "gulp-ng-annotate": "^0.3.6",
     "gulp-plumber": "^0.6.6",
     "gulp-sass": "^1.2.2",
     "gulp-uglify": "^1.0.1",
