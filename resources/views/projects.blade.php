@@ -30,7 +30,7 @@
                 <li><h4>Open Source</h4></li>
                 <li><a href="http://github.com/danbondd/todolist-ios" target="_blank">iOS App - To Do List</a></li>
                 <li><a href="http://github.com/danbondd/danbondco" target="_blank">Portfolio Website</a></li>
-                <li><a href="https://github.com/danbondd/buylocalmilk" target="_blank">Buy Local Milk</a></li>
+                <li><a href="http://github.com/danbondd/buylocalmilk" target="_blank">Buy Local Milk</a></li>
             </ul>
         </div>
 

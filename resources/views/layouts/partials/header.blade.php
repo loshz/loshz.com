@@ -12,7 +12,7 @@
 
 	<div class="inner">
 
-		<img src="" alt="Dan Bond" id="logo">
+		<h1><a href="{{ Config::get('app.url') }}">Dan<br><span>Bond</span></a></h1>
 
 		<div id="menu-action"></div>
 

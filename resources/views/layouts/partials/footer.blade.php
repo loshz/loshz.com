@@ -21,7 +21,10 @@
 			<li><a href="https://github.com/danbondd" target="_blank" class="github">GitHub</a></li>
 			<li><a href="https://twitter.com/danbondd" target="_blank" class="twitter">Twitter</a></li>
 			<li><a href="https://www.linkedin.com/in/danbondd" target="_blank" class="linkedin">LinkedIn</a></li>
-			<li><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdanbond.co%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=206204792758592"></iframe></li>
+			<li>
+                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </li>
 		</ul>
 
 		<h4>&copy; 2015 Dan Bond.</h4>

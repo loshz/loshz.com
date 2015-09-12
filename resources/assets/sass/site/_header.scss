@@ -19,6 +19,12 @@ header {
     color:#FFF;
     border-bottom:none;
 
+    h1 {
+      a {
+        color: #FFF;
+      }
+    }
+
     div#menu-action {
       background: url('../images/icons/menu-white.png') no-repeat center;
       background-size:25px;
@@ -34,6 +40,12 @@ header {
     border-bottom:none;
     color:#FFF;
 
+    h1 {
+      a {
+        color: #FFF;
+      }
+    }
+
     div#menu-action {
       background:url('../images/icons/close-white.png') no-repeat center;
       background-size:25px;
@@ -47,6 +59,23 @@ header {
   div.inner {
     padding:12px 25px;
     height:100%;
+  }
+
+  h1 {
+    font-size: 26px;
+    float: left;
+    line-height: 24px;
+    font-style: italic;
+    transform: rotate(-7deg);
+
+    a {
+      text-decoration: none;
+      color: $darkgrey;
+    }
+
+    span {
+      margin-left: -5px;
+    }
   }
 
   div#menu-action {
