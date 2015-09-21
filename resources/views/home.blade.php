@@ -53,15 +53,16 @@
                 <li>Git, GitHub</li>
                 <li>Vagrant, VirtualBox</li>
                 <li>PhpStorm, Sublime Text, PyCharm</li>
-                <li>Travis CI</li>
-                <li>Nagios</li>
+                <li>Travis CI, Jenkins</li>
+                <li>Nagios, New Relic</li>
+                <li>Ansible</li>
                 <li>Gulp</li>
             </ul>
             <ul>
                 <li><h4>Application &amp; Data</h4></li>
                 <li>Ubuntu Server</li>
-                <li>PHP (Laravel)</li>
-                <li>Python (Django)</li>
+                <li>PHP (Laravel, Symfony)</li>
+                <li>Python (Django, Flask)</li>
                 <li>Node.js (Express)</li>
                 <li>PostgreSQL, MySQL, SQLite</li>
                 <li>Redis, Memcached</li>
@@ -73,6 +74,7 @@
                 <li><h4>Utilities</h4></li>
                 <li>Google Analytics</li>
                 <li>Mailgun, Mailchimp</li>
+                <li>Elasticsearch</li>
                 <li>Asana</li>
                 <li>Disqus</li>
                 <li>Slack</li>
