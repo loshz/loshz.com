@@ -8,7 +8,9 @@ php:
 
 install: travis_retry composer install --prefer-source --no-interaction
 
-script: vendor/bin/phpunit
+script:
+- php artisan migrate --no-interaction -vvv
+- vendor/bin/phpunit
 
 notifications:
   slack:
