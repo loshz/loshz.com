@@ -10,4 +10,5 @@ Thumbs.db
 npm-debug.log
 public/assets/css/site.min.css
 public/assets/js/site.min.js
+storage/database.sqlite
 
