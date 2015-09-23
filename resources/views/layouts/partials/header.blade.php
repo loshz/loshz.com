@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<header class="top">
+<header class="top" id="header">
 
 	<div class="inner">
 

@@ -5,7 +5,7 @@
 <div class="intro">
     <div class="inner">
         <h2>Software Developer,<br/>Open Source Contributor,<br/>Tech Enthusiast.</h2>
-        <div class="arrow"></div>
+        <div class="arrow" id="homePageArrow"></div>
     </div>
 </div>
 
