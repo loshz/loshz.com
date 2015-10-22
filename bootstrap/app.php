@@ -41,6 +41,16 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->configureMonologUsing(function($monolog) {
+    $sentry = env('SENTRY_CLIENT_KEY');
+    $client = new Raven_Client('https://' . $sentry . '@app.getsentry.com/55726');
+
+    $handler = new Monolog\Handler\RavenHandler($client);
+    $handler->setFormatter(new Monolog\Formatter\LineFormatter("%message% %context% %extra%\n"));
+
+    $monolog->pushHandler($handler);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
