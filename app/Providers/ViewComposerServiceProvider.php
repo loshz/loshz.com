@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\TwitterFeed;
+use App\Models\TwitterFeed;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {

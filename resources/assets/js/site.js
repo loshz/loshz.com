@@ -11,6 +11,8 @@ var Site = {
     init: function() {
         Site.menu();
         Site.homePageArrow();
+        Site.googleAnalyticsLinkEvent();
+        Site.googleAnalyticsFormEvent();
 
         if (Site.options.screenWidth > 600) {
             $(window).on('scroll', function() {
@@ -52,7 +54,21 @@ var Site = {
                 scrollTop: $('#about').offset().top
             });
         });
+    },
+
+    googleAnalyticsLinkEvent: function() {
+        $('a.external').on('click', function() {
+            var source = $(this).attr('data-source');
+            ga('send', 'event', 'Link', 'Click', source);
+        });
+    },
+
+    googleAnalyticsFormEvent: function() {
+        $('.contact-form').on('submit', function() {
+            ga('send', 'event', 'Form', 'Submit');
+        });
     }
+
 };
 
 (function() {

@@ -17,10 +17,11 @@
 		<ul class="links">
 			<li><a href="{{ url('about') }}" class="text">About</a></li>
 			<li><a href="{{ url('projects') }}" class="text">Projects</a></li>
+			<li><a href="http://medium.com/@danbondd" class="external" data-source="Medium">Blog</a></li>
 			<li><a href="{{ url('contact') }}" class="text">Contact</a></li>
-			<li><a href="https://github.com/danbondd" target="_blank" class="github">GitHub</a></li>
-			<li><a href="https://twitter.com/danbondd" target="_blank" class="twitter">Twitter</a></li>
-			<li><a href="https://www.linkedin.com/in/danbondd" target="_blank" class="linkedin">LinkedIn</a></li>
+			<li><a href="https://github.com/danbondd" target="_blank" class="github external" data-source="GitHub">GitHub</a></li>
+			<li><a href="https://twitter.com/danbondd" target="_blank" class="twitter external" data-source="Twitter">Twitter</a></li>
+			<li><a href="https://www.linkedin.com/in/danbondd" target="_blank" class="linkedin external" data-source="LinkedIn">LinkedIn</a></li>
 			<li>
                 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

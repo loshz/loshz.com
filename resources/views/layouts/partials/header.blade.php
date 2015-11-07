@@ -3,6 +3,7 @@
 		<ul class="nav">
 			<li><a href="{{ url('about') }}">About</a></li>
 			<li><a href="{{ url('projects') }}">Projects</a></li>
+			<li><a href="http://medium.com/@danbondd" class="external" data-source="Medium">Blog</a></li>
 			<li><a href="{{ url('contact') }}">Contact</a></li>
 		</ul>
 	</div>
