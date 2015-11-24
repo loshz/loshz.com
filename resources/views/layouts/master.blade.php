@@ -5,13 +5,12 @@
 
 @if (App::environment('production'))
 <script>
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-31900712-2', 'auto');
-	ga('send', 'pageview');
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-31900712-2', 'auto');
+ga('send', 'pageview');
 </script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
 @endif
-
 </head>
 <body class="{{ (Request::segment(1)=='' ? 'home' : Request::segment(1)) }}">
 
