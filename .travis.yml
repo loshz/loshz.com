@@ -9,7 +9,7 @@ php:
 install: travis_retry composer install --prefer-source --no-interaction
 
 before_script:
-- touch storage/database.sqlite
+- touch database/database.sqlite
 
 script:
 - php artisan migrate --env=testing --no-interaction -vvv
