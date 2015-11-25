@@ -65,7 +65,7 @@ var Site = {
 
     googleAnalyticsFormEvent: function() {
         $('.contact-form').on('submit', function() {
-            ga('send', 'event', 'Form', 'Submit');
+            ga('send', 'event', 'Form', 'Submit', 'Contact');
         });
     }
 
