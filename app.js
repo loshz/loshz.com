@@ -1,3 +1,5 @@
+require('dotenv').load();
+
 var express = require('express')
 var path = require('path')
 
@@ -9,10 +11,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.locals.pretty = true;
-app.locals.env = app.get('env');
+app.locals.env = process.env.APP_ENV;
+app.locals.url = process.env.URL;
 
 app.get('/', function (req, res) {
-  //res.send('Hello World')
   res.render('index')
 })
 

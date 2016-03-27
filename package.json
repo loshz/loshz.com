@@ -26,6 +26,7 @@
     "gulp-uglify": "^1.5.3"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "jade": "^1.11.0"
   }
