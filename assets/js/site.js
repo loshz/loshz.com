@@ -7,10 +7,14 @@ var Site = {
     },
 
     googleAnalyticsLinkEvent: function() {
-        $('a.external').on('click', function() {
-            var source = $(this).attr('data-source');
-            ga('send', 'event', 'Link', 'Click', source);
-        });
+        var socialButtons = document.getElementsByClassName('external');
+
+        for (var i = 0; i < socialButtons.length; i++) {
+            socialButtons[i].addEventListener('click', function() {
+                var source = this.getAttribute('data-source');
+                ga('send', 'event', 'Link', 'Click', source);
+            }, false);
+        }
     },
 
 };
