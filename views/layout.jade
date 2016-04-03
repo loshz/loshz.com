@@ -20,7 +20,7 @@ html
 		meta(name="twitter:creator" content="@danbondd")
 		meta(name="twitter:image" content="#{url}assets/images/dan-bond.jpg")
 
-		link(rel="shortcut icon", href="#{url}assets/images/favicon.png")
+		link(rel="shortcut icon", href="#{url}assets/images/favicon.ico")
 		link(rel="stylesheet", href="#{url}assets/css/site.min.css")
 
 		if(env!=='development')
@@ -32,4 +32,6 @@ html
 
 	body
 		block content
+		footer
+			p &copy; Dan Bond 2016
 		script(type="text/javascript", src="#{url}assets/js/site.min.js")

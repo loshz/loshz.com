@@ -15,12 +15,12 @@ app.locals.env = process.env.APP_ENV;
 app.locals.url = process.env.URL;
 
 app.get('/', function (req, res) {
-  res.render('index')
+  res.render('index', {page: 'home'})
 })
 
 app.use(function(req, res, next) {
   res.status(404);
-  res.render('404');
+  res.render('404', {page: 'pagenotfound'});
 });
  
 app.listen(3000)

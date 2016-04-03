@@ -3,19 +3,11 @@ $mobile: 600px;
 $lightgrey: #F6F6F6;
 $mediumgrey: #97999F;
 $darkgrey: #292929;
-$yellow: #ffee00;
 $green: #00DD96;
 $red: #D36868;
-$silver:#E9F0F4;
-$purple:#3A2772;
-$blue:#5A80FF;
 $highlight:$red;
 $fontfamily: 'Open Sans', Arial, sans-serif;
-$merriweather: 'Merriweather', Arial, sans-serif;
-$letterspacing: 1px;
 $maxwidth: 1000px;
-$header: 80px;
-$borderradius: 5px;
 $transition:0.2s ease-in-out;
 
 @mixin bp($point) {
@@ -34,15 +26,6 @@ $transition:0.2s ease-in-out;
 	clear: both;
 }
 
-.text-link {
-	color:$darkgrey;
-	text-decoration:none;
-
-	&:hover {
-		text-decoration:underline;
-	}
-}
-
 div.inner {
   width:100%;
   max-width:$maxwidth;
@@ -52,9 +35,9 @@ div.inner {
 }
 
 hr {
-	width:50px;
-	height:3px;
-	background:$darkgrey;
-	margin:15px 0;
-	display:inline-block;
+	width: 50px;
+	height: 3px;
+	background: $darkgrey;
+	margin: 15px 0;
+	display: inline-block;
 }

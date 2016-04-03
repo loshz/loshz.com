@@ -3,12 +3,10 @@ extends layout
 block content
 	div.intro
 		div.inner
-			h2 
-				| Software Developer,
-				br
-				| Open Source Contributor,
-				br
-				| Tech Enthusiast.
+			img(src="#{url}assets/images/danbond.jpg")
+			h1 Dan Bond
+			hr
+			h2 Software Developer, Open Source Contributor, Tech Enthusiast.
 	div.social
 		ul
 			li
@@ -25,3 +23,8 @@ block content
 					img(src="#{url}assets/images/medium.png")
 	div.about
 		p I am a highly motivated and passionate Software Developer with a penchant for creating robust and scalable applications. I enjoy working on a variety of different projects, ranging from bespoke APIs to large data driven systems. Throughout the duration of my career I have completed projects in a variety of different languages, but my primary focus is writing Go, Python and PHP. I am also very keen on experimenting with Node.js.
+		p.tweet
+			a(href="https://twitter.com/share", class="twitter-share-button")
+				Tweet
+			script.
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
