@@ -1,3 +1,0 @@
-#danbondco
-
-Personal website.
