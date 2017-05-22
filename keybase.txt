@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/danbondd
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://danbond.io
+  * I am danbondd (https://keybase.io/danbondd) on keybase.
+  * I have a public key ASDgPsr-BvbWLpFHlcjdHWB7kW6Ka_q1Q-vv6gpbH5R9zgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120e03ecafe06f6d62e914795c8dd1d607b916e8a6bfab543ebefea0a5b1f947dce0a",
+            "host": "keybase.io",
+            "kid": "0120e03ecafe06f6d62e914795c8dd1d607b916e8a6bfab543ebefea0a5b1f947dce0a",
+            "uid": "cf4f9b878f57c4f941fd8c2c31e4bf19",
+            "username": "danbondd"
+        },
+        "service": {
+            "hostname": "danbond.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.22"
+    },
+    "ctime": 1495487440,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1495487416,
+        "hash": "f10c8a60e33c845981d448642ee9926738d62191414239d7547d82b41b3c4421abe3dc846067da294f68393e1b88a1c8a4de6dd04d46fd98776c3c1f188089a4",
+        "seqno": 1102402
+    },
+    "prev": "7d24bd22bf356e018eee8a81c2dcd4d0ed177dc6c622e1db0303b4d8504e8fae",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg4D7K/gb21i6RR5XI3R1ge5Fuimv6tUPr7+oKWx+Ufc4Kp3BheWxvYWTFAvN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZTAzZWNhZmUwNmY2ZDYyZTkxNDc5NWM4ZGQxZDYwN2I5MTZlOGE2YmZhYjU0M2ViZWZlYTBhNWIxZjk0N2RjZTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZTAzZWNhZmUwNmY2ZDYyZTkxNDc5NWM4ZGQxZDYwN2I5MTZlOGE2YmZhYjU0M2ViZWZlYTBhNWIxZjk0N2RjZTBhIiwidWlkIjoiY2Y0ZjliODc4ZjU3YzRmOTQxZmQ4YzJjMzFlNGJmMTkiLCJ1c2VybmFtZSI6ImRhbmJvbmRkIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJkYW5ib25kLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjIifSwiY3RpbWUiOjE0OTU0ODc0NDAsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ5NTQ4NzQxNiwiaGFzaCI6ImYxMGM4YTYwZTMzYzg0NTk4MWQ0NDg2NDJlZTk5MjY3MzhkNjIxOTE0MTQyMzlkNzU0N2Q4MmI0MWIzYzQ0MjFhYmUzZGM4NDYwNjdkYTI5NGY2ODM5M2UxYjg4YTFjOGE0ZGU2ZGQwNGQ0NmZkOTg3NzZjM2MxZjE4ODA4OWE0Iiwic2Vxbm8iOjExMDI0MDJ9LCJwcmV2IjoiN2QyNGJkMjJiZjM1NmUwMThlZWU4YTgxYzJkY2Q0ZDBlZDE3N2RjNmM2MjJlMWRiMDMwM2I0ZDg1MDRlOGZhZSIsInNlcW5vIjo4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQBxcjGBddBHAG8MgVsjnEr7yFbvkKcHgPc7d4O9hYvLa+2XL7zvGHkMpKtkiwfyj6hXBsUhAoCEpjUCFhCauAQ6oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDz32HwdFFap1+0leTGoJjX82mqNWOSrQUEaKKeIWUNSaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/danbondd
+
+==================================================================
