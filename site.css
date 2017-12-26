@@ -6,8 +6,9 @@
 
 html,
 body {
-  font-family: courier, monospace;
-  font-size: 14px;
+  font-family: serif;
+  font-size: 14pt;
+  background: #eee;
 }
 
 #wrapper {
@@ -18,7 +19,7 @@ body {
 @media screen and (max-width: 450px) {
   html,
   body {
-    font-size: 16px;
+    font-size: 13pt;
   }
 
   #wrapper {
@@ -33,14 +34,15 @@ img {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 18pt;
   font-weight: 600;
-  margin: 20px 0;
+  margin: 15px 0;
+  font-family: sans-serif;
 }
 
 p {
-  margin: 0 0 20px;
-  line-height: 1.5em;
+  margin: 0 0 10px;
+  line-height: 1.4em;
 }
 
 ul {
