@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="Dan Bond: Software Engineer.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Alexa meets Monzo | Dan Bond</title>
+		<meta property="og:title" content="Alexa meets Monzo | Dan Bond">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://danbond.io/alexa-meets-monzo.html">
+		<meta property="og:locale" content="en_GB">
+		<meta property="og:description" content="Dan Bond: Software Engineer, specialising in back-end applications, distributed systems, and cloud infrastructure.">
+		<meta property="og:image" content="https://danbond.io/images/danbond.jpg">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@danbondd">
+		<meta name="twitter:creator" content="@danbondd">
+		<meta name="twitter:image" content="https://danbond.io/images/danbond.jpg">
+		<meta name="google-site-verification" content="dY6miaeKm6Uz1OvPWRPPuL8Cn77mdwCj94Pl2ny6pTc" />
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+		<link rel="stylesheet" href="site.css" />
+	</head>
+	<body>
+			<header>
+				<h1>Dan Bond</h1>
+				<a href="/">Home</a>
+				<a href="archives.html">Archives</a>
+			</header>
+
+			<div id="wrapper" class="archive">
+        <h2>Alexa meets Monzo</h2>
+        <h5>Feb 6, 2017</h5>
+        <img src="images/alexa-meets-monzo.png" title="Alexa meets Monzo" />
+        <h3>An unofficial Alexa Skill for interacting with the Monzo API.</h3>
+        <p>Recently, I started to become very interested in voice assistants and home automation. I had a few IoT devices already and there were a few others, such as the Nest and Philips Hue, that I really wanted to purchase. I liked the idea of having them all connected. So, after a bit of shopping around I decided to buy an Amazon Echo as there isn’t much competition on the market for voice assistants (at least not in the UK).</p>
+        <p>Moreover, my main interest in home automation was the ability to make my own integrations with the apps I love and use the most — enter <a href="https://monzo.com">Monzo</a>. I’ve been using Monzo for a while and one of their main selling points is the ability to access your account data through the use of their <a href="https://monzo.com/docs">API</a>.</p>
+        <p>So, as my first project I decided to build a custom Alexa Skill to use all of their banking goodness.</p>
+        <h3>Tech Considerations</h3>
+        <p>Firstly, Alexa Skills can only trigger a <a href="http://aws.amazon.com/lambda">Lambda</a> function on AWS or a HTTPS endpoint. I decided to choose the recommended Lambda option, however this meant there were a few limitations when it came to choosing a programming language as AWS Lambda only supports Python, Node, C# and <a href="http://giphy.com/gifs/HhTXt43pk1I1W">Java</a>. I did want to utilise the awesomeness of Golang, but I didn’t want to have to use external services for such a simple app.</p>
+        <p>As the skill is just a buffer between Alexa and the Monzo API, I decided to roll with Python for its sheer simplicity as the Lambda function only needs to make HTTP requests and format data into a JSON response.</p>
+        <p>There are a few prerequisites before you can start developing a custom skill. Firstly, you’ll need an <a href="http://aws.amazon.com/">AWS</a> account. The free tier gives you more than enough resources to get the ball rolling as you’ll need access to Lambda in order to run the skill and CloudWatch to process any logs. Secondly, you’ll need access to the <a href="https://developer.amazon.com/">Amazon Developer Console</a> in order to enable your skill for testing on your Amazon Echo (you can also publish your app to the Alexa Appstore if you want others to use it).</p>
+        <p>The code for the skill itself is rather straight forward. The basic flow is as follows:</p>
+        <ol>
+          <li>Alexa transforms speech into text and sends it to your Lambda function in the form of a request.</li>
+          <li>Your application parses the request and uses the data to run the necessary functions.</li>
+          <li>Upon completion, your application returns any data in the form of an Alexa response.</li>
+        </ol>
+        <p>Simple.</p>
+        <p>Alexa automatically maps speech to a custom type called an intent. An intent represents a high-level action that fulfils a user’s spoken request. For example, the Monzo skill has an intent called <code>GetTransactions</code> which is triggered when a user’s spoken request matches a specific sentence, also known as a <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/defining-the-voice-interface#h2_sample_utterances">utterance</a>.</p>
+        <p>Defining several utterances per intent will increase Alexa’s accuracy while mapping a spoken request. Utterances can optionally contain arguments called slots that collect additional information needed to fulfil the user’s request. One example of a slot is the <code>TRANSACTION_CATEGORY</code> used to define all of the different transaction categories in the Monzo skill.</p>
+        <p>If we combine all 3 together, we get something like this: <code>GetTransactions how much I've spent on {category} in the last {duration}</code>. This allows us to ask Alexa to get the total amount spent on any given category in any given time period.</p>
+        <p>Once the application has successfully parsed the request it can perform any business logic, which in our case is communicating with the Monzo API. <em>(I won’t go into much detail about this, the docs can be found <a href="https://monzo.com/docs/">here</a>.)</em></p>
+        <p>The final stage of the skill is to create and return a valid Alexa response. A response contains data that both Alexa and the companion app can use, as well as other information for making further requests such as session attributes. Alexa will say anything defined in the <code>outputSpeech</code> object and the companion app will display anything in the <code>card</code> object.</p>
+        <p>The footprint of an Alexa skill is rather minimal. It doesn’t require a lot of code to get a basic application working on your Amazon Echo — the majority of time is spent performing any configuration.</p>
+        <h3>Headaches</h3>
+        <p>There seems to be a few differences between the Alexa mobile and web apps. This became apparent when trying to link my Monzo account with my Alexa. Even though both interfaces seem to be identical, the mobile app <strong><em>would not</em></strong> let me return to the app upon OAuth completion. There were no error messages on screen, just a continual redirect loop. I tried this on the web app and it worked perfectly first time — account linked!</p>
+        <p>Amazon have created a few built-in slot types that make it easier to work with request data. For example, the <code>AMAZON.DURATION</code> slot converts words that indicate durations into an ISO-8601 duration format. This is extremely useful as you don’t have to spend time manually converting speech to datetime objects. However, my only gripe is that the original speech is not included in the Alexa reuqest — only the formatted duration. This may seem trivial, but it in my case I wanted the Alexa to speak back the original speech input, I therefore had to manually convert each duration back to human text.</p>
+        <p>Although this last issue isn’t critical, I found testing the skill a bit inconsistent. The developer console has a dedicated testing section that allows you to send custom or pre-generated JSON requests without the need to physically speak to your Echo device. This makes testing <em>a lot</em> faster, although I regularly received session timeouts and inconsistent error messages when sending the same request.</p>
+        <h3>The End Result</h3>
+        <p>A definite success! After a bit of trial and error, the Alexa skill works almost perfectly ever time. The voice recognition is near perfect and the average end-to-end request/response time is ~1 second. See for yourself..</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/t0jd-NVskZg?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        <p>If you want to try the application on your own Echo, I wrote some detailed <a href="https://github.com/danbondd/alexa-monzo#installation">instructions</a> for getting started with the Monzo Alexa Skill and comprehensive <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa">documentation</a> can also be found on the Amazon Developer website.</p>
+      </div>
+	</body>
+</html>

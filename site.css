@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 header {
   width: 100%;
   margin-bottom: 20px;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid #CCC;
 }
 
 header h1 {
@@ -74,6 +74,11 @@ header a {
   color: #808080;
 }
 
+#wrapper.archive img {
+  width: 100%;
+  display: inline-block;
+}
+
 #wrapper.archive li {
   margin: 0 0 10px 20px;
 }
@@ -85,4 +90,13 @@ p {
 
 li {
   list-style-position: inside;
+}
+
+code {
+  background: #CCC;
+  padding: 0 5px;
+}
+
+iframe {
+  width: 100%;
 }
