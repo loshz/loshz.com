@@ -8,11 +8,12 @@ html,
 body {
   font-family: serif;
   font-size: 14pt;
-  background: #eee;
+  background: #EEE;
 }
 
-#wrapper {
+body {
   padding: 30px;
+  width: 100%;
   max-width: 700px;
 }
 
@@ -22,22 +23,59 @@ body {
     font-size: 13pt;
   }
 
-  #wrapper {
+  body {
     padding: 20px;
   }
 }
 
-img {
-  width: 120px;
-  height: 120px;
-  display: block;
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 18pt;
+header {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #BBB;
+}
+
+header h1 {
+  font-size: 16pt;
   font-weight: 600;
-  margin: 15px 0;
-  font-family: sans-serif;
+  display: inline-block;
+}
+
+header a {
+  margin: 0 0 0 5px;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+#wrapper.home img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 0 10px;
+}
+
+#wrapper.archive {
+  line-height: 1.4em;
+}
+
+#wrapper.archive h3 {
+  margin-top: 20px;
+}
+
+#wrapper.archive h5 {
+  font-family: serif;
+  font-style: italic;
+  color: #808080;
+}
+
+#wrapper.archive li {
+  margin: 0 0 10px 20px;
 }
 
 p {
@@ -45,10 +83,6 @@ p {
   line-height: 1.4em;
 }
 
-ul {
-  padding-left: 20px;
-}
-
 li {
-  margin-bottom: 3px;
+  list-style-position: inside;
 }
