@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="Dan Bond: Software Engineer.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Google Cloud Next — London ‘17 | Dan Bond</title>
+		<meta property="og:title" content="Google Cloud Next — London ‘17 | Dan Bond">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://danbond.io/google-cloud-next-london-17.html">
+		<meta property="og:locale" content="en_GB">
+		<meta property="og:description" content="Dan Bond: Software Engineer, specialising in back-end applications, distributed systems, and cloud infrastructure.">
+		<meta property="og:image" content="https://danbond.io/images/danbond.jpg">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@danbondd">
+		<meta name="twitter:creator" content="@danbondd">
+		<meta name="twitter:image" content="https://danbond.io/images/danbond.jpg">
+		<meta name="google-site-verification" content="dY6miaeKm6Uz1OvPWRPPuL8Cn77mdwCj94Pl2ny6pTc" />
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+		<link rel="stylesheet" href="site.css" />
+	</head>
+	<body>
+			<header>
+				<h1>Dan Bond</h1>
+				<a href="/">Home</a>
+				<a href="archives.html">Archives</a>
+			</header>
+
+			<div id="wrapper" class="archive">
+        <h2>Google Cloud Next — London ‘17</h2>
+        <h5>May 17, 2017</h5>
+        <img src="images/google-cloud-next-london-17.jpg" title="Google Cloud Next — London ‘17" />
+        <p class="caption"> &copy; Dan Bond</p>
+        <p>I recently had the opportunity to attend Google Cloud Next in London on May 3rd/4th. Although I predominantly use AWS in industry, I have recently been experimenting with some of Google’s cloud offerings in some of my personal projects and I wanted to get a better understanding of the search giant’s cloud visions.</p>
+        <p>The venue for the event was the ExCel International Convention Centre, just opposite London City Airport. Upon arrival, I was greeted by several guides who swiftly directed me to the registration area where I received my NFC enabled pass. These passes were super useful as they had already been pre-loaded with my credentials which made sharing contact information effortless. <em>(Some attendees also received a Google Chromecast at random — I wasn’t one of the lucky ones!)</em></p>
+        <p>Each day started with a 90 minute keynote which included a flurry of product updates by Google CTOs, VPs and engineers. Following on from this was a choice of 5 different tracks which allowed for a lot of interesting talks but made the decision of which one to choose quite difficult.</p>
+        <p>As a Software Engineer, I tended to lean towards the more technical talks. Although I am interested in the likes of G Suite and Chrome OS, I was there to learn more about <a href="http://kubernetes.io">Kubernetes</a>, containers, machine learning and big data. So, here are a few of my key takeaways:</p>
+        <h3>Kubernetes</h3>
+        <p>Those of you familiar with K8s will know that it’s one of, if not the biggest container orchestration platforms available today. It’s an <a href="https://github.com/kubernetes/kubernetes">open-source</a> system designed to help with automating deployment, scaling, and managing containerised applications.</p>
+        <p>However, in my experience, it can be a bit daunting to configure a K8s environment if you’ve never played with it before. There are a lot of things to consider and it comes with a ton of moving parts. But, this is where Google steps in to help you out! They offer a platform called <a href="https://cloud.google.com/container-engine/">Container Engine</a>, which is similar to Amazon’s ECS, only it’s built on top Kubernetes.</p>
+        <p>This presents a huge advantage over their competitors as you immediately have access to a pre-configured orchestration system with a fraction of the setup headache. This allows you to decouple yourself from the infrastructure setup and concentrate on your applications themselves.</p>
+        <h3>Serverless Computing</h3>
+        <p>Serverless is a huge trend at the moment and Google is trying to break into this market with their <a href="http://cloud.google.com/functions/">Cloud Functions</a> service. I’ll start by saying it is currently in beta, so it isn’t as mature as AWS <a href="http://aws.amazon.com/lambda/">Lambda</a>, but it does have a set of unique features that make it attractive.</p>
+        <p>If you’re familiar with AWS Lambda, you’ll know it now supports 4 different languages, whereas Cloud Functions currently only supports JavaScript — but this isn’t a deal breaker! Google has worked hard to ensure that some of its other offerings can be integrated into Cloud Functions with ease.</p>
+        <p>For example, <a href="http://firebase.google.com">Firebase</a> (Google’s popular BaaS) provides several <a href="https://firebase.google.com/docs/functions/">integrations</a> for Cloud Functions that make it extremely simple to start sending/receiving data to/from your backend service with very little configuration — Google handles this for you. With just a few lines of code and a click of a few buttons, you can create an automatically scalable HTTP endpoint that stores request data in a datastore without the need to worry about infrastructure maintenance.</p>
+        <p>Another great feature, which is unique to Cloud Functions, is Automatic Dependency Resolution. There is no need to package up your entire function along with all of its dependencies, simply upload your source code and manifest and Google handles the rest. As I said earlier, there is only support for Node’s <code>package.json</code> file but I’d love to see how they implement this for other languages in the future!</p>
+        <h3>Site Reliability Engineering</h3>
+        <p>The more informal talks of the conference, but by far some of the best, were lead by some of Google’s site reliability engineers. The aptly named “Fifth Nine” (which stands for 99.999%) track consisted of question and answer sessions, SRE history, and my favourite, war stories.</p>
+        <p>It was great to hear about real life situations from engineers that help power some of the internet’s most used services: Gmail; Search; Apps; to name just a few. I won’t go into too much detail about each individual case, but what I will talk about is the process the engineers undertake after a minor and major outage. Better known as a postmortem:</p>
+        <p class="quote">A postmortem is a written record of an incident, its impact, the actions taken to mitigate or resolve it, the root cause(s), and the follow-up actions to prevent the incident from recurring.</p>
+        <p>I admire how Google operates a no-blame culture. I think this is key to ensuring engineers aren’t afraid to make mistakes, because at the end of the day, we are all humans!</p>
+        <p>A headline that caught my attention was <strong>“Collaborate and Share Knowledge”</strong>. To me, this encourages engineers to dig deep into a problem and distribute their findings with the wider teams, in order to make their colleagues aware of potential problems (and methods to overcome them) before they occur.</p>
+        <p>More information on Google’s Postmortem culture can be found <a href="https://landing.google.com/sre/book/chapters/postmortem-culture.html">here</a> and an example postmortem can be found <a href="https://landing.google.com/sre/book/chapters/postmortem.html">here</a>.</p>
+        <p>Overall, I thought the conference was a great success! GCP is still a few steps behind some of AWS’s services, but it outshines them in a lot of their own unique ways. My advice would be: <strong>give GCP a try</strong>, it has an ample free tier to help you get started and it offers some great services that are almost unrivalled!</p>
+        <p>A summary of the event along with schedules, speakers, partners and live streams can be found on the official conference <a href="https://cloudplatformonline.com/Next-London-2017-Schedule.html">website</a>.</p>
+  </body>
+</html>
