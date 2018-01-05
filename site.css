@@ -88,6 +88,19 @@ p {
   line-height: 1.4em;
 }
 
+p.caption {
+  text-align: center;
+  font-size: 12pt;
+  font-style: italic;
+  color: #808080;
+}
+
+p.quote {
+  border-left: 2px solid #000;
+  font-style: italic;
+  padding-left: 10px;
+}
+
 li {
   list-style-position: inside;
 }
