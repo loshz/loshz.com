@@ -103,6 +103,7 @@ p.quote {
 
 li {
   list-style-position: inside;
+  margin: 0 0 10px;
 }
 
 code {
