@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  padding: 30px;
+  padding: 20px;
   width: 100%;
   max-width: 700px;
 }
@@ -24,18 +24,18 @@ body {
   }
 
   body {
-    padding: 20px;
+    padding: 10px;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 header {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-bottom: 1px solid #CCC;
 }
 
@@ -43,6 +43,8 @@ header h1 {
   font-size: 16pt;
   font-weight: 600;
   display: inline-block;
+  top: 2px;
+  position: relative;
 }
 
 header a {
@@ -90,7 +92,7 @@ p {
 
 p.caption {
   text-align: center;
-  font-size: 12pt;
+  font-size: 10pt;
   font-style: italic;
   color: #808080;
 }
