@@ -62,7 +62,7 @@ header a {
   margin: 0 0 10px;
 }
 
-#wrapper.archive {
+#wrapper.archive p {
   line-height: 1.4em;
 }
 
@@ -109,9 +109,21 @@ li {
 }
 
 code {
-  background: #CCC;
+  background: #DDD;
   padding: 0 5px;
   font-size: 12pt;
+}
+
+pre {
+  background: #DDD;
+  white-space: pre-wrap;
+  padding: 10px;
+  margin: 0 0 10px;
+}
+
+pre code {
+  font-size: 11pt;
+  padding: 0;
 }
 
 iframe {

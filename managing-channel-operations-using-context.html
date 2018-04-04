@@ -43,7 +43,63 @@
         <p class="quote">At Google, we developed a context package that makes it easy to pass request-scoped values, cancelation signals, and deadlines across API boundaries to all the goroutines involved in handling a request.</p>
         <p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
         <p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
-        <script src="https://gist.github.com/danbondd/34da00ae4b9b149d5579801a79fb340c.js"></script>
+				<pre><code>package main
+
+import (
+    "context"
+    "net/http"
+    "time"
+)
+
+type dataRequest struct {
+    data chan string
+    ctx  context.Context
+}
+
+func handler(reqStream chan dataRequest) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
+        defer cancel()
+
+        req := dataRequest{
+            data: make(chan string, 1),
+            ctx:  ctx,
+        }
+
+        select {
+        case reqStream <- req:
+            // request pushed to que
+        case <-ctx.Done():
+            // don't push onto reqStream if ctx done
+        }
+
+        select {
+        case <-ctx.Done():
+            // don't try and serve content if ctx done
+        case data := <-req.data:
+            // return data to client
+        }
+    }
+}
+
+func main() {
+    dataReqs := make(chan dataRequest)
+    go func() {
+        for {
+            select {
+            case req := <-dataReqs:
+                select {
+                case <-req.ctx.Done():
+                    // don't push onto data channel if ctx done
+                case req.data <- "some data":
+                    // get data from store
+                }
+            }
+        }
+    }()
+    http.HandleFunc("/", handler(dataReqs))
+    http.ListenAndServe(":8080", nil)
+}</code></pre>
         <p>Feel free to get in touch if there is a better solution to this — I’d be more than happy to hear other people’s opinions.</p>
         <h3>Resources</h3>
         <ul>
