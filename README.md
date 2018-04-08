@@ -1,3 +1,3 @@
 # danbond.io
 
-My personal website containing lots of useful information.
+My personal website containing lots of useful information...
