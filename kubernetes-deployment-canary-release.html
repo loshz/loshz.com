@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Dan Bond: Software Engineer.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kubernetes Deployment: Canary builds | Dan Bond</title>
+	<meta property="og:title" content="Kubernetes Deployment: Canary release | Dan Bond">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://danbond.io/kubernetes-deployment-canary-release.html">
+	<meta property="og:locale" content="en_GB">
+	<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
+	<meta property="og:image" content="https://danbond.io/images/danbond.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@danbondd">
+	<meta name="twitter:creator" content="@danbondd">
+	<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+	<header>
+		<h1>Dan Bond</h1>
+		<a href="/">Home</a>
+		<a href="archives.html">Archives</a>
+	</header>
+
+	<div id="wrapper" class="archive">
+		<h2>Kubernetes Deployment: Canary release</h2>
+		<h5>May 11, 2018</h5>
+		<p>Kubernetes makes light work of giving us the ability to deploy a canary release.</p>
+		<p class="quote">Canary release is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.</p>
+		<p class="caption"><a href="https://martinfowler.com/bliki/CanaryRelease.html">https://martinfowler.com/bliki/CanaryRelease.html</a></p>
+		<p>For example, let's say we want to deploy 4 stable replicas of <code>my-service</code> to a cluster. The yaml might look something like this:</p>
+		<pre><code>apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: my-service
+  labels:
+    app: my-service
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: my-service
+  template:
+    metadata:
+      labels:
+        app: my-service
+        release: stable
+    spec:
+      containers:
+      - name: my-service
+        image: my-service:latest
+        command:
+        - run
+        ports:
+        - containerPort: 6000</code></pre>
+		<p>We can use labels to specify information about a Deployment. (Tip: it's good practice to keep these consistent throughout each service.)</p>
+		<p>In our Deployment, we use the same <code>app</code> label from the metadata in the spec <code>selector</code>. The selector field defines how the Deployment finds which Pods to manage.</p>
+		<p>In order to expose our service to the internet, we can create a Load Balancer in the form of a Service:</p>
+		<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    app: my-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 6000
+  type: LoadBalancer
+  selector:
+    app: my-service</code></pre>
+		<p>Here we will use the same <code>selector</code> field to match the <code>app</code> label of our Deployment as this enables the Service to route traffic to the correct Pods.</p>
+		<p>Now it's time to introduce our Canary release. Similarly to our stable build, we will create another Deployment:</p>
+		<pre><code>apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: my-canary-service
+  labels:
+    app: my-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-service
+  template:
+    metadata:
+      labels:
+        app: my-service
+        release: canary
+    spec:
+      containers:
+      - name: my-service
+        image: my-service:latest
+        command:
+        - run
+        ports:
+        - containerPort: 6000</code></pre>
+		<p>However, this time we will use a different name and require only 1 replica, but still use the same labels as our stable build. This allows the Service to route traffic from the Load Balancer to our stable <em>and</em> canary Pods, but gives us the flexibility to control everything about the canary container in isolation.</p>
+		<p>As we are now running 5 replicas of our service, in theory, 1 in 5 users should have their request proccessed by the canary build. (Tip: this is not always the case as a Kubernetes Service does not guarantee even distribution of traffic.)</p>
+		<h3>Resources</h3>
+		<ul>
+			<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Kubernetes Deployment</a></li>
+			<li><a href="https://kubernetes.io/docs/concepts/services-networking/service">Kubernetes Service</a></li>
+			<li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Labels and Selectors</a></li>
+		</ul>
+	</div>
+</body>
+</html>

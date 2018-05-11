@@ -1,40 +1,39 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Dan Bond: Software Engineer.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Kubernetes Service: Understanding Instance Ports on an AWS ELB | Dan Bond</title>
-		<meta property="og:title" content="Kubernetes Service: Understanding Instance Ports on an AWS ELB | Dan Bond">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://danbond.io/kubernetes-service-instanceports-aws-elb.html">
-		<meta property="og:locale" content="en_GB">
-		<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
-		<meta property="og:image" content="https://danbond.io/images/danbond.png">
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@danbondd">
-		<meta name="twitter:creator" content="@danbondd">
-		<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
-		<meta name="google-site-verification" content="dY6miaeKm6Uz1OvPWRPPuL8Cn77mdwCj94Pl2ny6pTc" />
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<link rel="stylesheet" href="site.css" />
-	</head>
-	<body>
-			<header>
-				<h1>Dan Bond</h1>
-				<a href="/">Home</a>
-				<a href="archives.html">Archives</a>
-			</header>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Dan Bond: Software Engineer.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kubernetes Service: Understanding Instance Ports on an AWS ELB | Dan Bond</title>
+	<meta property="og:title" content="Kubernetes Service: Understanding Instance Ports on an AWS ELB | Dan Bond">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://danbond.io/kubernetes-service-instanceports-aws-elb.html">
+	<meta property="og:locale" content="en_GB">
+	<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
+	<meta property="og:image" content="https://danbond.io/images/danbond.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@danbondd">
+	<meta name="twitter:creator" content="@danbondd">
+	<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+	<header>
+		<h1>Dan Bond</h1>
+		<a href="/">Home</a>
+		<a href="archives.html">Archives</a>
+	</header>
 
-			<div id="wrapper" class="archive">
-        <h2>Kubernetes Service: Understanding Instance Ports on an AWS ELB</h2>
-        <h5>Apr 5, 2018</h5>
-				<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
-				<p>However, this got me thinking about duplicate ports on the same node assigned to different ELBs. How would Kubernetes handle this?</p>
-				<p>What actually happens when we set a Service type to <code>LoadBalancer</code> is Kubernetes will also expose a <code>NodePort</code> for each of the ports specified in the service.</p>
-				<p class="quote">...the Kubernetes master will allocate a port from a flag-configured range (default: 30000-32767), and each Node will proxy that port (the same port number on every Node) into your Service...</p>
-				<p>For example, if I were to apply the following YAML:</p>
-				<pre><code>apiVersion: v1
+	<div id="wrapper" class="archive">
+		<h2>Kubernetes Service: Understanding Instance Ports on an AWS ELB</h2>
+		<h5>Apr 5, 2018</h5>
+		<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
+		<p>However, this got me thinking about duplicate ports on the same node assigned to different ELBs. How would Kubernetes handle this?</p>
+		<p>What actually happens when we set a Service type to <code>LoadBalancer</code> is Kubernetes will also expose a <code>NodePort</code> for each of the ports specified in the service.</p>
+		<p class="quote">...the Kubernetes master will allocate a port from a flag-configured range (default: 30000-32767), and each Node will proxy that port (the same port number on every Node) into your Service...</p>
+		<p>For example, if I were to apply the following YAML:</p>
+		<pre><code>apiVersion: v1
 kind: Service
 metadata:
   name: my-service
@@ -54,15 +53,15 @@ spec:
   type: LoadBalancer
   selector:
     name: my-service</code></pre>
-				<p>I would see something like this in the AWS Console:</p>
-				<img src="images/kubernetes-instanceports-aws-elb/listeners.png" alt="AWS ELB Listeners" />
-				<p class="caption">AWS Console: Load Balancer Listeners</p>
-				<p>Although it is possible to configure these ports manually by specifying <code>spec.ports[*].nodePort</code>, Kubernetes will automatically check the current in-use node ports and only assign one that is available.
-				<h3>Resources</h3>
-        <ul>
-          <li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a></li>
-					<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">Kubernetes Service: LoadBalancer</a>
-				</ul>
-			</div>
+		<p>I would see something like this in the AWS Console:</p>
+		<img src="images/kubernetes-instanceports-aws-elb/listeners.png" alt="AWS ELB Listeners" />
+		<p class="caption">AWS Console: Load Balancer Listeners</p>
+		<p>Although it is possible to configure these ports manually by specifying <code>spec.ports[*].nodePort</code>, Kubernetes will automatically check the current in-use node ports and only assign one that is available.
+			<h3>Resources</h3>
+			<ul>
+				<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a></li>
+				<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">Kubernetes Service: LoadBalancer</a></li>
+			</ul>
+		</div>
 	</body>
-</html>
+	</html>

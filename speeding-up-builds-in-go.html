@@ -1,40 +1,39 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Dan Bond: Software Engineer.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Speeding up builds in Go | Dan Bond</title>
-		<meta property="og:title" content="Speeding up builds in Go | Dan Bond">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://danbond.io/speeding-up-builds-in-go.html">
-		<meta property="og:locale" content="en_GB">
-		<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
-		<meta property="og:image" content="https://danbond.io/images/danbond.png">
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@danbondd">
-		<meta name="twitter:creator" content="@danbondd">
-		<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
-		<meta name="google-site-verification" content="dY6miaeKm6Uz1OvPWRPPuL8Cn77mdwCj94Pl2ny6pTc" />
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<link rel="stylesheet" href="site.css" />
-	</head>
-	<body>
-			<header>
-				<h1>Dan Bond</h1>
-				<a href="/">Home</a>
-				<a href="archives.html">Archives</a>
-			</header>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Dan Bond: Software Engineer.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Speeding up builds in Go | Dan Bond</title>
+	<meta property="og:title" content="Speeding up builds in Go | Dan Bond">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://danbond.io/speeding-up-builds-in-go.html">
+	<meta property="og:locale" content="en_GB">
+	<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
+	<meta property="og:image" content="https://danbond.io/images/danbond.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@danbondd">
+	<meta name="twitter:creator" content="@danbondd">
+	<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+	<header>
+		<h1>Dan Bond</h1>
+		<a href="/">Home</a>
+		<a href="archives.html">Archives</a>
+	</header>
 
-			<div id="wrapper" class="archive">
-        <h2>Speeding up builds in Go</h2>
-        <h5>Jan 9, 2018</h5>
-				<p>Working with microservices can require a lot of additional setup when it comes to CI/CD. Each service has to be individually tested when a change to a single codebase is made in order ensure compatibility and end-to-end results still perform as expected. This seems straightforward, but can quickly get out of hand when more services are created.</p>
-				<p>At my current company, <a href="https://avocet.io">Avocet</a>, we have 30+ microservices with thousands of unit and integration tests. Similarly to Google and DigitalOcean, we keep the majority of our backend Go services in a monorepo as this works really well for us and allows us to share dependencies and distribute code easily and efficiently.</p>
-				<p>However, on average, a full CI build would take anywhere between 8-12 minutes. This includes downloading the codebase, instaling 3rd party dependencies, running unit and integration tests, checking for race conditions, building and uploading docker images, uploading artifacts to S3, and much more. That doesn’t sound too bad you might be thinking, but we have multiple engineers building and deploying services at least 10 times a day. Therefore, if each of our 4 engineers averages 10 builds a day per deployment and each build takes ~10 minutes, that’s nearly 7 hours worth of build times. It can sometimes be frustrating when a build has taken this long and immediately becomes out of date as someone has already merged a PR into the master branch while yours was building.</p>
-				<p>Therefore, myself and <a href="http://russellsaw.io">Alex Russell-Saw</a> decided to see if we could speed things up a little. We’d both been using a CLI tool built by Russ Cox on our local machines. The tool, <a href="https://github.com/rsc/gt">gt</a>, is a wrapper for <code>go test</code> that caches test results.</p>
-				<p class="quote">The difference between <code>gt</code> and <code>go test</code> is that when testing a list of packages, if a package and its dependencies have not changed since the last run, <code>gt</code> reuses the previous result.</p>
-				<p>When running our building scripts, we swapped the standard go test command for gt and upload the cache files to S3 upon completion. We immediately began to see build times halved with an average running time of 4 minutes. The only caveat being the current version of gt doesn’t include support for the <code>-tags</code> flag, so we forked the repo and added this feature.</p>
-			</div>
-	</body>
+	<div id="wrapper" class="archive">
+		<h2>Speeding up builds in Go</h2>
+		<h5>Jan 9, 2018</h5>
+		<p>Working with microservices can require a lot of additional setup when it comes to CI/CD. Each service has to be individually tested when a change to a single codebase is made in order ensure compatibility and end-to-end results still perform as expected. This seems straightforward, but can quickly get out of hand when more services are created.</p>
+		<p>At my current company, <a href="https://avocet.io">Avocet</a>, we have 30+ microservices with thousands of unit and integration tests. Similarly to Google and DigitalOcean, we keep the majority of our backend Go services in a monorepo as this works really well for us and allows us to share dependencies and distribute code easily and efficiently.</p>
+		<p>However, on average, a full CI build would take anywhere between 8-12 minutes. This includes downloading the codebase, instaling 3rd party dependencies, running unit and integration tests, checking for race conditions, building and uploading docker images, uploading artifacts to S3, and much more. That doesn’t sound too bad you might be thinking, but we have multiple engineers building and deploying services at least 10 times a day. Therefore, if each of our 4 engineers averages 10 builds a day per deployment and each build takes ~10 minutes, that’s nearly 7 hours worth of build times. It can sometimes be frustrating when a build has taken this long and immediately becomes out of date as someone has already merged a PR into the master branch while yours was building.</p>
+		<p>Therefore, myself and <a href="http://russellsaw.io">Alex Russell-Saw</a> decided to see if we could speed things up a little. We’d both been using a CLI tool built by Russ Cox on our local machines. The tool, <a href="https://github.com/rsc/gt">gt</a>, is a wrapper for <code>go test</code> that caches test results.</p>
+		<p class="quote">The difference between <code>gt</code> and <code>go test</code> is that when testing a list of packages, if a package and its dependencies have not changed since the last run, <code>gt</code> reuses the previous result.</p>
+		<p>When running our building scripts, we swapped the standard go test command for gt and upload the cache files to S3 upon completion. We immediately began to see build times halved with an average running time of 4 minutes. The only caveat being the current version of gt doesn’t include support for the <code>-tags</code> flag, so we forked the repo and added this feature.</p>
+	</div>
+</body>
 </html>

@@ -1,49 +1,48 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Dan Bond: Software Engineer.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Managing Channel Operations Using Context | Dan Bond</title>
-		<meta property="og:title" content="Managing channel operations using context | Dan Bond">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://danbond.io/managing-channel-operations-using-context.html">
-		<meta property="og:locale" content="en_GB">
-		<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
-		<meta property="og:image" content="https://danbond.io/images/danbond.png">
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@danbondd">
-		<meta name="twitter:creator" content="@danbondd">
-		<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
-		<meta name="google-site-verification" content="dY6miaeKm6Uz1OvPWRPPuL8Cn77mdwCj94Pl2ny6pTc" />
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<link rel="stylesheet" href="site.css" />
-	</head>
-	<body>
-			<header>
-				<h1>Dan Bond</h1>
-				<a href="/">Home</a>
-				<a href="archives.html">Archives</a>
-			</header>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Dan Bond: Software Engineer.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Managing Channel Operations Using Context | Dan Bond</title>
+	<meta property="og:title" content="Managing channel operations using context | Dan Bond">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://danbond.io/managing-channel-operations-using-context.html">
+	<meta property="og:locale" content="en_GB">
+	<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and trying to break distributed systems and cloud infrastructure.">
+	<meta property="og:image" content="https://danbond.io/images/danbond.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@danbondd">
+	<meta name="twitter:creator" content="@danbondd">
+	<meta name="twitter:image" content="https://danbond.io/images/danbond.png">
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+	<header>
+		<h1>Dan Bond</h1>
+		<a href="/">Home</a>
+		<a href="archives.html">Archives</a>
+	</header>
 
-			<div id="wrapper" class="archive">
-        <h2>Managing channel operations using context</h2>
-        <h5>May 5, 2017</h5>
-        <p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
-        <p>The basic application logic is as follows:</p>
-        <ol>
-          <li>Start servers and listen for requests.</li>
-          <li>Create a channel to handle data store read requests.</li>
-          <li>Upon accepting a request, push a data store read request onto the channel.</li>
-          <li>Send data from data store down returning data read request channel.</li>
-          <li>Serve data to client.</li>
-        </ol>
-        <p>So, the problem I noticed was the ability for the request to be cancelled at any point for one of several reasons: request timeout; client cancellation; server error; etc. Any one of these <em>errors</em> can happen at any point throughout the request, more importantly, once the individual request has been pushed onto the data read request channel. This is a huge problem as there could be potential items in this channel that are no longer needed, and because unbuffered channels in Go are blocking, the sender blocks until the receiver has received a value.</p>
-        <p>After a bit of trial and error, research, and <a href="http://stackoverflow.com/questions/43683180/managing-channels-using-a-http-request-context">unanswered questions</a>, I decided to use the request context to try and solve this problem. The context package was introduced into the standard library in Go 1.7, but prior to this it was part of the <a href="http://golang.org/x/net/context">golang.org/x/net/context</a> library. To give you a bit of <code>Background()</code>:</p>
-        <p class="quote">At Google, we developed a context package that makes it easy to pass request-scoped values, cancelation signals, and deadlines across API boundaries to all the goroutines involved in handling a request.</p>
-        <p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
-        <p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
-				<pre><code>package main
+	<div id="wrapper" class="archive">
+		<h2>Managing channel operations using context</h2>
+		<h5>May 5, 2017</h5>
+		<p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
+		<p>The basic application logic is as follows:</p>
+		<ol>
+			<li>Start servers and listen for requests.</li>
+			<li>Create a channel to handle data store read requests.</li>
+			<li>Upon accepting a request, push a data store read request onto the channel.</li>
+			<li>Send data from data store down returning data read request channel.</li>
+			<li>Serve data to client.</li>
+		</ol>
+		<p>So, the problem I noticed was the ability for the request to be cancelled at any point for one of several reasons: request timeout; client cancellation; server error; etc. Any one of these <em>errors</em> can happen at any point throughout the request, more importantly, once the individual request has been pushed onto the data read request channel. This is a huge problem as there could be potential items in this channel that are no longer needed, and because unbuffered channels in Go are blocking, the sender blocks until the receiver has received a value.</p>
+		<p>After a bit of trial and error, research, and <a href="http://stackoverflow.com/questions/43683180/managing-channels-using-a-http-request-context">unanswered questions</a>, I decided to use the request context to try and solve this problem. The context package was introduced into the standard library in Go 1.7, but prior to this it was part of the <a href="http://golang.org/x/net/context">golang.org/x/net/context</a> library. To give you a bit of <code>Background()</code>:</p>
+		<p class="quote">At Google, we developed a context package that makes it easy to pass request-scoped values, cancelation signals, and deadlines across API boundaries to all the goroutines involved in handling a request.</p>
+		<p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
+		<p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
+		<pre><code>package main
 
 import (
     "context"
@@ -100,11 +99,11 @@ func main() {
     http.HandleFunc("/", handler(dataReqs))
     http.ListenAndServe(":8080", nil)
 }</code></pre>
-        <p>Feel free to get in touch if there is a better solution to this — I’d be more than happy to hear other people’s opinions.</p>
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="https://blog.golang.org/context">Go Concurrency Patterns: Context</a></li>
-        </ul>
-      </div>
-	</body>
+		<p>Feel free to get in touch if there is a better solution to this — I’d be more than happy to hear other people’s opinions.</p>
+		<h3>Resources</h3>
+		<ul>
+			<li><a href="https://blog.golang.org/context">Go Concurrency Patterns: Context</a></li>
+		</ul>
+	</div>
+</body>
 </html>
