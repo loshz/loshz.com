@@ -8,7 +8,7 @@
 html,
 body {
   font-family: serif;
-  font-size: 14pt;
+  font-size: 16px;
   background: #EEE;
 }
 
@@ -21,11 +21,15 @@ body {
 @media screen and (max-width: 450px) {
   html,
   body {
-    font-size: 13pt;
+    font-size: 13px;
   }
 
   body {
     padding: 10px;
+  }
+  
+  code {
+    font-size: 12px;
   }
 }
 
@@ -41,7 +45,7 @@ header {
 }
 
 header h1 {
-  font-size: 16pt;
+  font-size: 20px;
   font-weight: 600;
   display: inline-block;
   top: 2px;
@@ -92,7 +96,7 @@ p {
 
 p.caption {
   text-align: center;
-  font-size: 10pt;
+  font-size: 12px;
   font-style: italic;
   color: #808080;
 }
@@ -119,7 +123,7 @@ li:last-child {
 code {
   background: #DDD;
   padding: 0 5px;
-  font-size: 12pt;
+  font-size: 14px;
 }
 
 pre {
@@ -130,7 +134,7 @@ pre {
 }
 
 pre code {
-  font-size: 11pt;
+  font-size: 12px;
   padding: 0;
 }
 
