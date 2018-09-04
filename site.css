@@ -137,10 +137,6 @@ iframe {
 }
 
 @media screen and (max-width: 500px) {
-  html,
-  body {
-  }
-
   body {
     padding: 10px;
   }
