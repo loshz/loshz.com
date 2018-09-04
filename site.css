@@ -52,7 +52,8 @@ header h1 a:hover {
 }
 
 #wrapper.home img {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   display: block;
   margin: 0 10px 10px 0;
   float: left;
@@ -138,7 +139,6 @@ iframe {
 @media screen and (max-width: 500px) {
   html,
   body {
-    font-size: 14px;
   }
 
   body {
@@ -151,7 +151,6 @@ iframe {
 
   #wrapper.home img {
     margin: 0 0 10px;
-	width: 100%;
     float: none;
   }
 }
