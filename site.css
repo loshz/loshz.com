@@ -18,26 +18,6 @@ body {
   max-width: 700px;
 }
 
-@media screen and (max-width: 450px) {
-  html,
-  body {
-    font-size: 13px;
-  }
-
-  body {
-    padding: 10px;
-  }
-  
-  code {
-    font-size: 12px;
-  }
-
-  #wrapper.home img {
-    margin: 0 0 10px;
-    float: none;
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: sans-serif;
   margin-bottom: 15px;
@@ -72,7 +52,7 @@ header h1 a:hover {
 }
 
 #wrapper.home img {
-  height: 150px;
+  width: 200px;
   display: block;
   margin: 0 10px 10px 0;
   float: left;
@@ -153,4 +133,25 @@ pre code {
 iframe {
   width: 100%;
   height: 315px;
+}
+
+@media screen and (max-width: 500px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+
+  body {
+    padding: 10px;
+  }
+  
+  code {
+    font-size: 12px;
+  }
+
+  #wrapper.home img {
+    margin: 0 0 10px;
+	width: 100%;
+    float: none;
+  }
 }
