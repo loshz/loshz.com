@@ -31,6 +31,11 @@ body {
   code {
     font-size: 12px;
   }
+
+  #wrapper.home img {
+    margin: 0 0 10px;
+    float: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,10 +55,16 @@ header h1 {
   display: inline-block;
   top: 2px;
   position: relative;
+  margin-right: 5px;
 }
 
-header a {
-  margin: 0 0 0 5px;
+header h1 a {
+	color: #000;
+	text-decoration: none;
+}
+
+header h1 a:hover {
+	text-decoration: underline;
 }
 
 #wrapper {
@@ -63,7 +74,8 @@ header a {
 #wrapper.home img {
   height: 150px;
   display: block;
-  margin: 0 0 10px;
+  margin: 0 10px 10px 0;
+  float: left;
 }
 
 #wrapper.archive p {
