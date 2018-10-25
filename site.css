@@ -140,7 +140,7 @@ iframe {
 @media screen and (max-width: 500px) {
   body {
     padding: 10px;
-	font-size: 14px;
+	font-size: 16px;
   }
   
   #wrapper.archives li .link {
