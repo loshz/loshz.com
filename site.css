@@ -1,66 +1,69 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   border: 0;
-}
-
-html,
-body {
-  font-family: serif;
-  font-size: 16px;
-  background: #EEE;
+  box-sizing: border-box;
 }
 
 body {
-  padding: 20px;
+  padding: 40px;
   width: 100%;
-  max-width: 700px;
+  max-width: 750px;
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 header {
   width: 100%;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #CCC;
+  height: 30px;
+  margin-bottom: 40px;
 }
 
 header h1 {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 600;
-  display: inline-block;
-  top: 2px;
-  position: relative;
-  margin-right: 5px;
+  float: left;
 }
 
 header h1 a {
-	color: #000;
-	text-decoration: none;
+  text-decoration: none;
+  top: 0;
 }
 
-header h1 a:hover {
-	text-decoration: underline;
+header a {
+  float: right;
+  position: relative;
+  top: 10px;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  background: #EEE;
+  text-decoration: underline;
 }
 
 #wrapper {
   width: 100%;
 }
 
-#wrapper.home img {
-  width: 100%;
-  max-width: 200px;
-  display: block;
-  margin: 0 10px 10px 0;
-  float: left;
+#wrapper.archives li .link {
+  width: 75%;
 }
 
-#wrapper.archive p {
-  line-height: 1.4em;
+#wrapper.archives li .date {
+  text-align: right;
+  width: 25%;
+  font-style: italic;
+  font-size: 15px;
+  color: #808080;
+  float: right;
 }
 
 #wrapper.archive h3 {
@@ -68,7 +71,6 @@ header h1 a:hover {
 }
 
 #wrapper.archive h5 {
-  font-family: serif;
   font-style: italic;
   color: #808080;
 }
@@ -78,13 +80,9 @@ header h1 a:hover {
   display: inline-block;
 }
 
-#wrapper.archive li {
-  margin-left: 30px;
-}
-
 p {
-  margin: 0 0 10px;
-  line-height: 1.4em;
+  line-height: 1.5;
+  margin: 0 0 20px;
 }
 
 p.caption {
@@ -102,11 +100,13 @@ p.quote {
 
 ul, ol {
   margin-bottom: 10px;
+  width: 100%;
+  padding-left: 20px;
 }
 
 li {
-  margin-bottom: 5px;
-  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 li:last-child {
@@ -114,39 +114,42 @@ li:last-child {
 }
 
 code {
-  background: #DDD;
+  background: #EEE;
   padding: 0 5px;
   font-size: 14px;
 }
 
 pre {
-  background: #DDD;
+  background: #EEE;
   white-space: pre-wrap;
   padding: 10px;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 
 pre code {
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
 }
 
 iframe {
   width: 100%;
   height: 315px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 500px) {
   body {
     padding: 10px;
+	font-size: 14px;
   }
   
-  code {
-    font-size: 12px;
+  #wrapper.archives li .link {
+    width: 100%;
   }
 
-  #wrapper.home img {
-    margin: 0 0 10px;
-    float: none;
+  #wrapper.archives li .date {
+    text-align: left;
+    width: 100%;
+	float: none;
   }
 }

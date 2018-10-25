@@ -53,7 +53,7 @@ spec:
   selector:
     name: my-service</code></pre>
 		<p>I would see something like this in the AWS Console:</p>
-		<img src="images/kubernetes-instanceports-aws-elb/listeners.png" alt="AWS ELB Listeners" />
+		<img src="images/aws-elb-listeners.png" alt="AWS ELB Listeners" />
 		<p class="caption">AWS Console: Load Balancer Listeners</p>
 		<p>Although it is possible to configure these ports manually by specifying <code>spec.ports[*].nodePort</code>, Kubernetes will automatically check the current in-use node ports and only assign one that is available.
 			<h3>Resources</h3>
