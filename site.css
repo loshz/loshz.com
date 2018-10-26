@@ -31,6 +31,7 @@ header h1 {
 header h1 a {
   text-decoration: none;
   top: 0;
+  color: #000;
 }
 
 header a {
@@ -40,12 +41,10 @@ header a {
 }
 
 a {
-  color: #000;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
-  background: #EEE;
   text-decoration: underline;
 }
 
