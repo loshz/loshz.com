@@ -26,7 +26,7 @@
 
 	<div id="wrapper" class="archive">
 		<h2>Speeding up builds in Go</h2>
-		<h5>Jan 9, 2018</h5>
+		<p class="date">Jan 9, 2018</p>
 		<p>Working with microservices can require a lot of additional setup when it comes to CI/CD. Each service has to be individually tested when a change to a single codebase is made in order ensure compatibility and end-to-end results still perform as expected. This seems straightforward, but can quickly get out of hand when more services are created.</p>
 		<p>At my current company, <a href="https://avocet.io">Avocet</a>, we have 30+ microservices with thousands of unit and integration tests. Similarly to Google and DigitalOcean, we keep the majority of our backend Go services in a monorepo as this works really well for us and allows us to share dependencies and distribute code easily and efficiently.</p>
 		<p>However, on average, a full CI build would take anywhere between 8-12 minutes. This includes downloading the codebase, instaling 3rd party dependencies, running unit and integration tests, checking for race conditions, building and uploading docker images, uploading artifacts to S3, and much more. That doesn’t sound too bad you might be thinking, but we have multiple engineers building and deploying services at least 10 times a day. Therefore, if each of our 4 engineers averages 10 builds a day per deployment and each build takes ~10 minutes, that’s nearly 7 hours worth of build times. It can sometimes be frustrating when a build has taken this long and immediately becomes out of date as someone has already merged a PR into the master branch while yours was building.</p>

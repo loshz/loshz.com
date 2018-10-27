@@ -60,19 +60,17 @@ a:hover {
 #wrapper.archives li .date {
   text-align: right;
   width: 25%;
+  float: right;
+}
+
+.date {
   font-style: italic;
   font-size: 15px;
   color: #808080;
-  float: right;
 }
 
 #wrapper.archive h3 {
   margin-top: 20px;
-}
-
-#wrapper.archive h5 {
-  font-style: italic;
-  color: #808080;
 }
 
 #wrapper.archive img {
