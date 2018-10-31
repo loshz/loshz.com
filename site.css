@@ -9,12 +9,20 @@ body {
   padding: 40px;
   width: 100%;
   max-width: 750px;
-  font-size: 18px;
+  font-size: 15px;
   font-family: Sans-Serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
+}
+
+hr {
+	display: block;
+	background: #EEE;
+	margin: 0 auto 20px;
+	height: 1px;
+	width: 100px;
 }
 
 header {
@@ -83,10 +91,13 @@ p {
   margin: 0 0 20px;
 }
 
+p:last-child, ul:last-child {
+  margin: 0;
+}
+
 p.caption {
   text-align: center;
   font-size: 12px;
-  font-style: italic;
   color: #808080;
 }
 
@@ -96,14 +107,21 @@ p.quote {
   padding-left: 10px;
 }
 
-ul, ol {
-  margin-bottom: 10px;
+ol, ul {
   width: 100%;
+  margin-bottom: 20px;
+}
+
+ol {
+  padding-left: 30px;
+}
+
+ul {
   padding-left: 20px;
 }
 
 li {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   width: 100%;
 }
 
@@ -111,22 +129,44 @@ li:last-child {
   margin-bottom: 0;
 }
 
-code {
-  background: #EEE;
-  padding: 0 5px;
-  font-size: 14px;
-}
-
 pre {
-  background: #EEE;
+  background: #EEF;
   white-space: pre-wrap;
   padding: 10px;
   margin: 0 0 20px;
+  overflow-x: scroll;
+  line-height: 1.5;
+}
+
+pre code span.red {
+  color: #D14;
+}
+
+pre code span.blue {
+  color: #0000FF;
+}
+
+pre code span.orange {
+  color: #FF5F00;
+}
+
+pre code span.purple {
+  color: #AF0087;
+}
+
+pre code span.grey {
+  color: #767676;
+}
+
+code {
+  background: #EEF;
+  padding: 0 5px;
+  font-family: Monospace;
 }
 
 pre code {
-  font-size: 14px;
   padding: 0;
+  border: 0;
 }
 
 iframe {
@@ -138,7 +178,6 @@ iframe {
 @media screen and (max-width: 500px) {
   body {
     padding: 10px;
-	font-size: 16px;
   }
   
   #wrapper.archives li .link {

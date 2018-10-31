@@ -23,7 +23,6 @@
 		<h1><a href="/">Dan Bond</a></h1>
 		<a href="archives.html">archives</a>
 	</header>
-
 	<div id="wrapper" class="archive">
 		<h2>Kubernetes Deployment: Canary release</h2>
 		<p class="date">May 11, 2018</p>
@@ -31,74 +30,75 @@
 		<p class="quote">Canary release is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.</p>
 		<p class="caption"><a href="https://martinfowler.com/bliki/CanaryRelease.html">https://martinfowler.com/bliki/CanaryRelease.html</a></p>
 		<p>For example, let's say we want to deploy 4 stable replicas of <code>my-service</code> to a cluster. The yaml might look something like this:</p>
-		<pre><code>apiVersion: apps/v1beta2
-kind: Deployment
+		<pre><code>apiVersion: <span class="red">apps/v1beta2</span>
+kind: <span class="red">Deployment</span>
 metadata:
-  name: my-service
+  name: <span class="red">my-service</span>
   labels:
-    app: my-service
+    app: <span class="red">my-service</span>
 spec:
-  replicas: 4
+  replicas: <span class="red">4</span>
   selector:
     matchLabels:
-      app: my-service
+      app: <span class="red">my-service</span>
   template:
     metadata:
       labels:
-        app: my-service
-        release: stable
+        app: <span class="red">my-service</span>
+        release: <span class="red">stable</span>
     spec:
       containers:
-      - name: my-service
-        image: my-service:latest
+      - name: <span class="red">my-service</span>
+        image: <span class="red">my-service:latest</span>
         command:
         - run
         ports:
-        - containerPort: 6000</code></pre>
+        - containerPort: <span class="red">6000</span></code></pre>
 		<p>We can use labels to specify information about a Deployment. (Tip: it's good practice to keep these consistent throughout each service.)</p>
 		<p>In our Deployment, we use the same <code>app</code> label from the metadata in the spec <code>selector</code>. The selector field defines how the Deployment finds which Pods to manage.</p>
 		<p>In order to expose our service to the internet, we can create a Load Balancer in the form of a Service:</p>
-		<pre><code>apiVersion: v1
-kind: Service
+		<pre><code>apiVersion: <span class="red">v1</span>
+kind: <span class="red">Service</span>
 metadata:
-  name: my-service
+  name: <span class="red">my-service</span>
   labels:
-    app: my-service
+    app: <span class="red">my-service</span>
 spec:
   ports:
-  - port: 80
-    targetPort: 6000
-  type: LoadBalancer
+  - port: <span class="red">80</span>
+    targetPort: <span class="red">6000</span>
+  type: <span class="red">LoadBalancer</span>
   selector:
-    app: my-service</code></pre>
+    app: <span class="red">my-service</span></code></pre>
 		<p>Here we will use the same <code>selector</code> field to match the <code>app</code> label of our Deployment as this enables the Service to route traffic to the correct Pods.</p>
 		<p>Now it's time to introduce our Canary release. Similarly to our stable build, we will create another Deployment:</p>
-		<pre><code>apiVersion: apps/v1beta2
-kind: Deployment
+		<pre><code>apiVersion: <span class="red">apps/v1beta2</span>
+kind: <span class="red">Deployment</span>
 metadata:
-  name: my-canary-service
+  name: <span class="red">my-canary-service</span>
   labels:
-    app: my-service
+    app: <span class="red">my-service</span>
 spec:
-  replicas: 1
+  replicas: <span class="red">1</span>
   selector:
     matchLabels:
-      app: my-service
+      app: <span class="red">my-service</span>
   template:
     metadata:
       labels:
-        app: my-service
-        release: canary
+        app: <span class="red">my-service</span>
+        release: <span class="red">canary</span>
     spec:
       containers:
-      - name: my-service
-        image: my-service:latest
+      - name: <span class="red">my-service</span>
+        image: <span class="red">my-service:latest</span>
         command:
         - run
         ports:
-        - containerPort: 6000</code></pre>
+        - containerPort: <span class="red">6000</span></code></pre>
 		<p>However, this time we will use a different name and require only 1 replica, but still use the same labels as our stable build. This allows the Service to route traffic from the Load Balancer to our stable <em>and</em> canary Pods, but gives us the flexibility to control everything about the canary container in isolation.</p>
 		<p>As we are now running 5 replicas of our service, in theory, 1 in 5 users should have their request proccessed by the canary build. (Tip: this is not always the case as a Kubernetes Service does not guarantee even distribution of traffic.)</p>
+		<hr />
 		<h3>Resources</h3>
 		<ul>
 			<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Kubernetes Deployment</a></li>
