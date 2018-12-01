@@ -46,6 +46,7 @@
 		<p>This isn't the biggest of challenges, but it can sometimes require infrastructure considerations. You might need to run a service such as <a href="https://www.consul.io/docs/guides/leader-election.html">Consul</a> which provides robust functionality for setting and discovering elected leaders. However, implementing this will obviously require additional code in your services.</p>
 		<h3>Persistent disk</h3>
 		<p>Another small consideration is the availability of persistent disk. If you are not directly mounting a volume in your Deployment/StatefulSet, you will need to ensure your service handles any data that needs to be persisted. Whether this is log files, local databases, caches, etc., you may well need to configure and have your services use an external data storage solution.</p>
+		<hr />
 		<p>The above issues are just a few of the <em>many</em> considerations that need to be addressed before migrating services to Kubernetes. Of course, it's not possible to anticipate all of them, but I would highly recommend reassessing your current architecture to ensure there are little to no potential pitfalls.</p>
 	</div>
 </body>

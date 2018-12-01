@@ -20,9 +20,9 @@ h1, h2, h3, h4, h5, h6 {
 hr {
 	display: block;
 	background: #EEE;
-	margin: 0 auto 20px;
-	height: 1px;
-	width: 100px;
+	margin: 20px 0;
+	height: 2px;
+	width: 50px;
 }
 
 header {
