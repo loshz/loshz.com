@@ -30,6 +30,7 @@
 		<p>However, this got me thinking about duplicate ports on the same node assigned to different ELBs. How would Kubernetes handle this?</p>
 		<p>What actually happens when we set a Service type to <code>LoadBalancer</code> is Kubernetes will also expose a <code>NodePort</code> for each of the ports specified in the service.</p>
 		<p class="quote">...the Kubernetes master will allocate a port from a flag-configured range (default: 30000-32767), and each Node will proxy that port (the same port number on every Node) into your Service...</p>
+		<p class="caption"><a href="https://kubernetes.io/docs/concepts/services-networking/service">https://kubernetes.io/docs/concepts/services-networking/service</a></p>
 		<p>For example, if I were to apply the following YAML:</p>
 		<pre><code>apiVersion: <span class="red">v1</span>
 kind: <span class="red">Service</span>
