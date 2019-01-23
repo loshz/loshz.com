@@ -33,5 +33,8 @@
 		<p class="quote">The difference between <code>gt</code> and <code>go test</code> is that when testing a list of packages, if a package and its dependencies have not changed since the last run, <code>gt</code> reuses the previous result.</p>
 		<p>When running our building scripts, we swapped the standard go test command for gt and upload the cache files to S3 upon completion. We immediately began to see build times halved with an average running time of 4 minutes. The only caveat being the current version of gt doesn’t include support for the <code>-tags</code> flag, so we forked the repo and added this feature.</p>
 	</div>
+	<footer>
+		<p class="copy">&copy; 2019 Dan Bond</p>
+	</footer>
 </body>
 </html>
