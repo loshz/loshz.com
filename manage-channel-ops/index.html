@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="A collection of articles focused around distributed systems, networking, instrumentation and related topics.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manage channel operations using context</title>
+	<link rel="stylesheet" href="../site.css" />
+	<link rel="icon" type="image/png" href="../images/favicon.png" />
+</head>
+<body>
+	<div class="sidebar">
+		<h1><a href="/">Programming, thoughts and paradigms</a></h1>
+		<h2>A collection of articles focused around distributed systems, networking, instrumentation and related topics.</h2>
+		<ul>
+			<li>GitHub <a href="https://github.com/syscll">syscll</a></li>
+			<li>Twitter <a href="https://twitter.com/syscll">@syscll</a></li>
+			<li>PGP <a href="https://keybase.io/syscll">0B90 148B BFCF C519</a></li>
+		</ul>
+		<p>All content is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</p>
+	</div>
+	<div class="content">
+		<div class="archive">
+			<h2>Managing channel operations using context</h2>
+			<p class="date">May 5, 2017</p>
+			<p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
+			<p>The basic application logic is as follows:</p>
+			<ol>
+				<li>Start servers and listen for requests.</li>
+				<li>Create a channel to handle data store read requests.</li>
+				<li>Upon accepting a request, push a data store read request onto the channel.</li>
+				<li>Send data from data store down returning data read request channel.</li>
+				<li>Serve data to client.</li>
+			</ol>
+			<p>So, the problem I noticed was the ability for the request to be cancelled at any point for one of several reasons: request timeout; client cancellation; server error; etc. Any one of these <em>errors</em> can happen at any point throughout the request, more importantly, once the individual request has been pushed onto the data read request channel. This is a huge problem as there could be potential items in this channel that are no longer needed, and because unbuffered channels in Go are blocking, the sender blocks until the receiver has received a value.</p>
+			<p>After a bit of trial and error, research, and <a href="http://stackoverflow.com/questions/43683180/managing-channels-using-a-http-request-context">unanswered questions</a>, I decided to use the request context to try and solve this problem. The context package was introduced into the standard library in Go 1.7, but prior to this it was part of the <a href="http://golang.org/x/net/context">golang.org/x/net/context</a> library. To give you a bit of <code>Background()</code>:</p>
+			<p class="quote">At Google, we developed a context package that makes it easy to pass request-scoped values, cancelation signals, and deadlines across API boundaries to all the goroutines involved in handling a request.</p>
+			<p class="caption"><a href="https://blog.golang.org/context">https://blog.golang.org/context</a></p>
+			<p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
+			<p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
+			<pre><code><span class="red">package</span> main
+
+<span class="red">import</span> (
+    "context"
+    "net/http"
+    "time"
+)
+
+<span class="red">type</span> <span class="blue">dataRequest</span> <span class="red">struct</span> {
+    data <span class="blue">chan string</span>
+    ctx  <span class="blue">context.Context</span>
+}
+
+<span class="red">func</span> handler(reqStream <span class="blue">chan</span> dataRequest) http.<span class="orange">HandlerFunc</span> {
+    <span class="red">return func</span>(w http.<span class="orange">ResponseWriter</span>, r *http.<span class="orange">Request</span>) {
+        ctx, cancel <span class="red">:=</span> context.WithTimeout(r.Context(), <span class="purple">5</span>*time.<span class="orange">Second</span>)
+        <span class="red">defer</span> cancel()
+
+        req <span class="red">:=</span> <span class="blue">dataRequest</span>{
+            data: <span class="orange">make</span>(<span class="blue">chan string</span>, <span class="purple">1</span>),
+            ctx:  ctx,
+        }
+
+        <span class="red">select</span> {
+        case reqStream <span class="red"><-</span> req:
+            <span class="grey">// request pushed to que</span>
+        case <span class="red"><-</span>ctx.Done():
+            <span class="grey">// don't push onto reqStream if ctx done</span>
+        }
+
+        <span class="red">select</span> {
+        case <span class="red"><-</span>ctx.Done():
+            <span class="grey">// don't try and serve content if ctx done</span>
+        case data <span class="red">:= <-</span>req.<span class="orange">data</span>:
+            <span class="grey">// return data to client</span>
+        }
+    }
+}
+
+<span class="red">func</span> main() {
+    dataReqs <span class="red">:=</span> <span class="orange">make</span>(<span class="blue">chan</span> dataRequest)
+    <span class="red">go func</span>() {
+        <span class="red">for</span> {
+            <span class="red">select</span> {
+            case req <span class="red">:= <-</span>dataReqs:
+                <span class="red">select</span> {
+                case <span class="red"><-</span>req.<span class="orange">ctx</span>.Done():
+                    <span class="grey">// don't push onto data channel if ctx done</span>
+                case req.<span class="orange">data</span> <span class="red"><-</span> "some data":
+                    <span class="grey">// get data from store</span>
+                }
+            }
+        }
+    }()
+    http.HandleFunc("/", handler(dataReqs))
+    http.ListenAndServe(":8080", <span class="purple">nil</span>)
+}</code></pre>
+			<h3>Resources</h3>
+			<ul>
+				<li><a href="https://blog.golang.org/context">Go Concurrency Patterns: Context</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

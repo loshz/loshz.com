@@ -2,39 +2,55 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<meta name="description" content="Dan Bond: Software Engineer building, maintaining and monitoring distributed systems and cloud infrastructure.">
+	<meta name="description" content="A collection of articles focused around distributed systems, networking, instrumentation and related topics.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dan Bond</title>
-	<meta property="og:title" content="Dan Bond: Software Engineer">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://danbond.io/">
-	<meta property="og:locale" content="en_GB">
-	<meta property="og:description" content="Dan Bond: Software Engineer building, maintaining and monitoring distributed systems and cloud infrastructure.">
-	<meta property="og:image" content="https://danbond.io/images/danbond.jpg">
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@syscll">
-	<meta name="twitter:creator" content="@syscll">
-	<meta name="twitter:image" content="https://danbond.io/images/danbond.jpg">
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<title>Programming, thoughts and paradigms</title>
 	<link rel="stylesheet" href="site.css" />
+	<link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
 <body>
-	<header>
-		<h1><a href="/">Dan Bond</a></h1>
-		<a href="archives.html">archives</a>
-	</header>
-	<div id="wrapper" class="home">
-		<img src="images/deception-pass.jpg" title="Deception Pass, WA" />
-		<p>Programmer interested in distributed systems, networking and instrumentation.</p>
-		<p>Currently working at <a href="https://avocet.io">Avocet</a>, focusing on maintaining and building new services in their distributed real-time bidding platform as well as migrating their production clusters to Kubernetes.</p>
+	<div class="sidebar">
+		<h1><a href="/">Programming, thoughts and paradigms</a></h1>
+		<h2>A collection of articles focused around distributed systems, networking, instrumentation and related topics.</h2>
 		<ul>
 			<li>GitHub <a href="https://github.com/syscll">syscll</a></li>
 			<li>Twitter <a href="https://twitter.com/syscll">@syscll</a></li>
 			<li>PGP <a href="https://keybase.io/syscll">0B90 148B BFCF C519</a></li>
 		</ul>
+		<p>All content is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</p>
 	</div>
-	<footer>
-		<p class="copy">&copy; 2019 Dan Bond</p>
-	</footer>
+	<div class="content">
+		<div class="archive">
+			<h2><a href="/kubecon-18/">KubeCon & CloudNativeCon - North America '18</a></h2>
+			<p class="date">Dec 30, 2018</p>
+			<img src="images/kubecon-18.jpg" title="KubeCon &amp; CloudNativeCon — North America ‘18" />
+			<p>With a grand total of 8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than I've ever seen at a conference, this was an event not to be missed.</p>
+		</div>
+		<div class="archive">
+			<h2><a href="/remote-cohesion/">Remote Cohesion</a></h2>
+			<p class="date">Nov 30, 2018</p>
+			<p>I've been working partially remote for the last 3 years and although at times it's been challenging, it's mostly been a success.</p>
+		</div>
+		<div class="archive">
+			<h2><a href="/k8s-migration/">Kubernetes: Migrating legacy services</a></h2>
+			<p class="date">Oct 31, 2018</p>
+			<p>Firstly, let me explain what I mean by a legacy service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</p>
+		</div>
+		<div class="archive">
+			<h2><a href="/kubecon-canary-release/">Kubernetes: Canary release</a></h2>
+			<p class="date">May 11, 2018</p>
+			<p>Kubernetes makes light work of giving us the ability to deploy a canary release.</p>
+		</div>
+		<div class="archive">
+			<h2><a href="/k8s-instance-ports/">Kubernetes: Service ports</a></h2>
+			<p class="date">Apr 5, 2018</p>
+			<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
+		</div>
+		<div class="archive">
+			<h2><a href="/manage-channel-ops/">Manage channel operations using context</a></h2>
+			<p class="date">May 5, 2017</p>
+			<p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
+		</div>
+	</div>
 </body>
 </html>
