@@ -17,6 +17,10 @@ h1 {
   font-family: Serif;
 }
 
+h2 {
+	font-size: 1.3rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -180,7 +184,19 @@ pre code {
 }
 
 @media screen and (max-width: 500px) {
-  body {
-    padding: 10px;
-  }
+	.sidebar {
+		border-right: none;
+		height: auto;
+		position: relative;
+		top: auto;
+		left: auto;
+		padding: 1rem;
+		max-width: 100%;
+	}
+
+	.content {
+		max-width: 100%;
+		margin-left: 0;
+		padding: 1rem;
+	}
 }
