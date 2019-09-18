@@ -6,46 +6,14 @@
 }
 
 body {
-  padding: 40px;
-  width: 100%;
-  max-width: 750px;
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.5;
   font-family: Sans-Serif;
+  color: #121212;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 10px;
-}
-
-hr {
-  display: block;
-  background: #EEE;
-  margin: 10px 0;
-  height: 2px;
-  width: 50px;
-}
-
-header {
-  width: 100%;
-  height: 30px;
-}
-
-header h1 {
-  font-size: 28px;
-  font-weight: 600;
-  float: left;
-}
-
-header h1 a {
-  text-decoration: none;
-  top: 0;
-  color: #000;
-}
-
-header a {
-  float: right;
-  position: relative;
-  top: 10px;
+h1 {
+  font-family: Serif;
 }
 
 a {
@@ -54,6 +22,40 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.sidebar {
+  border-right: 1px solid #EEE;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 60px 40px;
+  max-width: 320px;
+}
+
+.sidebar h2 {
+	font-weight: 300;
+	font-size: 22px;
+	margin: 40px 0 25px;
+}
+
+.sidebar ul {
+	padding: 0;
+}
+
+.sidebar li {
+	font-weight: bold;
+	list-style: none;
+}
+
+.sidebar a {
+	font-weight: 300;
+}
+
+.sidebar p {
+	margin-top: 25px;
+	font-size: 12px;
 }
 
 #wrapper {
@@ -99,17 +101,13 @@ p {
   margin: 0 0 10px;
 }
 
-p:last-child, ul:last-child {
-  margin: 0;
-}
-
-p.caption {
+.caption {
   text-align: center;
   font-size: 12px;
   color: #808080;
 }
 
-p.quote {
+.quote {
   border-left: 3px solid #000;
   font-style: italic;
   padding-left: 10px;
@@ -129,7 +127,7 @@ ul {
 }
 
 li {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
@@ -146,23 +144,23 @@ pre {
   line-height: 1.5;
 }
 
-pre code span.red {
+pre code .red {
   color: #D14;
 }
 
-pre code span.blue {
+pre code .blue {
   color: #0000FF;
 }
 
-pre code span.orange {
+pre code .orange {
   color: #FF5F00;
 }
 
-pre code span.purple {
+pre code .purple {
   color: #AF0087;
 }
 
-pre code span.grey {
+pre code .grey {
   color: #767676;
 }
 
