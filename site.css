@@ -1,20 +1,20 @@
 * {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
 }
 
 body {
-  font-size: 15px;
-  line-height: 1.5;
-  font-family: Sans-Serif;
-  color: #121212;
+	font-size: 15px;
+	line-height: 1.5;
+	font-family: Sans-Serif;
+	color: #121212;
 }
 
 h1 {
-  font-size: 2rem;
-  font-family: Serif;
+	font-size: 2rem;
+	font-family: Serif;
 }
 
 h2 {
@@ -22,21 +22,21 @@ h2 {
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .sidebar {
-  border-right: 1px solid #EEE;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 3rem 2rem;
-  max-width: 18%;
+	border-right: 1px solid #EEE;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 3rem 2rem;
+	max-width: 18%;
 }
 
 h1 a, h2 a {
@@ -93,94 +93,94 @@ h1 a:hover, h2 a:hover {
 }
 
 .date {
-  font-size: 0.8rem;
-  color: #808080;
+	font-size: 0.8rem;
+	color: #808080;
 }
 
 img {
-  width: 100%;
-  display: inline-block;
-  margin: 0 0 10px;
+	width: 100%;
+	display: inline-block;
+	margin: 0 0 10px;
 }
 
 p {
-  margin: 0 0 10px;
-  font-size: 1rem;
+	margin: 0 0 10px;
+	font-size: 1rem;
 }
 
 .caption {
-  text-align: center;
-  font-size: 12px;
-  color: #808080;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #808080;
 }
 
 .quote {
-  border-left: 3px solid #000;
-  font-style: italic;
-  padding-left: 10px;
+	border-left: 3px solid #000;
+	font-style: italic;
+	padding-left: 10px;
 }
 
 ol, ul {
-  width: 100%;
-  margin-bottom: 10px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 ol {
-  padding-left: 30px;
+	padding-left: 30px;
 }
 
 ul {
-  padding-left: 10px;
+	padding-left: 10px;
 }
 
 li {
-  margin-bottom: 5px;
-  width: 100%;
+	margin-bottom: 5px;
+	width: 100%;
 }
 
 li:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 pre {
-  background: #EEF;
-  white-space: pre-wrap;
-  padding: 10px;
-  margin: 0 0 10px;
-  overflow-x: scroll;
-  line-height: 1.5;
+	background: #EEF;
+	white-space: pre-wrap;
+	padding: 10px;
+	margin: 0 0 10px;
+	overflow-x: scroll;
+	line-height: 1.3;
 }
 
 pre code .red {
-  color: #D14;
+	color: #D14;
 }
 
 pre code .blue {
-  color: #0000FF;
+	color: #0000FF;
 }
 
 pre code .orange {
-  color: #FF5F00;
+	color: #FF5F00;
 }
 
 pre code .purple {
-  color: #AF0087;
+	color: #AF0087;
 }
 
 pre code .grey {
-  color: #767676;
+	color: #767676;
 }
 
 code {
-  background: #EEF;
-  padding: 0 5px;
-  font-family: Monospace;
-  font-size: 14px;
+	background: #EEF;
+	padding: 0 5px;
+	font-family: Monospace;
+	font-size: 0.8rem;
 }
 
 pre code {
-  padding: 0;
-  border: 0;
+	padding: 0;
+	border: 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -192,6 +192,10 @@ pre code {
 		left: auto;
 		padding: 1rem;
 		max-width: 100%;
+	}
+
+	.sidebar h2 {
+		margin: 25px 0;
 	}
 
 	.content {
