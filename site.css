@@ -88,6 +88,10 @@ h1 a:hover, h2 a:hover {
 	margin-bottom: 2rem;
 }
 
+.content .archive:last-child {
+	margin-bottom: 0;
+}
+
 .archive h3 {
     margin-bottom: 0.6rem;
 }
@@ -106,6 +110,10 @@ img {
 p {
 	margin: 0 0 10px;
 	font-size: 1rem;
+}
+
+p:last-child {
+	margin: 0;
 }
 
 .caption {
