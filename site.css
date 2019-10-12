@@ -213,3 +213,15 @@ pre code {
 		padding: 1rem;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #121212;
+		color: #FFF;
+	}
+
+
+	h1 a, h2 a {
+		color: #FFF;
+	}
+}
