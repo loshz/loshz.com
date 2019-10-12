@@ -165,7 +165,7 @@ pre code .red {
 }
 
 pre code .blue {
-	color: #0000FF;
+	color: #0000EE;
 }
 
 pre code .orange {
@@ -221,7 +221,19 @@ pre code {
 	}
 
 
-	h1 a, h2 a {
+	h1 a, h2 a, h1 a:visited, h2 a:visited {
 		color: #FFF;
+	}
+
+	pre, code {
+		background: #2E2E2E;
+	}
+
+	a, pre code .blue {
+		color: #6479FF;
+	}
+
+	a:visited {
+		color: #AF5FFF;
 	}
 }
