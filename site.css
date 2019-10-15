@@ -217,7 +217,7 @@ pre code {
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
-		color: #FFF;
+		color: #EEE;
 	}
 
 	.sidebar {
@@ -225,7 +225,7 @@ pre code {
 	}
 
 	h1 a, h2 a, h1 a:visited, h2 a:visited {
-		color: #FFF;
+		color: #EEE;
 	}
 
 	pre, code {
