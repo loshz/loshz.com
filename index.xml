@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming, thoughts and paradigms</title>
+    <link>https://syscll.org/</link>
+    <description>Recent content on Programming, thoughts and paradigms</description>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 15 Oct 2019 22:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Parallel tests in Go</title>
+	  <link>https://syscll.org/parallel-test-go/</link>
+      <pubDate>Tue, 8 Oct 2019 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/parallel-test-go/</guid>
+      <description>A great feature of Go is the ability to run tests in parallel using the default testing package.</description>
+    </item>
+
+    <item>
+      <title>KubeCon &amp; CloudNativeCon - North America '18</title>
+	  <link>https://syscll.org/kubecon-18/</link>
+      <pubDate>Sun, 30 Dec 2018 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/kubecon-18/</guid>
+      <description>With a grand total of 8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than I've ever seen at a conference, this was an event not to be missed.</description>
+    </item>
+
+    <item>
+      <title>Remote Cohesion</title>
+	  <link>https://syscll.org/remote-cohesion/</link>
+      <pubDate>Fri, 30 Nov 2018 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/remote-cohesion/</guid>
+      <description>I've been working partially remote for the last 3 years and although at times it's been challenging, it's mostly been a success.</description>
+    </item>
+
+    <item>
+      <title>Kubernetes: Migrating legacy services</title>
+	  <link>https://syscll.org/k8s-migration/</link>
+      <pubDate>Wed, 31 Oct 2018 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/k8s-migration/</guid>
+      <description>Firstly, let me explain what I mean by a legacy service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes: Canary release</title>
+	  <link>https://syscll.org/k8s-canary-release/</link>
+      <pubDate>Fri, 11 May 2018 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/k8s-canary-release/</guid>
+      <description>Kubernetes makes light work of giving us the ability to deploy a canary release.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes: Service ports</title>
+	  <link>https://syscll.org/k8s-service-ports/</link>
+      <pubDate>Thu, 05 Apr 2018 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/k8s-service-ports/</guid>
+      <description>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</description>
+	</item>
+
+    <item>
+      <title>Manage channel operations using context</title>
+	  <link>https://syscll.org/manage-channel-ops/</link>
+      <pubDate>Fri, 05 May 2017 17:00:00 +0100</pubDate>
+      
+	  <guid>https://syscll.org/manage-channel-ops/</guid>
+      <description>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</description>
+    </item>
+  </channel>
+</rss>
