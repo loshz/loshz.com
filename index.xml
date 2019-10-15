@@ -11,10 +11,10 @@
     
     <item>
       <title>Parallel tests in Go</title>
-	  <link>https://syscll.org/parallel-test-go/</link>
+	  <link>https://syscll.org/parallel-tests-go/</link>
       <pubDate>Tue, 8 Oct 2019 17:00:00 +0100</pubDate>
       
-	  <guid>https://syscll.org/parallel-test-go/</guid>
+	  <guid>https://syscll.org/parallel-tests-go/</guid>
       <description>A great feature of Go is the ability to run tests in parallel using the default testing package.</description>
     </item>
 
