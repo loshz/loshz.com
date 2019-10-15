@@ -220,6 +220,9 @@ pre code {
 		color: #FFF;
 	}
 
+	.sidebar {
+		border-right: 1px solid #2E2E2E;
+	}
 
 	h1 a, h2 a, h1 a:visited, h2 a:visited {
 		color: #FFF;
