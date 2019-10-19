@@ -15,7 +15,7 @@
       <pubDate>Sat, 19 Oct 2019 17:00:00 +0100</pubDate>
       
 	  <guid>https://syscll.org/understanding-mutexes/</guid>
-      <description>TODO</description>
+      <description>Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?</description>
     </item>
     
     <item>

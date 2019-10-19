@@ -239,4 +239,8 @@ pre code {
 	a:visited {
 		color: #AF0087;
 	}
+
+	.quote {
+		border-left: 3px solid #2E2E2E;
+	}
 }
