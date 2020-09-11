@@ -13,12 +13,12 @@ body {
 }
 
 h1 {
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 	font-family: Serif;
 }
 
 h2 {
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 }
 
 a {
@@ -30,13 +30,13 @@ a:hover {
 }
 
 .sidebar {
-	border-right: 1px solid #EEE;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	padding: 3rem 2rem;
-	max-width: 18%;
+	border-right: none;
+	height: auto;
+	position: relative;
+	top: auto;
+	left: auto;
+	padding: 1rem;
+	max-width: 100%;
 }
 
 h1 a, h2 a {
@@ -50,9 +50,9 @@ h1 a:hover, h2 a:hover {
 }
 
 .sidebar h2 {
+	margin: 25px 0;
 	font-weight: 300;
 	font-size: 1rem;
-	margin: 40px 0 25px;
 }
 
 .sidebar ul {
@@ -76,9 +76,9 @@ h1 a:hover, h2 a:hover {
 }
 
 .content {
-	max-width: 40%;
-	margin-left: 18%;
-	padding: 3rem 2rem;
+	max-width: 100%;
+	margin-left: 0;
+	padding: 1rem;
 }
 
 .content.not-found {
@@ -192,28 +192,57 @@ pre code {
 	border: 0;
 }
 
-@media screen and (max-width: 500px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
 	.sidebar {
-		border-right: none;
-		height: auto;
-		position: relative;
-		top: auto;
-		left: auto;
-		padding: 1rem;
-		max-width: 100%;
+		border-right: 1px solid #EEE;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		max-width: 250px;
 	}
 
 	.sidebar h2 {
-		margin: 25px 0;
+		margin: 40px 0 25px;
 	}
 
 	.content {
-		max-width: 100%;
-		margin-left: 0;
-		padding: 1rem;
+		max-width: 60%;
+		margin-left: 250px;
 	}
 }
 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	h1 {
+		font-size: 1.8rem;
+	}
+
+	h2 {
+		font-size: 1.3rem;
+	}
+
+	.sidebar {
+		padding: 2rem;
+		max-width: 300px;
+	}
+
+	.content {
+		max-width: 60%;
+		padding: 2rem;
+		margin-left: 300px;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.content {
+		max-width: 45%;
+	}
+} 
+
+/* Devices prefering dark mode */
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
