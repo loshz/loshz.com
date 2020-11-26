@@ -29,7 +29,7 @@ a:hover {
 }
 
 .sidebar {
-	background: #EEE;
+	background: #F2F2F2;
 	border-right: none;
 	height: auto;
 	position: relative;
@@ -245,7 +245,7 @@ pre code {
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
-		color: #EEE;
+		color: #F2F2F2;
 	}
 
 	.sidebar {
@@ -255,7 +255,7 @@ pre code {
 	}
 
 	h1 a, h2 a, h1 a:visited, h2 a:visited {
-		color: #EEE;
+		color: #F2F2F2;
 	}
 
 	pre, code {
