@@ -14,7 +14,6 @@ body {
 
 h1 {
 	font-size: 1.4rem;
-	font-family: Serif;
 }
 
 h2 {
@@ -30,6 +29,7 @@ a:hover {
 }
 
 .sidebar {
+	background: #EEE;
 	border-right: none;
 	height: auto;
 	position: relative;
@@ -195,7 +195,6 @@ pre code {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 	.sidebar {
-		border-right: 1px solid #EEE;
 		height: 100%;
 		position: fixed;
 		top: 0;
@@ -251,6 +250,8 @@ pre code {
 
 	.sidebar {
 		border-right: 1px solid #2E2E2E;
+		border-bottom: 1px solid #2E2E2E;
+		background: #121212;
 	}
 
 	h1 a, h2 a, h1 a:visited, h2 a:visited {
