@@ -37,6 +37,14 @@ a:hover {
 	left: auto;
 	padding: 1rem;
 	max-width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sidebar .top {
+	justify-content: normal;
 }
 
 h1 a, h2 a {
@@ -71,7 +79,6 @@ h1 a:hover, h2 a:hover {
 }
 
 .sidebar p {
-	margin-top: 25px;
 	font-size: 0.7rem;
 }
 
@@ -237,7 +244,7 @@ pre code {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 	.content {
-		max-width: 45%;
+		max-width: 40%;
 	}
 } 
 
