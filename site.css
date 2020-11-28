@@ -37,14 +37,9 @@ a:hover {
 	left: auto;
 	padding: 1rem;
 	max-width: 100%;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-
-.sidebar .top {
-	justify-content: normal;
 }
 
 h1 a, h2 a {
