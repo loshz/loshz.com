@@ -8,6 +8,18 @@ sed -i 's/<p>/\&lt\;p\&gt\;/g' index.xml
 # </p> -> &lt;/p&gt;
 sed -i 's/<\/p>/\&lt\;\/p\&gt\;/g' index.xml
 
+# <ul> -> &lt;ul&gt;
+sed -i 's/<ul>/\&lt\;ul\&gt\;/g' index.xml
+
+# </ul> -> &lt;/ul&gt;
+sed -i 's/<\/ul>/\&lt\;\/ul\&gt\;/g' index.xml
+
+# <li> -> &lt;li&gt;
+sed -i 's/<li>/\&lt\;li\&gt\;/g' index.xml
+
+# </li> -> &lt;/li&gt;
+sed -i 's/<\/li>/\&lt\;\/li\&gt\;/g' index.xml
+
 # <h3> -> &lt;h3&gt;
 sed -i 's/<h3>/\&lt\;h3\&gt\;/g' index.xml
 
