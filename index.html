@@ -4,15 +4,15 @@
 	<meta charset="utf-8" />
 	<meta name="description" content="A collection of articles focused around distributed systems, networking, observability and related topics.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Programming, thoughts and paradigms</title>
+	<title>Programming: thoughts and paradigms</title>
 	<link rel="stylesheet" href="site.css" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
-	<link rel="alternate" type="application/rss+xml" href="https://syscll.org/index.xml" title="Programming, thoughts and paradigms" />
+	<link rel="alternate" type="application/rss+xml" href="https://syscll.org/index.xml" title="Programming: thoughts and paradigms" />
 </head>
 <body>
 	<div class="sidebar">
 		<div class="top">
-			<h1><a href="/">Programming, thoughts and paradigms</a></h1>
+			<h1><a href="/">Programming: thoughts and paradigms</a></h1>
 			<h2>A collection of articles focused around distributed systems, networking, observability and related topics.</h2>
 			<ul>
 				<li>GitHub <a href="https://github.com/syscll">syscll</a></li>
@@ -27,55 +27,54 @@
 	</div>
 	<div class="content">
 		<div class="archive">
-			<h2><a href="/message-privacy-security/">Message Privacy &amp; Security</a></h2>
 			<p class="date">Jan 07, 2021</p>
-			<p>It's becoming increasingly difficult to keep track of the many apps used to communicate in today's world, and while you might not pay much attention to the different options available, I want to share <em><strong>why you absolutely should!</strong></em></p>
+			<h2><a href="/message-privacy-security/">Message Privacy &amp; Security</a></h2>
+			<p>Keeping your personal conversations private and secure.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/aws-elb-vs-haproxy/">AWS ELB vs HAProxy</a></h2>
 			<p class="date">Aug 25, 2020</p>
-			<p>If you're using AWS as your cloud provider, the chances are you're using their defacto ELB service to manage load balancing. It's got a big list of pros: easy to configure; scalable; free SSL; seamless EC2 integration. With the only real con being the expensiveness of running at scale, especially in front of multi-zone, large data-transfering services - or so I thought.</p>
+			<h2><a href="/aws-elb-vs-haproxy/">AWS ELB vs HAProxy</a></h2>
+			<p>Battle of the proxies.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/understanding-mutexes/">Understanding Mutexes</a></h2>
 			<p class="date">Oct 22, 2019</p>
-			<p>Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?</p>
+			<h2><a href="/understanding-mutexes/">Understanding Mutexes</a></h2>
+			<p>Mutually exclusive synchronization - how does it work?</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/parallel-tests-go/">Parallel tests in Go</a></h2>
 			<p class="date">Oct 8, 2019</p>
-			<p>A great feature of Go is the ability to run tests in parallel using the default testing package.</p>
+			<h2><a href="/parallel-tests-go/">Parallel tests in Go</a></h2>
+			<p>Your application code doesn't have to be the only thing that executes asynchronously.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/kubecon-18/">KubeCon & CloudNativeCon - North America '18</a></h2>
 			<p class="date">Dec 30, 2018</p>
-			<img src="images/kubecon-18.jpg" title="KubeCon &amp; CloudNativeCon — North America ‘18" />
-			<p>With a grand total of 8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than I've ever seen at a conference, this was an event not to be missed.</p>
+			<h2><a href="/kubecon-18/">KubeCon & CloudNativeCon - North America '18</a></h2>
+			<p>8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/remote-cohesion/">Remote Cohesion</a></h2>
 			<p class="date">Nov 30, 2018</p>
-			<p>I've been working partially remote for the last 3 years and although at times it's been challenging, it's mostly been a success.</p>
+			<h2><a href="/remote-cohesion/">Remote Cohesion</a></h2>
+			<p>Fusing a team together in a distant world.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/k8s-migration/">Kubernetes: Migrating legacy services</a></h2>
 			<p class="date">Oct 31, 2018</p>
-			<p>Firstly, let me explain what I mean by a legacy service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</p>
+			<h2><a href="/k8s-migration/">Kubernetes: Migrating legacy services</a></h2>
+			<p>Why copy/pasting your services to Kubernetes isn't always the answer.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/k8s-canary-release/">Kubernetes: Canary release</a></h2>
 			<p class="date">May 11, 2018</p>
-			<p>Kubernetes makes light work of giving us the ability to deploy a canary release.</p>
+			<h2><a href="/k8s-canary-release/">Kubernetes: Canary release</a></h2>
+			<p>Reduce the risk of introducing a new software version in Kubernets.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/k8s-service-ports/">Kubernetes: Service ports</a></h2>
 			<p class="date">Apr 5, 2018</p>
-			<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
+			<h2><a href="/k8s-service-ports/">Kubernetes: Service ports</a></h2>
+			<p>Balance the load.</p>
 		</div>
 		<div class="archive">
-			<h2><a href="/manage-channel-ops/">Manage channel operations using context</a></h2>
 			<p class="date">May 5, 2017</p>
-			<p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
+			<h2><a href="/manage-channel-ops/">Manage channel operations using context</a></h2>
+			<p>Give extra context when it is most needed.</p>
 		</div>
 	</div>
 </body>
