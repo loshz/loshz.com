@@ -1,0 +1,46 @@
+{{define "content"}}
+		<div class="archive">
+			<p class="date">Oct 22, 2019</p>
+			<h2>Understanding Mutexes</h2>
+			<p>Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?</p>
+			<p>Here is a basic example, in Go, of a struct with a <code>count</code> field and a method that increments this field when called:</p>
+			<pre><code><span class="red">package</span> main
+
+<span class="red">import</span> "sync"
+
+<span class="red">type</span> <span class="blue">protected</span> <span class="red">struct</span> {
+    count int
+    mtx   sync.Mutex
+}
+
+<span class="red">func</span> (p <span class="red">*</span><span class="blue">protected</span>) inc() {
+    p.<span class="orange">mtx</span>.Lock()
+    p.<span class="orange">count</span><span class="red">++</span>
+    p.<span class="orange">mtx</span>.Unlock()
+}</code></pre>
+			<p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>p.count</code>?</p>
+			<p>While many other languages have similar implementations, for the purposes of this post I'm going to refer to a mutex in <a href="https://golang.org/pkg/sync/#Mutex">Go</a>.</p>
+			<h3>Lock/Unlock</h3>
+			<p>Under the hood, when <code>Lock()</code> is called, the mutex will attempt to perform an atomic compare-and-swap operation on an unexported <code>int32</code> field. As the default "unlocked" value of this field is 0, if successful, this field will now equal 1 and we can consider the mutex to be locked. Similarly, <code>Unlock()</code> attempts to set the field back to 0.</p>
+			<p>So what happens if we attempt to lock a mutex that is already locked? This depends on the current mode of the mutex, which is one of either normal or starvation.</p>
+			<h3>Normal</h3>
+			<p>In normal mode, calls to Lock/Unlock are queued in <a href="https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting#FIFO">FIFO</a> order. Each call will continually attempt to operate the mutex until eventually failing if it has been trying for more than 1ms - at which point it enters starvation mode.</p>
+			<p>Each outstanding call will compete with other calls for ownership of the mutex. It is quite common for newer calls to succeed first as they are already running on the CPU.</p>
+			<h3>Starvation</h3>
+			<p>In starvation mode, ownership of the mutex is handed off to the caller waiting at the front of the queue. Newer callers don't try to acquire the mutex even if it appears to be unlocked and instead of continually attempting to operate the mutex, they will queue themselves at the end of the queue.</p>
+			<p>If a caller sees that it is last in the queue, or it has waited for less time than the 1ms timeout, the mutex is set back to normal mode.</p>
+			<h3>Considerations</h3>
+			<ul>
+				<li>Attempting to unlock an unlocked mutex will result in a panic.</li>
+				<li>It is possible to bypass a mutex if you have direct access to the resource memory, e.g., a pointer.</li>
+				<li>Don't hold a mutex while performing long running tasks, e.g., IO-based operations.</li>
+				<li>In some cases is can be more efficient to use a channel to protect access to shared resources.</li>
+			</ul>
+			<h3>Resources</h3>
+			<ul>
+				<li><a href="https://golang.org/pkg/sync/">Go Package: sync</a></li>
+				<li><a href="https://golang.org/pkg/sync/atomic">Go Package: sync/atomic</a></li>
+				<li><a href="https://en.wikipedia.org/wiki/Compare-and-swap">Compare-and-Swap (CAS)</a></li>
+			</ul>
+		</div>
+{{end}}

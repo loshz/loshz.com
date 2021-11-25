@@ -1,0 +1,44 @@
+{{define "content"}}
+		<div class="archive">
+			<p class="date">Apr 5, 2018</p>
+			<h2>Kubernetes: Service ports</h2>
+			<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
+			<p>However, this got me thinking about duplicate ports on the same node assigned to different ELBs. How would Kubernetes handle this?</p>
+			<p>What actually happens when we set a Service type to <code>LoadBalancer</code> is Kubernetes will also expose a <code>NodePort</code> for each of the ports specified in the service.</p>
+			<p class="quote">...the Kubernetes master will allocate a port from a flag-configured range (default: 30000-32767), and each Node will proxy that port (the same port number on every Node) into your Service...</p>
+			<p class="caption"><a href="https://kubernetes.io/docs/concepts/services-networking/service">https://kubernetes.io/docs/concepts/services-networking/service</a></p>
+			<p>For example, if I were to apply the following YAML:</p>
+			<pre><code>apiVersion: <span class="red">v1</span>
+kind: <span class="red">Service</span>
+metadata:
+  name: <span class="red">my-service</span>
+  labels:
+    app: <span class="red">my-service</span>
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: <span class="red">[AWS ARN]</span>
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: <span class="red">"443"</span>
+spec:
+  ports:
+  - name: <span class="red">http</span>
+    protocol: <span class="red">TCP</span>
+    port: <span class="red">80</span>
+    targetPort: <span class="red">6000</span>
+  - name: <span class="red">https</span>
+    protocol: <span class="red">TCP</span>
+    port: <span class="red">443</span>
+    targetPort: <span class="red">6000</span>
+  type: <span class="red">LoadBalancer</span>
+  selector:
+    app: <span class="red">my-service</span></code></pre>
+			<p>I would see something like this in the AWS Console:</p>
+			<a href="../images/aws-elb-listeners.png"><img src="../images/aws-elb-listeners.png" alt="AWS ELB Listeners" /></a>
+			<p class="caption">AWS Console: Load Balancer Listeners</p>
+			<p>Although it is possible to configure these ports manually by specifying <code>spec.ports[*].nodePort</code>, Kubernetes will automatically check the current in-use node ports and only assign one that is available.<p>
+			<hr />
+			<h3>Resources</h3>
+			<ul>
+				<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a></li>
+				<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">Kubernetes Service: LoadBalancer</a></li>
+			</ul>
+		</div>
+{{end}}
