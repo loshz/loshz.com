@@ -27,9 +27,9 @@ func main() {
 	}
 
 	if *local {
-		fmt.Println("\nRunning local webserver: http://localhost:3000")
+		fmt.Println("\nRunning local webserver: http://localhost:8001")
 		http.Handle("/", http.FileServer(http.Dir("./docs")))
-		log.Fatal(http.ListenAndServe(":3000", nil))
+		log.Fatal(http.ListenAndServe(":8001", nil))
 	}
 }
 
@@ -47,7 +47,7 @@ func compileHTML(p page) (string, error) {
 	}
 
 	// create/open static html file
-	f, err := os.OpenFile(path, os.O_CREATE|os.O_RDWR, 0644)
+	f, err := os.Create(path)
 	if err != nil {
 		return path, fmt.Errorf("error opening static page: %w", err)
 	}

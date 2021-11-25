@@ -1,9 +1,14 @@
 package main
 
 type page struct {
+	// HTML title
 	Title string
-	tmpl  string
-	root  bool
+
+	// Template path
+	tmpl string
+
+	// Is HTML in root dir
+	root bool
 }
 
 var pages = []page{
