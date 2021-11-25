@@ -1,7 +1,7 @@
 .PHONY: build
 build:
-	go run *.go
+	go run ./cmd/...
 
 .PHONY: local
 local:
-	go run *.go -local
+	go run ./cmd/... -local
