@@ -23,7 +23,7 @@ func main() {
 
 func compileHTML(p page) (string, error) {
 	// strip template file ending
-	path := fmt.Sprintf("./static/%s", strings.ReplaceAll(p.tmpl, ".tmpl", ".html"))
+	path := fmt.Sprintf("./docs/%s", strings.ReplaceAll(p.tmpl, ".tmpl", ".html"))
 
 	// if non-root page, create parent dir and update path
 	if !p.root {
