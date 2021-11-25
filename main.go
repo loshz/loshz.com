@@ -1,13 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"html/template"
+	"log"
+	"net/http"
 	"os"
 	"strings"
 )
 
 func main() {
+	var local = flag.Bool("local", false, "Run local webserver")
+	flag.Parse()
+
 	fmt.Println("Compiling static html...")
 
 	for _, p := range pages {
@@ -18,6 +24,12 @@ func main() {
 		}
 
 		fmt.Println(filename)
+	}
+
+	if *local {
+		fmt.Println("\nRunning local webserver: http://localhost:3000")
+		http.Handle("/", http.FileServer(http.Dir("./docs")))
+		log.Fatal(http.ListenAndServe(":3000", nil))
 	}
 }
 
