@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AWS ELB vs HAProxy</title>
 	<link rel="stylesheet" href="/site.css" />
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<link rel="alternate" type="application/rss+xml" href="https://syscll.org/index.xml" title="Programming: thoughts and paradigms" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 			<ul>
 				<li>GitHub <a href="https://github.com/syscll">syscll</a></li>
 				<li>Twitter <a href="https://twitter.com/syscll">@syscll</a></li>
-				<li>PGP <a href="public_key.asc">82E7 BCF2 EAB7 4CF0</a></li>
+				<li>PGP <a href="/public_key.asc">82E7 BCF2 EAB7 4CF0</a></li>
 			</ul>
 		</div>
 		<div class="bottom">
@@ -32,7 +32,7 @@
 	<p>If you're using AWS as your cloud provider, the chances are you're using their defacto ELB service to manage load balancing. It's got a big list of pros: easy to configure; scalable; free SSL; seamless EC2 integration. With the only real con being the expensiveness of running at scale, especially in front of multi-zone, large data-transfering services - or so I thought.</p>
 	<p>ELBs are an effective and extremely reliable way of distributing load across your services. But after troubleshooting random drops in network connections and investigating drastically uneven requests per services, it was time to look at alternatives.</p>
 	<p>So after some extensive research and a little trial and error, I landed on HAProxy being the best alternative, as you can see from the migration graph below:</p>
-	<a href="../images/aws-elb-vs-haproxy.jpg"><img src="../images/aws-elb-vs-haproxy.jpg" title="AWS ELB vs HAProxy" /></a>
+	<a href="/images/aws-elb-vs-haproxy.jpg"><img src="/images/aws-elb-vs-haproxy.jpg" title="AWS ELB vs HAProxy" /></a>
 	<p class="caption">Load balanced reqs/sec: AWS ELB (left) to HAProxy (right)</p>
 	<p>This is a service running an average of 40k reqs/sec over a 6 hour period, and as you can probably see, the first half of the graph is not evenly distributed at all. However, as soon as the migration to HAProxy beings, distribution looks dramatically better after just 30 minutes - to the point where this graph now almost only shows straight lines.</p>
 	<h3>So, why the huge difference?</h3>

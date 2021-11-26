@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Kubernetes: Service ports</title>
 	<link rel="stylesheet" href="/site.css" />
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<link rel="alternate" type="application/rss+xml" href="https://syscll.org/index.xml" title="Programming: thoughts and paradigms" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 			<ul>
 				<li>GitHub <a href="https://github.com/syscll">syscll</a></li>
 				<li>Twitter <a href="https://twitter.com/syscll">@syscll</a></li>
-				<li>PGP <a href="public_key.asc">82E7 BCF2 EAB7 4CF0</a></li>
+				<li>PGP <a href="/public_key.asc">82E7 BCF2 EAB7 4CF0</a></li>
 			</ul>
 		</div>
 		<div class="bottom">
@@ -58,7 +58,7 @@ spec:
   selector:
     app: <span class="red">my-service</span></code></pre>
 			<p>I would see something like this in the AWS Console:</p>
-			<a href="../images/aws-elb-listeners.png"><img src="../images/aws-elb-listeners.png" alt="AWS ELB Listeners" /></a>
+			<a href="/images/aws-elb-listeners.png"><img src="/images/aws-elb-listeners.png" alt="AWS ELB Listeners" /></a>
 			<p class="caption">AWS Console: Load Balancer Listeners</p>
 			<p>Although it is possible to configure these ports manually by specifying <code>spec.ports[*].nodePort</code>, Kubernetes will automatically check the current in-use node ports and only assign one that is available.<p>
 			<hr />
