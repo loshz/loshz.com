@@ -1,25 +1,21 @@
-{{define "rss"}}
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+{{define "rss"}}<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming: thoughts and paradigms</title>
     <link>https://syscll.org/</link>
     <description>A collection of articles focused around distributed systems, networking, observability and related topics.</description>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 25 Aug 2020 16:00:00 +0100</lastBuildDate>
+	<lastBuildDate>{{.Date}}</lastBuildDate>
     
 	<atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
-
-    {{range $items := .Items}}
-    <item>
-	<title>{{$item.Title}}</title>
-	  <link>https://syscll.org/manage-channel-ops/</link>
-	  <pubDate>{{$item.PubDate}}</pubDate>
-	  <guid>{{$item.URL}}</guid>
-	  <description>{{$item.Description}}</description>
-    </item>
+	{{range .Pages}}
+	{{if .RSS}}<item>
+	<title>{{.Title}}</title>
+		<link>https://syscll.org/{{.Tmpl}}/</link>
+		<guid>https://syscll.org/{{.Tmpl}}/</guid>
+		<pubDate>{{.Date}}</pubDate>
+		<description>{{.Description}}</description>
+    </item>{{end}}
 	{{end}}
-
   </channel>
-</rss>
-{{end}}
+</rss>{{end}}

@@ -3,90 +3,95 @@
   <channel>
     <title>Programming: thoughts and paradigms</title>
     <link>https://syscll.org/</link>
-    <description>Recent content on programming: thoughts and paradigms</description>
+    <description>A collection of articles focused around distributed systems, networking, observability and related topics.</description>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 25 Aug 2020 16:00:00 +0100</lastBuildDate>
+	<lastBuildDate>Sat, 27 Nov 2021 18:51:12 PST</lastBuildDate>
     
 	<atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
-
+	
+	
+	
+	
+	
 	<item>
-      <title>Message Privacy &amp; Security</title>
-	  <link>https://syscll.org/aws-elb-vs-haproxy/</link>
-      <pubDate>Thu, 07 Jan 2021 15:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/message-privacy-security/</guid>
-	  <description>&lt;p&gt;It's becoming increasingly difficult to keep track of the many apps used to communicate in today's world, and while you might not pay much attention to the different options available, I want to share why you absolutely should!>&lt;/p&gt;&lt;p&gt;I want to keep this as informative and concise as possible, so I'll use the Five Ws:&lt;/p&gt;&lt;h3&gt;Who should care?&lt;/h3&gt;&lt;p&gt;EVERYONE.&lt;/p&gt;&lt;h3&gt;What should you care about?&lt;/h3&gt;&lt;p&gt;YOUR privacy and security.&lt;/p&gt;&lt;h3&gt;When should you care?&lt;/h3&gt;&lt;p&gt;EVERY time you open your phone, computer or tablet to message a friend, loved one, colleague or even a stranger.&lt;/p&gt;&lt;h3&gt;Where should you care?&lt;/h3&gt;&lt;p&gt;EVERYWHERE you send a message- In public, at home, in the office, etc.&lt;/p&gt;&lt;h3&gt;Why should you care at all?&lt;/h3&gt;&lt;p&gt;This is the most important question- why the hell should you actually care? I'd like to preface this section with the following quote:&lt;/p&gt;&lt;p&gt;I think privacy is a qualified and fundamental human right. - DB&lt;/p&gt;&lt;p&gt;For example: it would be weird if you noticed someone following you around all the time, right? Or, how about someone taking note of all the items you buy at the store? Alternatively, what about someone copying the photos you take and putting them in their own albums?? And then to top it off, these people sold this information to others with you being none the wiser.&lt;/p&gt;&lt;p&gt;So if you think the above is kind of creepy, what makes doing it online any different? Hint: it's the same thing.&lt;/p&gt;&lt;p&gt;Here's a combined list of just some of the data points, that are tied to your identity, used to stalk you online by many popular messaging apps:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Purchase history&lt;/li&gt;&lt;li&gt;Financial info&lt;/li&gt;&lt;li&gt;Physical address&lt;/li&gt;&lt;li&gt;Contacts&lt;/li&gt;&lt;li&gt;Search history&lt;/li&gt;&lt;li&gt;Browsing history&lt;/li&gt;&lt;li&gt;Health and fitness data&lt;/li&gt;&lt;li&gt;Precise Location&lt;/li&gt;&lt;li&gt;Photo, video and audio data&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Now think of all the major, mostly social networking, apps used to communicate today... they almost ALL store the above information about you and use it to influence the content you see online. Whether that be for advertisements, recommendations, profile building, analytics, even political content.&lt;/p&gt;&lt;p&gt;What about looking at this from a security standpoint. What if all this data were to fall into the wrong hands? It would be rather easy to exploit you or the services you use online.&lt;/p&gt;&lt;h3&gt;So how can I communicate safer online?&lt;/h3&gt;&lt;p&gt;I'm glad you asked. There are several messaging apps that claim to be privacy friendly, and while I've personally tried a few, I would highly recommend &lt;a href=&quot;https://signal.org/">Signal&lt;/a&gt;. Here are just a few reasons why:&lt;/p&gt;&lt;&lt;ul&gt;&lt;li&gt;Signal is a nonprofit company.&lt;/li&gt;&lt;li&gt;They do not track, collect or store your personal data online.&lt;/li&gt;&lt;li&gt;They are 100% End-to-end (E2E) encrypted.&lt;/li&gt;&lt;li&gt;All of their apps are open-source, meaning ANYONE can view the code used to make them.&lt;/li&gt;&lt;li&gt;Signal has had many independent Security Reviews by accredited companies and individuals.&lt;/li&gt;&lt;li&gt;Free to use with zero ads.&lt;/li&gt;&lt;li&gt;Individual and group voice/video calls.&lt;/li&gt;&lt;li&gt;Sender verification.&lt;/li&gt;&lt;li&gt;Multi-device.&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Final thoughts&lt;/h3&gt;&lt;p&gt;It can be hard to keep track (pun intended) of your privacy and security online, and nobody has the time to read hundreds of pages of legal terms every time you download an app. The only way to truly protect yourself online is to never use the internet - but that's simply not feasible.&lt;/p&gt;&lt;p&gt;I wrote this article to encourage you to consider all of the above when communicating online, and it's going to take some time before everyone becomes privy to the facts. So my top 3 recommendations would be:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Only enable individual app features if they are absolutely needed.&lt;/li&gt;&lt;li&gt;Review app privacy policies before installing anything.&lt;/li&gt;&lt;li&gt;Prefer privacy and security over convenience.&lt;/li&gt;&lt;/ul&gt;</description>
+	<title>Message Privacy &amp; Security</title>
+		<link>https://syscll.org/message-privacy-security/</link>
+		<guid>https://syscll.org/message-privacy-security/</guid>
+		<pubDate>Thu, 07 Jan 2021 15:00:00 +0100</pubDate>
+		<description>Keeping your personal conversations private and secure.</description>
     </item>
-
-    <item>
-      <title>AWS ELB vs HAProxy</title>
-	  <link>https://syscll.org/aws-elb-vs-haproxy/</link>
-      <pubDate>Tue, 25 Aug 2020 16:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/aws-elb-vs-haproxy/</guid>
-	  <description>&lt;p&gt;If you're using AWS as your cloud provider, the chances are you're using their defacto ELB service to manage load balancing. It's got a big list of pros: easy to configure; scalable; free SSL; seamless EC2 integration. With the only real con being the expensiveness of running at scale, especially in front of multi-zone, large data-transfering services - or so I thought.&lt;/p&gt;&lt;p&gt;ELBs are an effective and extremely reliable way of distributing load across your services. But after troubleshooting random drops in network connections and investigating drastically uneven requests per services, it was time to look at alternatives.&lt;/p&gt;&lt;p&gt;So after some extensive research and a little trial and error, I landed on HAProxy being the best alternative, as you can see from the migration graph below:&lt;/p&gt;&lt;img src=&quot;https://syscll.org/images/aws-elb-vs-haproxy.jpg&quot; title=&quot;AWS ELB vs HAProxy&quot; /&gt;&lt;p&gt;Load balanced reqs/sec: AWS ELB (left) to HAProxy (right)&lt;/p&gt;&lt;p&gt;This is a service running an average of 40k reqs/sec over a 6 hour period, and as you can probably see, the first half of the graph is not evenly distributed at all. However, as soon as the migration to HAProxy beings, distribution looks dramatically better after just 30 minutes - to the point where this graph now almost only shows straight lines.&lt;/p&gt;&lt;h3&gt;So, why the huge difference?&lt;/h3&gt;&lt;p&gt;Well, in my experience, it all boils down to the fact that running your own HAProxy instances alongside your application services in the same VPC is almost always going to provide faster network speeds. Not only that, but the thorough customisation options available in HAProxy enable you to seriously fine-tune things such as: service health checks; load-balancing algorithms; rate limiting; and much more.&lt;/p&gt;&lt;p&gt;If you're running on Kubernetes, HAProxy also provide an &lt;a href=&quot;https://github.com/haproxytech/kubernetes-ingress&quot;&gt;Ingress Controller&lt;/a&gt; that communicates directly with the Kubernetes API to gather data on services and analyse the most efficient route for traffic. Not only will it use any custom health checks you may have configured, but it will also use livesness and readiness probes as an extra layer by default. The Ingress Controller significantly reduces the installation overhead and runs flawlessly on existing k8s infrastructure.&lt;/p&gt;&lt;p&gt;Another huge benefit to running HAProxy is the vast amount of instrumentation available by default. There are hundreds of real-time metrics made available in Prometheus format which allow you to closely monitor and alert on several factors.&lt;/p&gt;&lt;h3&gt;So, what're the downsides?&lt;/h3&gt;&lt;p&gt;Although I had little to no issues self-hosting HAProxy, using AWS managed ELBs is always going to be quicker and arguably less hassle.&lt;/p&gt;&lt;p&gt;As I mentioned earlier, ELBs work flawlessly alongside existing AWS infrastructure - but you pay highly for that privilege. So it's ultimately a decision of cost vs time.&lt;/p&gt;&lt;p&gt;Secondly, in some cases, running load-balancers outside of your own infrastructure provides greater reliability and higher availability if the need to divert traffic to another region arises. While this is also possible via HAProxy, the way in which you architect your infrastructure may be a little more complex.&lt;/p&gt;</description>
+	
+	<item>
+	<title>AWS ELB vs HAProxy</title>
+		<link>https://syscll.org/aws-elb-vs-haproxy/</link>
+		<guid>https://syscll.org/aws-elb-vs-haproxy/</guid>
+		<pubDate>Tue, 25 Aug 2020 16:00:00 +0100</pubDate>
+		<description>Battle of the proxies.</description>
     </item>
-
-    <item>
-      <title>Understanding Mutexes</title>
-	  <link>https://syscll.org/understanding-mutexes/</link>
-      <pubDate>Tue, 22 Oct 2019 23:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/understanding-mutexes/</guid>
-      <description>&lt;p&gt;Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?&lt;/p&gt; &lt;p&gt;Here is a basic example, in Go, of a struct with a &lt;code&gt;count&lt;/code&gt; field and a method that increments this field when called:&lt;/p&gt; &lt;pre&gt;&lt;code&gt;package&lt;br&gt;&lt;br&gt;main&lt;br&gt;&lt;br&gt;import "sync"&lt;br&gt;&lt;br&gt;type protected struct {&lt;br&gt;    count int&lt;br&gt;    mtx sync.Mutex&lt;br&gt;}&lt;br&gt;&lt;br&gt;func (p *protected) inc() {&lt;br&gt;    p.mtx.Lock()&lt;br&gt;    p.count++&lt;br&gt;    p.mtx.Unlock()&lt;br&gt;}&lt;/code&gt;&lt;/pre&gt; &lt;p&gt;As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to &lt;code&gt;p.count&lt;/code&gt;?&lt;/p&gt; &lt;p&gt;While many other languages have similar implementations, for the purposes of this post I'm going to refer to a mutex in &lt;a href=&quot;https://golang.org/pkg/sync/#Mutex&quot;&gt;Go&lt;/a&gt;.&lt;/p&gt; &lt;h3&gt;Lock/Unlock&lt;/h3&gt; &lt;p&gt;Under the hood, when &lt;code&gt;Lock()&lt;/code&gt; is called, the mutex will attempt to perform an atomic compare-and-swap operation on an unexported &lt;code&gt;int32&lt;/code&gt; field. As the default "unlocked" value of this field is 0, if successful, this field will now equal 1 and we can consider the mutex to be locked. Similarly, &lt;code&gt;Unlock()&lt;/code&gt; attempts to set the field back to 0.&lt;/p&gt; &lt;p&gt;So what happens if we attempt to lock a mutex that is already locked? This depends on the current mode of the mutex, which is one of either normal or starvation.&lt;/p&gt; &lt;h3&gt;Normal&lt;/h3&gt; &lt;p&gt;In normal mode, calls to Lock/Unlock are queued in &lt;a href=&quot;https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting#FIFO&quot;&gt;FIFO&lt;/a&gt; order. Each call will continually attempt to operate the mutex until eventually failing if it has been trying for more than 1ms - at which point it enters starvation mode.&lt;/p&gt; &lt;p&gt;Each outstanding call will compete with other calls for ownership of the mutex. It is quite common for newer calls to succeed first as they are already running on the CPU.&lt;/p&gt; &lt;h3&gt;Starvation&lt;/h3&gt; &lt;p&gt;In starvation mode, ownership of the mutex is handed off to the caller waiting at the front of the queue. Newer callers don't try to acquire the mutex even if it appears to be unlocked and instead of continually attempting to operate the mutex, they will queue themselves at the end of the queue.&lt;/p&gt; &lt;p&gt;If a caller sees that it is last in the queue, or it has waited for less time than the 1ms timeout, the mutex is set back to normal mode.&lt;/p&gt; &lt;h3&gt;Considerations&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;Attempting to unlock an unlocked mutex will result in a panic.&lt;/li&gt; &lt;li&gt;It is possible to bypass a mutex if you have direct access to the resource memory, e.g., a pointer.&lt;/li&gt; &lt;li&gt;Don't hold a mutex while performing long running tasks, e.g., IO-based operations.&lt;/li&gt; &lt;li&gt;In some cases is can be more efficient to use a channel to protect access to shared resources.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Resources&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;https://golang.org/pkg/sync/&quot;&gt;Go Package: sync&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;https://golang.org/pkg/sync/atomic&quot;&gt;Go Package: sync/atomic&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Compare-and-swap&quot;&gt;Compare-and-Swap (CAS)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;</description>
+	
+	<item>
+	<title>Understanding Mutexes</title>
+		<link>https://syscll.org/understanding-mutexes/</link>
+		<guid>https://syscll.org/understanding-mutexes/</guid>
+		<pubDate>Tue, 22 Oct 2019 23:00:00 +0100</pubDate>
+		<description>Mutually exclusive synchronization - how does it work?</description>
     </item>
-    
-    <item>
-      <title>Parallel tests in Go</title>
-	  <link>https://syscll.org/parallel-tests-go/</link>
-      <pubDate>Tue, 8 Oct 2019 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/parallel-tests-go/</guid>
-      <description>A great feature of Go is the ability to run tests in parallel using the default testing package.</description>
+	
+	<item>
+	<title>Parallel tests in Go</title>
+		<link>https://syscll.org/parallel-tests-go/</link>
+		<guid>https://syscll.org/parallel-tests-go/</guid>
+		<pubDate>Tue, 8 Oct 2019 17:00:00 +0100</pubDate>
+		<description>Your application code doesn't have to be the only thing that executes asynchronously.</description>
     </item>
-
-    <item>
-      <title>KubeCon &amp; CloudNativeCon - North America '18</title>
-	  <link>https://syscll.org/kubecon-18/</link>
-      <pubDate>Sun, 30 Dec 2018 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/kubecon-18/</guid>
-      <description>With a grand total of 8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than I've ever seen at a conference, this was an event not to be missed.</description>
+	
+	<item>
+	<title>KubeCon &amp; CloudNativeCon — North America '18</title>
+		<link>https://syscll.org/kubecon-18/</link>
+		<guid>https://syscll.org/kubecon-18/</guid>
+		<pubDate>Sun, 30 Dec 2018 17:00:00 +0100</pubDate>
+		<description>8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.</description>
     </item>
-
-    <item>
-      <title>Remote Cohesion</title>
-	  <link>https://syscll.org/remote-cohesion/</link>
-      <pubDate>Fri, 30 Nov 2018 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/remote-cohesion/</guid>
-      <description>I've been working partially remote for the last 3 years and although at times it's been challenging, it's mostly been a success.</description>
+	
+	<item>
+	<title>Remote Cohesion</title>
+		<link>https://syscll.org/remote-cohesion/</link>
+		<guid>https://syscll.org/remote-cohesion/</guid>
+		<pubDate>Fri, 30 Nov 2018 17:00:00 +0100</pubDate>
+		<description>Fusing a team together in a distant world.</description>
     </item>
-
-    <item>
-      <title>Kubernetes: Migrating legacy services</title>
-	  <link>https://syscll.org/k8s-migration/</link>
-      <pubDate>Wed, 31 Oct 2018 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/k8s-migration/</guid>
-      <description>Firstly, let me explain what I mean by a legacy service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</description>
+	
+	<item>
+	<title>Kubernetes: Migrating legacy services</title>
+		<link>https://syscll.org/k8s-migration/</link>
+		<guid>https://syscll.org/k8s-migration/</guid>
+		<pubDate>Wed, 31 Oct 2018 17:00:00 +0100</pubDate>
+		<description>Why copy/pasting your services to Kubernetes isn't always the answer.</description>
     </item>
-    
-    <item>
-      <title>Kubernetes: Canary release</title>
-	  <link>https://syscll.org/k8s-canary-release/</link>
-      <pubDate>Fri, 11 May 2018 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/k8s-canary-release/</guid>
-      <description>Kubernetes makes light work of giving us the ability to deploy a canary release.</description>
+	
+	<item>
+	<title>Kubernetes: Canary release</title>
+		<link>https://syscll.org/k8s-canary-release/</link>
+		<guid>https://syscll.org/k8s-canary-release/</guid>
+		<pubDate>Fri, 11 May 2018 17:00:00 +0100</pubDate>
+		<description>Reduce the risk of introducing a new software version in Kubernets.</description>
     </item>
-    
-    <item>
-      <title>Kubernetes: Service ports</title>
-	  <link>https://syscll.org/k8s-service-ports/</link>
-      <pubDate>Thu, 05 Apr 2018 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/k8s-service-ports/</guid>
-      <description>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</description>
-	</item>
-
-    <item>
-      <title>Manage channel operations using context</title>
-	  <link>https://syscll.org/manage-channel-ops/</link>
-      <pubDate>Fri, 05 May 2017 17:00:00 +0100</pubDate>
-	  <guid>https://syscll.org/manage-channel-ops/</guid>
-      <description>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</description>
+	
+	<item>
+	<title>Kubernetes: Service ports</title>
+		<link>https://syscll.org/k8s-service-ports/</link>
+		<guid>https://syscll.org/k8s-service-ports/</guid>
+		<pubDate>Thu, 05 Apr 2018 17:00:00 +0100</pubDate>
+		<description>Balance the load.</description>
     </item>
+	
+	<item>
+	<title>Manage channel operations using context</title>
+		<link>https://syscll.org/manage-channel-ops/</link>
+		<guid>https://syscll.org/manage-channel-ops/</guid>
+		<pubDate>Fri, 05 May 2017 17:00:00 +0100</pubDate>
+		<description>Give extra context when it is most needed.</description>
+    </item>
+	
   </channel>
 </rss>

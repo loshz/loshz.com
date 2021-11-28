@@ -68,16 +68,16 @@
         }
 
         <span class="red">select</span> {
-        case reqStream <span class="red">&lt;-</span> req:
+        case reqStream <span class="red"><-</span> req:
             <span class="grey">// request pushed to que</span>
-        case <span class="red">&lt;-</span>ctx.Done():
+        case <span class="red"><-</span>ctx.Done():
             <span class="grey">// don't push onto reqStream if ctx done</span>
         }
 
         <span class="red">select</span> {
-        case <span class="red">&lt;-</span>ctx.Done():
+        case <span class="red"><-</span>ctx.Done():
             <span class="grey">// don't try and serve content if ctx done</span>
-        case data <span class="red">:= &lt;-</span>req.<span class="orange">data</span>:
+        case data <span class="red">:= <-</span>req.<span class="orange">data</span>:
             <span class="grey">// return data to client</span>
         }
     }
@@ -88,11 +88,11 @@
     <span class="red">go func</span>() {
         <span class="red">for</span> {
             <span class="red">select</span> {
-            case req <span class="red">:= &lt;-</span>dataReqs:
+            case req <span class="red">:= <-</span>dataReqs:
                 <span class="red">select</span> {
-                case <span class="red">&lt;-</span>req.<span class="orange">ctx</span>.Done():
+                case <span class="red"><-</span>req.<span class="orange">ctx</span>.Done():
                     <span class="grey">// don't push onto data channel if ctx done</span>
-                case req.<span class="orange">data</span> <span class="red">&lt;-</span> "some data":
+                case req.<span class="orange">data</span> <span class="red"><-</span> "some data":
                     <span class="grey">// get data from store</span>
                 }
             }

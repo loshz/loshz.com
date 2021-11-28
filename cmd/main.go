@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"strings"
+	"text/template"
+	"time"
 )
 
 func main() {
@@ -22,9 +23,16 @@ func main() {
 			fmt.Printf("\nError: %s\n%v", filename, err)
 			os.Exit(1)
 		}
-
 		fmt.Println(filename)
 	}
+
+	fmt.Println("\nCompiling rss feed...")
+	filename, err := compileRSS(pages)
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+		os.Exit(1)
+	}
+	fmt.Println(filename)
 
 	if *local {
 		fmt.Println("\nRunning local webserver: http://localhost:8001")
@@ -33,12 +41,33 @@ func main() {
 	}
 }
 
-func compileHTML(p page) (string, error) {
+func compileRSS(pages []Page) (string, error) {
+	// create/open rss file
+	f, err := os.Create("./docs/index.xml")
+	if err != nil {
+		return "", fmt.Errorf("error opening rss file: %w", err)
+	}
+	defer f.Close()
+
+	var Data = struct {
+		Date  string
+		Pages []Page
+	}{time.Now().Format(time.RFC1123), pages}
+
+	rss := template.Must(template.ParseFiles("./templates/rss.tmpl"))
+	if err := rss.ExecuteTemplate(f, "rss", Data); err != nil {
+		return "", fmt.Errorf("err executing template: %w", err)
+	}
+
+	return f.Name(), nil
+}
+
+func compileHTML(p Page) (string, error) {
 	// strip template file ending
-	path := fmt.Sprintf("./docs/%s", strings.ReplaceAll(p.tmpl, ".tmpl", ".html"))
+	path := fmt.Sprintf("./docs/%s.html", p.Tmpl)
 
 	// if non-root page, create parent dir and update path
-	if !p.root {
+	if !p.Root {
 		path = strings.TrimSuffix(path, ".html")
 		if _, err := os.Stat(path); os.IsNotExist(err) {
 			os.MkdirAll(path, 0700)
@@ -54,7 +83,7 @@ func compileHTML(p page) (string, error) {
 	defer f.Close()
 
 	// read and parse templates
-	t := template.Must(template.ParseFiles(fmt.Sprintf("./templates/%s", p.tmpl), "./templates/site.tmpl"))
+	t := template.Must(template.ParseFiles(fmt.Sprintf("./templates/%s.tmpl", p.Tmpl), "./templates/site.tmpl"))
 
 	// write template to static html file
 	if err := t.ExecuteTemplate(f, "site", p); err != nil {
