@@ -5,7 +5,7 @@
     <link>https://syscll.org/</link>
     <description>A collection of articles focused around distributed systems, networking, observability and related topics.</description>
     <language>en-gb</language>
-	<lastBuildDate>Sat, 27 Nov 2021 18:51:12 PST</lastBuildDate>
+	<lastBuildDate>Sun, 28 Nov 2021 03:25:35 UTC</lastBuildDate>
     
 	<atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
 	
@@ -14,84 +14,84 @@
 	
 	
 	<item>
-	<title>Message Privacy &amp; Security</title>
+		<title>Message Privacy &amp; Security</title>
 		<link>https://syscll.org/message-privacy-security/</link>
 		<guid>https://syscll.org/message-privacy-security/</guid>
 		<pubDate>Thu, 07 Jan 2021 15:00:00 +0100</pubDate>
 		<description>Keeping your personal conversations private and secure.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>AWS ELB vs HAProxy</title>
+		<title>AWS ELB vs HAProxy</title>
 		<link>https://syscll.org/aws-elb-vs-haproxy/</link>
 		<guid>https://syscll.org/aws-elb-vs-haproxy/</guid>
 		<pubDate>Tue, 25 Aug 2020 16:00:00 +0100</pubDate>
 		<description>Battle of the proxies.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Understanding Mutexes</title>
+		<title>Understanding Mutexes</title>
 		<link>https://syscll.org/understanding-mutexes/</link>
 		<guid>https://syscll.org/understanding-mutexes/</guid>
 		<pubDate>Tue, 22 Oct 2019 23:00:00 +0100</pubDate>
 		<description>Mutually exclusive synchronization - how does it work?</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Parallel tests in Go</title>
+		<title>Parallel tests in Go</title>
 		<link>https://syscll.org/parallel-tests-go/</link>
 		<guid>https://syscll.org/parallel-tests-go/</guid>
 		<pubDate>Tue, 8 Oct 2019 17:00:00 +0100</pubDate>
 		<description>Your application code doesn't have to be the only thing that executes asynchronously.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>KubeCon &amp; CloudNativeCon — North America '18</title>
+		<title>KubeCon &amp; CloudNativeCon — North America '18</title>
 		<link>https://syscll.org/kubecon-18/</link>
 		<guid>https://syscll.org/kubecon-18/</guid>
 		<pubDate>Sun, 30 Dec 2018 17:00:00 +0100</pubDate>
 		<description>8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Remote Cohesion</title>
+		<title>Remote Cohesion</title>
 		<link>https://syscll.org/remote-cohesion/</link>
 		<guid>https://syscll.org/remote-cohesion/</guid>
 		<pubDate>Fri, 30 Nov 2018 17:00:00 +0100</pubDate>
 		<description>Fusing a team together in a distant world.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Kubernetes: Migrating legacy services</title>
+		<title>Kubernetes: Migrating legacy services</title>
 		<link>https://syscll.org/k8s-migration/</link>
 		<guid>https://syscll.org/k8s-migration/</guid>
 		<pubDate>Wed, 31 Oct 2018 17:00:00 +0100</pubDate>
 		<description>Why copy/pasting your services to Kubernetes isn't always the answer.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Kubernetes: Canary release</title>
+		<title>Kubernetes: Canary release</title>
 		<link>https://syscll.org/k8s-canary-release/</link>
 		<guid>https://syscll.org/k8s-canary-release/</guid>
 		<pubDate>Fri, 11 May 2018 17:00:00 +0100</pubDate>
 		<description>Reduce the risk of introducing a new software version in Kubernets.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Kubernetes: Service ports</title>
+		<title>Kubernetes: Service ports</title>
 		<link>https://syscll.org/k8s-service-ports/</link>
 		<guid>https://syscll.org/k8s-service-ports/</guid>
 		<pubDate>Thu, 05 Apr 2018 17:00:00 +0100</pubDate>
 		<description>Balance the load.</description>
-    </item>
+	</item>
 	
 	<item>
-	<title>Manage channel operations using context</title>
+		<title>Manage channel operations using context</title>
 		<link>https://syscll.org/manage-channel-ops/</link>
 		<guid>https://syscll.org/manage-channel-ops/</guid>
 		<pubDate>Fri, 05 May 2017 17:00:00 +0100</pubDate>
 		<description>Give extra context when it is most needed.</description>
-    </item>
+	</item>
 	
   </channel>
 </rss>
