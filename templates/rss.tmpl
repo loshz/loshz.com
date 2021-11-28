@@ -10,12 +10,12 @@
 	<atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
 	{{range .Pages}}
 	{{if .RSS}}<item>
-	<title>{{.Title}}</title>
+		<title>{{.Title}}</title>
 		<link>https://syscll.org/{{.Tmpl}}/</link>
 		<guid>https://syscll.org/{{.Tmpl}}/</guid>
 		<pubDate>{{.Date}}</pubDate>
 		<description>{{.Description}}</description>
-    </item>{{end}}
+	</item>{{end}}
 	{{end}}
   </channel>
 </rss>{{end}}
