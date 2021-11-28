@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v1
+        with:
+          go-version: '1.17'
+      - run: make build
+      - run: |
+          git config --global user.name 'Dan Bond'
+          git config --global user.email 'syscll@users.noreply.github.com'
+          git commit -am "[ci] autobuild on push"
+          git push
