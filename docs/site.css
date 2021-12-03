@@ -18,13 +18,13 @@ body {
 }
 
 header h1 {
-	display: block;
+	display: inline-block;
 }
 
 header ul {
 	list-style: none;
-	float: none;
-	margin-top: 15px;
+	float: right;
+	margin-top: 10px;
 	height: 20px;
 }
 
@@ -186,15 +186,6 @@ pre code {
 	body {
 		font-size: 1rem;
 		padding: 20px;
-	}
-
-	header h1 {
-		display: inline-block;
-	}
-
-	header ul {
-		float: right;
-		margin-top: 5px;
 	}
 
 	header li {
