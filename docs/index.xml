@@ -3,9 +3,9 @@
   <channel>
     <title>Programming: thoughts and paradigms</title>
     <link>https://syscll.org/</link>
-    <description>A collection of articles focused around distributed systems, networking, observability and related topics.</description>
+    <description>A collection of articles focused on distributed systems, networking, observability and related topics.</description>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 03 Dec 2021 01:10:49 UTC</lastBuildDate>
+    <lastBuildDate>Thu, 02 Dec 2021 17:39:14 PST</lastBuildDate>
     
     <atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
 	

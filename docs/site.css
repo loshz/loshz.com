@@ -122,6 +122,12 @@ p:last-child {
 .content ol, .content ul {
 	width: 100%;
 	margin-bottom: 10px;
+}
+
+.content ol {
+	padding-left: 2rem;
+}
+.content ul {
 	padding-left: 1rem;
 }
 
@@ -208,7 +214,6 @@ pre code {
 	}
 
 	.content ol, .content ul {
-		padding-left: 2rem;
 	}
 }
 
