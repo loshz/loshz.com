@@ -6,7 +6,7 @@
 }
 
 body {
-	font-size: 1rem;
+	font-size: 1.1rem;
 	line-height: 1.5;
 	font-family: Serif;
 	background: #FFF;
@@ -52,16 +52,16 @@ footer {
 }
 
 h1 {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 }
 
 h2 {
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	margin-bottom: 10px;
 }
 
 h3 {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	margin: 15px 0 5px;
 }
 
@@ -178,9 +178,9 @@ pre code {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 	body {
+		font-size: 1rem;
 		padding: 20px;
 	}
-
 
 	header h1 {
 		display: inline-block;
@@ -193,6 +193,18 @@ pre code {
 
 	header li {
 		margin: 0 0 0 15px;
+	}
+
+	h1 {
+		font-size: 1.4rem;
+	}
+
+	h2 {
+		font-size: 1.3rem;
+	}
+
+	h3 {
+		font-size: 1.1rem;
 	}
 
 	.content ol, .content ul {
