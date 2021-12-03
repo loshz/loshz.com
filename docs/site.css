@@ -6,11 +6,49 @@
 }
 
 body {
-	font-size: 15px;
+	font-size: 1rem;
 	line-height: 1.5;
-	font-family: Sans-Serif;
+	font-family: Serif;
 	background: #FFF;
 	color: #121212;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 800px;
+	padding: 10px;
+}
+
+header h1 {
+	display: block;
+}
+
+header ul {
+	list-style: none;
+	float: none;
+	margin-top: 15px;
+	height: 20px;
+}
+
+header ul a {
+	text-decoration: none;
+}
+
+header li {
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+header svg {
+	width: 20px;
+}
+
+header svg path {
+	fill: #121212;
+}
+
+footer {
+	border-top: 1px solid #828282;
+	padding: 10px 0 0;
+	font-size: 0.8rem;
 }
 
 h1 {
@@ -18,11 +56,13 @@ h1 {
 }
 
 h2 {
-	font-size: 1.2rem;
+	font-size: 1.3rem;
+	margin-bottom: 10px;
 }
 
 h3 {
 	font-size: 1.1rem;
+	margin: 15px 0 5px;
 }
 
 a {
@@ -31,20 +71,6 @@ a {
 
 a:hover {
 	text-decoration: underline;
-}
-
-.sidebar {
-	background: #F2F2F2;
-	border-right: none;
-	height: auto;
-	position: relative;
-	top: auto;
-	left: auto;
-	padding: 1rem;
-	max-width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 
 h1 a, h2 a {
@@ -56,57 +82,10 @@ h1 a:hover, h2 a:hover {
 	text-decoration: underline;
 }
 
-.sidebar h1 a, .sidebar h1 a:visited {
-	color: #121212;
-}
-
-.sidebar h2 {
-	margin: 25px 0;
-	font-weight: 300;
-	font-size: 1rem;
-}
-
-.sidebar ul {
-	padding: 0;
-	font-size: 1rem;
-	margin-bottom: 25px;
-}
-
-.sidebar li {
-	font-weight: bold;
-	list-style: none;
-}
-
-.sidebar li a {
-	font-weight: 300;
-}
-
-.sidebar p {
-	font-size: 0.7rem;
-}
-
-.content {
-	width: 100%;
-	max-width: 100%;
-	margin-left: 0;
-	padding: 1rem;
-}
-
-.content.not-found {
-	margin-left: 0;
-}
-
-.content .archive {
-	margin-bottom: 2rem;
-}
-
-.content .archive:last-child {
-	margin-bottom: 0;
-}
-
 .date {
 	font-size: 0.9rem;
-	color: #808080;
+	color: #828282;
+	font-style: italic;
 	margin: 0;
 }
 
@@ -118,7 +97,6 @@ img {
 
 p {
 	margin: 0 0 10px;
-	font-size: 1rem;
 }
 
 p:last-child {
@@ -128,34 +106,31 @@ p:last-child {
 .caption {
 	text-align: center;
 	font-size: 0.9rem;
-	color: #808080;
+	color: #828282;
 }
 
 .quote {
-	border-left: 3px solid #000;
+	border-left: 3px solid #121212;
 	font-style: italic;
 	padding-left: 10px;
 }
 
-ol, ul {
+.content {
+	margin: 20px 0;
+}
+
+.content ol, .content ul {
 	width: 100%;
 	margin-bottom: 10px;
+	padding-left: 1rem;
 }
 
-ol {
-	padding-left: 30px;
-}
-
-ul {
-	padding-left: 2rem;
-}
-
-li {
+.content li {
 	margin-bottom: 5px;
 	width: 100%;
 }
 
-li:last-child {
+.content li:last-child {
 	margin-bottom: 0;
 }
 
@@ -202,65 +177,37 @@ pre code {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-	.sidebar {
-		height: 100%;
-		position: fixed;
-		top: 0;
-		left: 0;
-		max-width: 250px;
+	body {
+		padding: 20px;
 	}
 
-	.content {
-		max-width: 60%;
-		margin-left: 250px;
-	}
-}
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-	h1 {
-		font-size: 1.8rem;
+	header h1 {
+		display: inline-block;
 	}
 
-	h2 {
-		font-size: 1.3rem;
+	header ul {
+		float: right;
+		margin-top: 5px;
 	}
 
-	.sidebar {
-		padding: 2rem;
-		max-width: 300px;
+	header li {
+		margin: 0 0 0 15px;
 	}
 
-	.content {
-		max-width: 60%;
-		padding: 2rem;
-		margin-left: 300px;
+	.content ol, .content ul {
+		padding-left: 2rem;
 	}
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-	.content {
-		width: 40%;
-		max-width: 800px;
-	}
-} 
-
-/* Devices prefering dark mode */
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
-		color: #F2F2F2;
+		color: #C9D1D9;
 	}
 
-	.sidebar {
-		background: #121212;
-		border-right: 1px solid #2E2E2E;
-		border-bottom: 1px solid #2E2E2E;
-	}
-
-	.sidebar h1 a, .sidebar h1 a:visited {
-		color: #F2F2F2;
+	header svg path {
+		fill: #C9D1D9;
 	}
 
 	pre, code {
@@ -276,6 +223,6 @@ pre code {
 	}
 
 	.quote {
-		border-left: 3px solid #2E2E2E;
+		border-left: 3px solid #C9D1D9;
 	}
 }

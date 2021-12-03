@@ -1,5 +1,4 @@
 {{define "content"}}
-		<div class="archive">
 			<p class="date">Apr 5, 2018</p>
 			<h2>Kubernetes: Service ports</h2>
 			<p>Recently, I've been creating a lot of both internal and internet-facing LoadBalancer Services as this is a great way to expose your cluster to traffic. When doing this on AWS, unless specified otherwise, Kubernetes will automatically create a Classic Load Balancer and attach the relevant instances.</p>
@@ -40,5 +39,4 @@ spec:
 				<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a></li>
 				<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">Kubernetes Service: LoadBalancer</a></li>
 			</ul>
-		</div>
 {{end}}
