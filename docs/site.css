@@ -8,7 +8,7 @@
 body {
 	font-size: 1.1rem;
 	line-height: 1.5;
-	font-family: Serif;
+	font-family: Sans-serif;
 	background: #FFF;
 	color: #121212;
 	margin: 0 auto;
@@ -87,6 +87,8 @@ h1 a:hover, h2 a:hover {
 	color: #828282;
 	font-style: italic;
 	margin: 0;
+	min-width: 90px;
+	display: inline-block;
 }
 
 img {
