@@ -6,7 +6,7 @@
 }
 
 body {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	line-height: 1.5;
 	font-family: Sans-serif;
 	background: #FFF;
@@ -186,7 +186,6 @@ pre code {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 	body {
-		font-size: 1rem;
 		padding: 20px;
 	}
 
