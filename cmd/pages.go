@@ -17,7 +17,7 @@ type Page struct {
 
 var pages = []Page{
 	{
-		Title: "Programming: thoughts and paradigms",
+		Title: "syscll.org",
 		Tmpl:  "index",
 		Root:  true,
 	},
