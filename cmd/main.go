@@ -13,6 +13,7 @@ import (
 
 func main() {
 	var local = flag.Bool("local", false, "Run local webserver")
+	var rss = flag.Bool("rss", false, "Compile RSS feed")
 	flag.Parse()
 
 	fmt.Println("Compiling static html...")
@@ -26,13 +27,15 @@ func main() {
 		fmt.Println(filename)
 	}
 
-	fmt.Println("\nCompiling rss feed...")
-	filename, err := compileRSS(pages)
-	if err != nil {
-		fmt.Printf("Error: %v", err)
-		os.Exit(1)
+	if *rss {
+		fmt.Println("\nCompiling rss feed...")
+		filename, err := compileRSS(pages)
+		if err != nil {
+			fmt.Printf("Error: %v", err)
+			os.Exit(1)
+		}
+		fmt.Println(filename)
 	}
-	fmt.Println(filename)
 
 	if *local {
 		fmt.Println("\nRunning local webserver: http://localhost:8001")

@@ -1,7 +1,5 @@
+ARGS ?= -local
+
 .PHONY: build
 build:
-	go run ./cmd/...
-
-.PHONY: local
-local:
-	go run ./cmd/... -local
+	go run ./cmd/... $(ARGS)
