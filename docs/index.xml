@@ -5,13 +5,21 @@
     <link>https://syscll.org/</link>
     <description>A collection of articles focused on distributed systems, networking, observability and related topics.</description>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 13 Dec 2021 11:04:41 UTC</lastBuildDate>
+    <lastBuildDate>Tue, 14 Dec 2021 17:23:00 GMT</lastBuildDate>
     
     <atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
 	
     
 	
     
+	
+    <item>
+      <title>Segfaults in safe code</title>
+      <link>https://syscll.org/segfaults-in-safe-code/</link>
+      <guid>https://syscll.org/segfaults-in-safe-code/</guid>
+      <pubDate>Tue, 14 Dec 2021 17:00:00 +0100</pubDate>
+      <description>Constructing a dangling pointer isn't considered unsafe in itself - but using it is.</description>
+    </item>
 	
     <item>
       <title>Message Privacy &amp; Security</title>

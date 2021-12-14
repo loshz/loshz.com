@@ -26,6 +26,13 @@ var pages = []Page{
 		Tmpl:  "etc",
 	},
 	{
+		Title:       "Segfaults in safe code",
+		Tmpl:        "segfaults-in-safe-code",
+		RSS:         true,
+		Date:        "Tue, 14 Dec 2021 17:00:00 +0100",
+		Description: "Constructing a dangling pointer isn't considered unsafe in itself - but using it is.",
+	},
+	{
 		Title:       "Message Privacy &amp; Security",
 		Tmpl:        "message-privacy-security",
 		RSS:         true,
