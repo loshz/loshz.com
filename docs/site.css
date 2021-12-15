@@ -172,7 +172,7 @@ pre code .grey {
 }
 
 pre code .green {
-	color: #00FF00;
+	color: #44BD32;
 }
 
 code {
@@ -225,6 +225,14 @@ pre code {
 
 	a, pre code .blue {
 		color: #6479FF;
+	}
+
+	pre code .grey {
+		color: #7F8C8D;
+	}
+
+	pre code .green {
+		color: #00FF00;
 	}
 
 	a:visited {
