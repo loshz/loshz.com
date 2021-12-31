@@ -1,18 +1,20 @@
 package main
 
+import "time"
+
 type Page struct {
 	// HTML title
 	Title string
+	// HTML content description
+	Description string
 	// Template path
 	Tmpl string
+	// Publish date
+	DateTime time.Time
 	// Is HTML in root dir
 	Root bool
-	// Create RSS page?
+	// Create RSS page
 	RSS bool
-	// Publish date
-	Date string
-	// Content description
-	Description string
 }
 
 var pages = []Page{
@@ -27,79 +29,79 @@ var pages = []Page{
 	},
 	{
 		Title:       "Segfaults in safe code",
-		Tmpl:        "segfaults-in-safe-code",
-		RSS:         true,
-		Date:        "Tue, 14 Dec 2021 17:00:00 +0100",
 		Description: "Constructing a dangling pointer isn't considered unsafe in itself - but using it is.",
+		Tmpl:        "segfaults-in-safe-code",
+		DateTime:    time.Date(2021, time.December, 14, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Message Privacy &amp; Security",
-		Tmpl:        "message-privacy-security",
-		RSS:         true,
-		Date:        "Thu, 07 Jan 2021 15:00:00 +0100",
 		Description: "Keeping your personal conversations private and secure.",
+		Tmpl:        "message-privacy-security",
+		DateTime:    time.Date(2021, time.January, 07, 15, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "AWS ELB vs HAProxy",
-		Tmpl:        "aws-elb-vs-haproxy",
-		RSS:         true,
-		Date:        "Tue, 25 Aug 2020 16:00:00 +0100",
 		Description: "Battle of the proxies.",
+		Tmpl:        "aws-elb-vs-haproxy",
+		DateTime:    time.Date(2020, time.August, 25, 16, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Understanding Mutexes",
-		Tmpl:        "understanding-mutexes",
-		RSS:         true,
-		Date:        "Tue, 22 Oct 2019 23:00:00 +0100",
 		Description: "Mutually exclusive synchronization - how does it work?",
+		Tmpl:        "understanding-mutexes",
+		DateTime:    time.Date(2019, time.October, 22, 23, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Parallel tests in Go",
-		Tmpl:        "parallel-tests-go",
-		RSS:         true,
-		Date:        "Tue, 8 Oct 2019 17:00:00 +0100",
 		Description: "Your application code doesn't have to be the only thing that executes asynchronously.",
+		Tmpl:        "parallel-tests-go",
+		DateTime:    time.Date(2019, time.October, 8, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "KubeCon &amp; CloudNativeCon — North America '18",
-		Tmpl:        "kubecon-18",
-		RSS:         true,
-		Date:        "Sun, 30 Dec 2018 17:00:00 +0100",
 		Description: "8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.",
+		Tmpl:        "kubecon-18",
+		DateTime:    time.Date(2018, time.December, 30, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Remote Cohesion",
-		Tmpl:        "remote-cohesion",
-		RSS:         true,
-		Date:        "Fri, 30 Nov 2018 17:00:00 +0100",
 		Description: "Fusing a team together in a distant world.",
+		Tmpl:        "remote-cohesion",
+		DateTime:    time.Date(2018, time.November, 30, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Kubernetes: Migrating legacy services",
-		Tmpl:        "k8s-migration",
-		RSS:         true,
-		Date:        "Wed, 31 Oct 2018 17:00:00 +0100",
 		Description: "Why copy/pasting your services to Kubernetes isn't always the answer.",
+		Tmpl:        "k8s-migration",
+		DateTime:    time.Date(2018, time.October, 31, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Kubernetes: Canary release",
-		Tmpl:        "k8s-canary-release",
-		RSS:         true,
-		Date:        "Fri, 11 May 2018 17:00:00 +0100",
 		Description: "Reduce the risk of introducing a new software version in Kubernets.",
+		Tmpl:        "k8s-canary-release",
+		DateTime:    time.Date(2018, time.May, 11, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Kubernetes: Service ports",
-		Tmpl:        "k8s-service-ports",
-		RSS:         true,
-		Date:        "Thu, 05 Apr 2018 17:00:00 +0100",
 		Description: "Balance the load.",
+		Tmpl:        "k8s-service-ports",
+		DateTime:    time.Date(2018, time.April, 5, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 	{
 		Title:       "Manage channel operations using context",
-		Tmpl:        "manage-channel-ops",
-		RSS:         true,
-		Date:        "Fri, 05 May 2017 17:00:00 +0100",
 		Description: "Give extra context when it is most needed.",
+		Tmpl:        "manage-channel-ops",
+		DateTime:    time.Date(2017, time.May, 05, 17, 0, 0, 0, time.UTC),
+		RSS:         true,
 	},
 }

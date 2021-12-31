@@ -16,27 +16,23 @@ func main() {
 	var rss = flag.Bool("rss", false, "Compile RSS feed")
 	flag.Parse()
 
+	// Compile static HTML
 	fmt.Println("Compiling static html...")
-
 	for _, p := range pages {
-		filename, err := compileHTML(p)
-		if err != nil {
-			fmt.Printf("\nError: %s\n%v", filename, err)
-			os.Exit(1)
+		if err := compileHTML(p); err != nil {
+			log.Fatal(err)
 		}
-		fmt.Println(filename)
 	}
 
+	// Compile RSS feed
 	if *rss {
 		fmt.Println("\nCompiling rss feed...")
-		filename, err := compileRSS(pages)
-		if err != nil {
-			fmt.Printf("Error: %v", err)
-			os.Exit(1)
+		if err := compileRSS(pages); err != nil {
+			log.Fatal(err)
 		}
-		fmt.Println(filename)
 	}
 
+	// Run local webserver
 	if *local {
 		fmt.Println("\nRunning local webserver: http://localhost:8001")
 		http.Handle("/", http.FileServer(http.Dir("./docs")))
@@ -44,28 +40,29 @@ func main() {
 	}
 }
 
-func compileRSS(pages []Page) (string, error) {
+func compileRSS(pages []Page) error {
 	// create/open rss file
 	f, err := os.Create("./docs/index.xml")
 	if err != nil {
-		return "", fmt.Errorf("error opening rss file: %w", err)
+		return fmt.Errorf("error opening rss file: %w", err)
 	}
 	defer f.Close()
 
 	var Data = struct {
-		Date  string
-		Pages []Page
-	}{time.Now().Format(time.RFC1123), pages}
+		DateTime string
+		Pages    []Page
+	}{time.Now().UTC().Format(time.RFC822), pages}
 
 	rss := template.Must(template.ParseFiles("./templates/rss.tmpl"))
 	if err := rss.ExecuteTemplate(f, "rss", Data); err != nil {
-		return "", fmt.Errorf("err executing template: %w", err)
+		return fmt.Errorf("err executing template: %w", err)
 	}
 
-	return f.Name(), nil
+	fmt.Println(f.Name())
+	return nil
 }
 
-func compileHTML(p Page) (string, error) {
+func compileHTML(p Page) error {
 	// strip template file ending
 	path := fmt.Sprintf("./docs/%s.html", p.Tmpl)
 
@@ -81,7 +78,7 @@ func compileHTML(p Page) (string, error) {
 	// create/open static html file
 	f, err := os.Create(path)
 	if err != nil {
-		return path, fmt.Errorf("error opening static page: %w", err)
+		return fmt.Errorf("error opening static page: %w", err)
 	}
 	defer f.Close()
 
@@ -90,8 +87,9 @@ func compileHTML(p Page) (string, error) {
 
 	// write template to static html file
 	if err := t.ExecuteTemplate(f, "site", p); err != nil {
-		return f.Name(), fmt.Errorf("error executing template: %w", err)
+		return fmt.Errorf("error executing template: %w", err)
 	}
 
-	return f.Name(), nil
+	fmt.Println(f.Name())
+	return nil
 }
