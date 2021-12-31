@@ -96,7 +96,7 @@ h1 a:hover, h2 a:hover {
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
 	display: inline-block;
 	margin: 0 0 10px;
 }
