@@ -1,26 +1,26 @@
 {{define "content"}}
-			<p class="date">Oct 31, 2018</p>
-			<h2>Kubernetes: Migrating legacy services</h2>
-			<p>Firstly, let me explain what I mean by a <em>legacy</em> service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</p>
-			<p>A lot of time can be spent trying to perfect your Kubernetes setup while striving to ensure you have the most reliable cluster configuration. But a question that is arguably more important and commonly overlooked: are your services ready for Kubernetes?</p>
-			<h3>Startup operations</h3>
-			<p>Not all services start by just running a simple web server. A lot of the time they'll need to perform resource-heavy tasks such as caching data in memory, writing to files, performing health checks, etc. This can take anywhere from a few seconds to a couple of minutes if not longer.</p>
-			<p>In order to perform these tasks, the service will usually need to communicate with several other services until completion. This in itself isn't a major problem as regardless of the platform the services are running in, these tasks will always need to run.</p>
-			<p>The problems start to arise when running these services inside Kubernetes as the chances of the service frequently restarting are increased due to several reasons:</p>
-			<ol>
-				<li>Increased resource contention</li>
-				<li>Rescheduling due to a node being under/over utilised</li>
-				<li>Startup/shutdown of a service that's under/over utilised</li>
-				<li>Increased number of deployments due to the ease of Kubernetes</li>
-			</ol>
-			<p>It's common to see the above events happen more frequently when running inside Kubernetes compared to running when running in a silo. The direct impact on this is not only on the service performing the startup operations but also on the services it's communicating with. They are going to see an increase in usage/requests which in turn leads to greater resource requests and slower response times.</p>
-			<p>If a service takes only takes 2 minutes to bootstrap but it restarts 3x as often then it might not be too much of a problem. However, if a service takes 10 minutes to bootstrap then you're going to see a significant usage increase across the board and in most cases, this is going to have a dramatic impact on all of your services cluster-wide.</p>
-			<h3>Leader election</h3>
-			<p><a href="https://en.wikipedia.org/wiki/Leader_election">Leader election</a> isn't a new concept, and it's definitely not specific to Kubernetes, but it's not always the responsibility of an individual service to configure this automatically. When running replicated services on individual nodes with known hostnames/IP addresses, it can sometimes be easier to manually specify which replica should be the leader using environment variables, config files, etc.</p>
-			<p>In Kubernetes this assumption can't be as easily made as you can't always guarantee the service hostname or which node the service will be scheduled on. In this case, you'll need to ensure your service is responsible for handling leader election.</p>
-			<p>This isn't the biggest of challenges, but it can sometimes require infrastructure considerations. You might need to run a service such as <a href="https://www.consul.io/docs/guides/leader-election.html">Consul</a> which provides robust functionality for setting and discovering elected leaders. However, implementing this will obviously require additional code in your services.</p>
-			<h3>Persistent disk</h3>
-			<p>Another small consideration is the availability of persistent disk. If you are not directly mounting a volume in your Deployment/StatefulSet, you will need to ensure your service handles any data that needs to be persisted. Whether this is log files, local databases, caches, etc., you may well need to configure and have your services use an external data storage solution.</p>
-			<hr />
-			<p>The above issues are just a few of the <em>many</em> considerations that need to be addressed before migrating services to Kubernetes. Of course, it's not possible to anticipate all of them, but I would highly recommend reassessing your current architecture to ensure there are little to no potential pitfalls.</p>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
+<h2>Kubernetes: Migrating legacy services</h2>
+<p>Firstly, let me explain what I mean by a <em>legacy</em> service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</p>
+<p>A lot of time can be spent trying to perfect your Kubernetes setup while striving to ensure you have the most reliable cluster configuration. But a question that is arguably more important and commonly overlooked: are your services ready for Kubernetes?</p>
+<h3>Startup operations</h3>
+<p>Not all services start by just running a simple web server. A lot of the time they'll need to perform resource-heavy tasks such as caching data in memory, writing to files, performing health checks, etc. This can take anywhere from a few seconds to a couple of minutes if not longer.</p>
+<p>In order to perform these tasks, the service will usually need to communicate with several other services until completion. This in itself isn't a major problem as regardless of the platform the services are running in, these tasks will always need to run.</p>
+<p>The problems start to arise when running these services inside Kubernetes as the chances of the service frequently restarting are increased due to several reasons:</p>
+<ol>
+	<li>Increased resource contention</li>
+	<li>Rescheduling due to a node being under/over utilised</li>
+	<li>Startup/shutdown of a service that's under/over utilised</li>
+	<li>Increased number of deployments due to the ease of Kubernetes</li>
+</ol>
+<p>It's common to see the above events happen more frequently when running inside Kubernetes compared to running when running in a silo. The direct impact on this is not only on the service performing the startup operations but also on the services it's communicating with. They are going to see an increase in usage/requests which in turn leads to greater resource requests and slower response times.</p>
+<p>If a service takes only takes 2 minutes to bootstrap but it restarts 3x as often then it might not be too much of a problem. However, if a service takes 10 minutes to bootstrap then you're going to see a significant usage increase across the board and in most cases, this is going to have a dramatic impact on all of your services cluster-wide.</p>
+<h3>Leader election</h3>
+<p><a href="https://en.wikipedia.org/wiki/Leader_election">Leader election</a> isn't a new concept, and it's definitely not specific to Kubernetes, but it's not always the responsibility of an individual service to configure this automatically. When running replicated services on individual nodes with known hostnames/IP addresses, it can sometimes be easier to manually specify which replica should be the leader using environment variables, config files, etc.</p>
+<p>In Kubernetes this assumption can't be as easily made as you can't always guarantee the service hostname or which node the service will be scheduled on. In this case, you'll need to ensure your service is responsible for handling leader election.</p>
+<p>This isn't the biggest of challenges, but it can sometimes require infrastructure considerations. You might need to run a service such as <a href="https://www.consul.io/docs/guides/leader-election.html">Consul</a> which provides robust functionality for setting and discovering elected leaders. However, implementing this will obviously require additional code in your services.</p>
+<h3>Persistent disk</h3>
+<p>Another small consideration is the availability of persistent disk. If you are not directly mounting a volume in your Deployment/StatefulSet, you will need to ensure your service handles any data that needs to be persisted. Whether this is log files, local databases, caches, etc., you may well need to configure and have your services use an external data storage solution.</p>
+<hr />
+<p>The above issues are just a few of the <em>many</em> considerations that need to be addressed before migrating services to Kubernetes. Of course, it's not possible to anticipate all of them, but I would highly recommend reassessing your current architecture to ensure there are little to no potential pitfalls.</p>
 {{end}}

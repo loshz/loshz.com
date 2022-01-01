@@ -1,5 +1,5 @@
 {{define "content"}}
-<p class="date">Dec 14, 2021</p>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
 <h2>Segfaults in safe code</h2>
 <p>I was recently working on an interesting usecase in a Rust project, specifically a Linux PAM library, where we pass a raw pointer to a C function.</p>
 <p>For the sake of brevity, the code looks something like this:</p>

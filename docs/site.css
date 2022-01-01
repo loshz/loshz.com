@@ -21,6 +21,10 @@ header h1 {
 	display: inline-block;
 }
 
+header p {
+	font-style: italic;
+}
+
 header ul {
 	list-style: none;
 	float: right;
@@ -34,25 +38,12 @@ header ul a {
 
 header li {
 	float: left;
-	margin: 0 0 0 15px;
-}
-
-header svg {
-	width: 20px;
-}
-
-header svg path {
-	fill: #121212;
+	margin: 0 0 0 10px;
 }
 
 footer {
-	border-top: 1px solid #828282;
-	padding: 10px 0 0;
-	font-size: 0.8rem;
-}
-
-footer a:last-child {
-	float: right;
+	margin: 15px 0 0;
+	font-size: 0.7rem;
 }
 
 h1 {
@@ -90,8 +81,7 @@ h1 a:hover, h2 a:hover {
 	font-size: 0.9rem;
 	color: #828282;
 	font-style: italic;
-	margin: 0;
-	min-width: 90px;
+	margin: 0 5px 0 0;
 	display: inline-block;
 }
 
@@ -198,18 +188,11 @@ pre code {
 	}
 
 	h1 {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 	}
 
 	h2 {
-		font-size: 1.3rem;
-	}
-
-	h3 {
-		font-size: 1.1rem;
-	}
-
-	.content ol, .content ul {
+		font-size: 1.5rem;
 	}
 }
 
@@ -217,10 +200,6 @@ pre code {
 	body {
 		background: #121212;
 		color: #C9D1D9;
-	}
-
-	header svg path {
-		fill: #C9D1D9;
 	}
 
 	pre, code {
