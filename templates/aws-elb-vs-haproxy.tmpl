@@ -1,6 +1,6 @@
 {{define "content"}}
 <p class="date">{{.DateTime.Format "2006-01-02"}}</p>
-	<h2>AWS ELB vs HAProxy</h2>
+<h2>{{.Title}}</h2>
 	<p>If you're using AWS as your cloud provider, the chances are you're using their defacto ELB service to manage load balancing. It's got a big list of pros: easy to configure; scalable; free SSL; seamless EC2 integration. With the only real con being the expensiveness of running at scale, especially in front of multi-zone, large data-transfering services - or so I thought.</p>
 	<p>ELBs are an effective and extremely reliable way of distributing load across your services. But after troubleshooting random drops in network connections and investigating drastically uneven requests per services, it was time to look at alternatives.</p>
 	<p>So after some extensive research and a little trial and error, I landed on HAProxy being the best alternative, as you can see from the migration graph below:</p>
