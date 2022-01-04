@@ -125,6 +125,7 @@ p:last-child {
 }
 .content ul {
 	padding-left: 1rem;
+	list-style: square;
 }
 
 .content li {
