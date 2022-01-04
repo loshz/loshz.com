@@ -17,8 +17,8 @@ body {
 	padding: 10px;
 }
 
-header h1 {
-	display: inline-block;
+header {
+	text-align: center;
 }
 
 header p {
@@ -27,9 +27,8 @@ header p {
 
 header ul {
 	list-style: none;
-	float: right;
-	margin-top: 5px;
-	height: 20px;
+	margin: 5px auto 0;
+	display: inline-block;
 }
 
 header ul a {
@@ -42,8 +41,9 @@ header li {
 }
 
 footer {
-	margin: 15px 0 0;
+	margin: 35px 0 0;
 	font-size: 0.7rem;
+	text-align: center;
 }
 
 h1 {
@@ -188,7 +188,7 @@ pre code {
 	}
 
 	h1 {
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 	}
 
 	h2 {
