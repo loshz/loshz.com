@@ -13,7 +13,7 @@ body {
 	color: #121212;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 800px;
+	max-width: 750px;
 	padding: 10px;
 }
 
@@ -138,6 +138,10 @@ p:last-child {
 
 .content li:last-child {
 	margin-bottom: 0;
+}
+
+.content ul#posts .date {
+	float: right;
 }
 
 pre {
