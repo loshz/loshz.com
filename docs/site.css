@@ -37,6 +37,9 @@ header ul a {
 
 header li {
 	float: left;
+}
+
+header li:last-child {
 	margin: 0 0 0 10px;
 }
 
