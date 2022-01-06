@@ -84,7 +84,7 @@ h1 a:hover, h2 a:hover {
 	font-size: 0.9rem;
 	color: #828282;
 	font-style: italic;
-	margin: 0 0 0 5px;
+	margin: 0;
 }
 
 img {
@@ -139,7 +139,23 @@ p:last-child {
 	margin-bottom: 0;
 }
 
+.content ul#posts a {
+	margin-right: 5px;
+}
+
 .content ul#posts .date {
+	float: right;
+}
+
+p.previous, p.next {
+	display: inline-block;
+	margin: 0 0 20px;
+	font-style: italic;
+	width: 50%;
+}
+
+p.next {
+	text-align: right;
 	float: right;
 }
 
@@ -203,7 +219,7 @@ pre code {
 	}
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: darks) {
 	body {
 		background: #121212;
 		color: #C9D1D9;
