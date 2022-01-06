@@ -219,7 +219,7 @@ pre code {
 	}
 }
 
-@media (prefers-color-scheme: darks) {
+@media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
 		color: #C9D1D9;
