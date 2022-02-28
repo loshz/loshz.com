@@ -19,7 +19,7 @@ type Page struct {
 
 var pages = []Page{
 	{
-		Title: "loshz.com",
+		Title: "Programming: thoughts and paradigms.",
 		Tmpl:  "index",
 		Root:  true,
 	},
