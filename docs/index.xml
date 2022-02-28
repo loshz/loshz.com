@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming: thoughts and paradigms</title>
-    <link>https://syscll.org/</link>
+    <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, networking and everything distributed.</description>
     <language>en-gb</language>
-    <lastBuildDate>01 Jan 22 16:14 UTC</lastBuildDate>
+    <lastBuildDate>28 Feb 22 00:14 UTC</lastBuildDate>
     
-    <atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
 	
     
 	
@@ -15,88 +15,88 @@
 	
     <item>
       <title>Segfaults in safe code</title>
-      <link>https://syscll.org/segfaults-in-safe-code/</link>
-      <guid>https://syscll.org/segfaults-in-safe-code/</guid>
+      <link>https://loshz.com/segfaults-in-safe-code/</link>
+      <guid>https://loshz.com/segfaults-in-safe-code/</guid>
       <pubDate>14 Dec 21 17:00 UTC</pubDate>
       <description>Constructing a dangling pointer isn't considered unsafe in itself - but using it is.</description>
     </item>
 	
     <item>
       <title>Message Privacy &amp; Security</title>
-      <link>https://syscll.org/message-privacy-security/</link>
-      <guid>https://syscll.org/message-privacy-security/</guid>
+      <link>https://loshz.com/message-privacy-security/</link>
+      <guid>https://loshz.com/message-privacy-security/</guid>
       <pubDate>07 Jan 21 15:00 UTC</pubDate>
       <description>Keeping your personal conversations private and secure.</description>
     </item>
 	
     <item>
       <title>AWS ELB vs HAProxy</title>
-      <link>https://syscll.org/aws-elb-vs-haproxy/</link>
-      <guid>https://syscll.org/aws-elb-vs-haproxy/</guid>
+      <link>https://loshz.com/aws-elb-vs-haproxy/</link>
+      <guid>https://loshz.com/aws-elb-vs-haproxy/</guid>
       <pubDate>25 Aug 20 16:00 UTC</pubDate>
       <description>Battle of the proxies.</description>
     </item>
 	
     <item>
       <title>Understanding Mutexes</title>
-      <link>https://syscll.org/understanding-mutexes/</link>
-      <guid>https://syscll.org/understanding-mutexes/</guid>
+      <link>https://loshz.com/understanding-mutexes/</link>
+      <guid>https://loshz.com/understanding-mutexes/</guid>
       <pubDate>22 Oct 19 23:00 UTC</pubDate>
       <description>Mutually exclusive synchronization - how does it work?</description>
     </item>
 	
     <item>
       <title>Parallel tests in Go</title>
-      <link>https://syscll.org/parallel-tests-go/</link>
-      <guid>https://syscll.org/parallel-tests-go/</guid>
+      <link>https://loshz.com/parallel-tests-go/</link>
+      <guid>https://loshz.com/parallel-tests-go/</guid>
       <pubDate>08 Oct 19 17:00 UTC</pubDate>
       <description>Your application code doesn't have to be the only thing that executes asynchronously.</description>
     </item>
 	
     <item>
       <title>KubeCon &amp; CloudNativeCon — North America '18</title>
-      <link>https://syscll.org/kubecon-18/</link>
-      <guid>https://syscll.org/kubecon-18/</guid>
+      <link>https://loshz.com/kubecon-18/</link>
+      <guid>https://loshz.com/kubecon-18/</guid>
       <pubDate>30 Dec 18 17:00 UTC</pubDate>
       <description>8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.</description>
     </item>
 	
     <item>
       <title>Remote Cohesion</title>
-      <link>https://syscll.org/remote-cohesion/</link>
-      <guid>https://syscll.org/remote-cohesion/</guid>
+      <link>https://loshz.com/remote-cohesion/</link>
+      <guid>https://loshz.com/remote-cohesion/</guid>
       <pubDate>30 Nov 18 17:00 UTC</pubDate>
       <description>Fusing a team together in a distant world.</description>
     </item>
 	
     <item>
       <title>Kubernetes: Migrating legacy services</title>
-      <link>https://syscll.org/k8s-migration/</link>
-      <guid>https://syscll.org/k8s-migration/</guid>
+      <link>https://loshz.com/k8s-migration/</link>
+      <guid>https://loshz.com/k8s-migration/</guid>
       <pubDate>31 Oct 18 17:00 UTC</pubDate>
       <description>Why copy/pasting your services to Kubernetes isn't always the answer.</description>
     </item>
 	
     <item>
       <title>Kubernetes: Canary release</title>
-      <link>https://syscll.org/k8s-canary-release/</link>
-      <guid>https://syscll.org/k8s-canary-release/</guid>
+      <link>https://loshz.com/k8s-canary-release/</link>
+      <guid>https://loshz.com/k8s-canary-release/</guid>
       <pubDate>11 May 18 17:00 UTC</pubDate>
       <description>Reduce the risk of introducing a new software version in Kubernets.</description>
     </item>
 	
     <item>
       <title>Kubernetes: Service ports</title>
-      <link>https://syscll.org/k8s-service-ports/</link>
-      <guid>https://syscll.org/k8s-service-ports/</guid>
+      <link>https://loshz.com/k8s-service-ports/</link>
+      <guid>https://loshz.com/k8s-service-ports/</guid>
       <pubDate>05 Apr 18 17:00 UTC</pubDate>
       <description>Balance the load.</description>
     </item>
 	
     <item>
       <title>Manage channel operations using context</title>
-      <link>https://syscll.org/manage-channel-ops/</link>
-      <guid>https://syscll.org/manage-channel-ops/</guid>
+      <link>https://loshz.com/manage-channel-ops/</link>
+      <guid>https://loshz.com/manage-channel-ops/</guid>
       <pubDate>05 May 17 17:00 UTC</pubDate>
       <description>Give extra context when it is most needed.</description>
     </item>

@@ -1,3 +1,3 @@
-module github.com/syscll/syscll.org
+module github.com/loshz/loshz.com
 
 go 1.17

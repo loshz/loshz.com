@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming: thoughts and paradigms</title>
-    <link>https://syscll.org/</link>
+    <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, networking and everything distributed.</description>
     <language>en-gb</language>
     <lastBuildDate>{{.DateTime}}</lastBuildDate>
     
-    <atom:link href="https://syscll.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
 	{{range .Pages}}
     {{if .RSS}}<item>
       <title>{{.Title}}</title>
-      <link>https://syscll.org/{{.Tmpl}}/</link>
-      <guid>https://syscll.org/{{.Tmpl}}/</guid>
+      <link>https://loshz.com/{{.Tmpl}}/</link>
+      <guid>https://loshz.com/{{.Tmpl}}/</guid>
       <pubDate>{{.DateTime.Format "02 Jan 06 15:04 MST"}}</pubDate>
       <description>{{.Description}}</description>
     </item>{{end}}
