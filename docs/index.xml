@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming: thoughts and paradigms</title>
+    <title>Programming thoughts and paradigms</title>
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, networking and everything distributed.</description>
     <language>en-gb</language>
-    <lastBuildDate>28 Feb 22 00:14 UTC</lastBuildDate>
+    <lastBuildDate>09 Mar 22 18:27 UTC</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
 	
     
 	
     
+	
+    <item>
+      <title>A Linux PAM development story.</title>
+      <link>https://loshz.com/linux-pam/</link>
+      <guid>https://loshz.com/linux-pam/</guid>
+      <pubDate>04 Mar 22 14:00 UTC</pubDate>
+      <description>Wading through the weeds of a custom Pluggable Authentication Module.</description>
+    </item>
 	
     <item>
       <title>Segfaults in safe code</title>
