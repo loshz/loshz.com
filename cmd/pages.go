@@ -28,6 +28,13 @@ var pages = []Page{
 		Tmpl:  "etc",
 	},
 	{
+		Title:       "A Linux PAM development tale.",
+		Description: "Wading through the weeds of a custom Pluggable Authentication Module.",
+		Tmpl:        "linux-pam",
+		DateTime:    time.Date(2022, time.March, 4, 14, 0, 0, 0, time.UTC),
+		RSS:         true,
+	},
+	{
 		Title:       "Segfaults in safe code",
 		Description: "Constructing a dangling pointer isn't considered unsafe in itself - but using it is.",
 		Tmpl:        "segfaults-in-safe-code",
