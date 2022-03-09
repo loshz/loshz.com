@@ -19,7 +19,7 @@ type Page struct {
 
 var pages = []Page{
 	{
-		Title: "Programming thoughts and paradigms.",
+		Title: "Programming thoughts and paradigms",
 		Tmpl:  "index",
 		Root:  true,
 	},
@@ -28,7 +28,7 @@ var pages = []Page{
 		Tmpl:  "etc",
 	},
 	{
-		Title:       "A Linux PAM development story.",
+		Title:       "A Linux PAM development story",
 		Description: "Wading through the weeds of a custom Pluggable Authentication Module.",
 		Tmpl:        "linux-pam",
 		DateTime:    time.Date(2022, time.March, 4, 14, 0, 0, 0, time.UTC),
