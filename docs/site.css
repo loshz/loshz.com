@@ -59,7 +59,12 @@ h2 {
 }
 
 h3 {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
+	margin: 15px 0 5px;
+}
+
+h4 {
+	font-size: 1.1rem;
 	margin: 15px 0 5px;
 }
 

@@ -31,7 +31,7 @@ var pages = []Page{
 		Title:       "A Linux PAM development story",
 		Description: "Wading through the weeds of a custom Pluggable Authentication Module.",
 		Tmpl:        "linux-pam",
-		DateTime:    time.Date(2022, time.March, 4, 14, 0, 0, 0, time.UTC),
+		DateTime:    time.Date(2022, time.March, 11, 17, 0, 0, 0, time.UTC),
 		RSS:         true,
 	},
 	{

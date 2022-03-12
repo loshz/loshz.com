@@ -5,7 +5,7 @@
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, networking and everything distributed.</description>
     <language>en-gb</language>
-    <lastBuildDate>09 Mar 22 18:27 UTC</lastBuildDate>
+    <lastBuildDate>12 Mar 22 04:27 UTC</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
 	
@@ -14,10 +14,10 @@
     
 	
     <item>
-      <title>A Linux PAM development story.</title>
+      <title>A Linux PAM development story</title>
       <link>https://loshz.com/linux-pam/</link>
       <guid>https://loshz.com/linux-pam/</guid>
-      <pubDate>04 Mar 22 14:00 UTC</pubDate>
+      <pubDate>11 Mar 22 17:00 UTC</pubDate>
       <description>Wading through the weeds of a custom Pluggable Authentication Module.</description>
     </item>
 	

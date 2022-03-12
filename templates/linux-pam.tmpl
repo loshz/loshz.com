@@ -1,0 +1,45 @@
+{{define "content"}}
+<p class="previous">&larr; <a href="/segfaults-in-safe-code/">Previous</a></p>
+<p class="next"></p>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
+<h2>{{.Title}}</h2>
+<p>As mentioned in a previous post, I've spent the last couple of months interfacing with and building a client for Linux PAM.</p>
+<p>There are so many great resources and tutorials out there, so I wanted to make this post solely about the developer experience.</p>
+<p>If you're unfamiliar with PAM, I suggest reading <a href="http://www.linux-pam.org/whatispam.html">this</a>.</p>
+<h3>Components</h3>
+<p>The following directories are key to navigating PAM config:</p>
+<ul>
+	<li><code>/etc/security/</code>: contains system-specific configuration for variables offered by authentication methods.</li>
+	<li><code>/etc/pam.d/</code>: contains configuration for system authentication schemes.</li>
+	<li><code>/usr/lib64/security/</code>: the home of PAM shared objects.</li>
+</ul>
+<p>Logging is system-specific, and not all OSs write to <code>/var/log/secure</code>. You should ensure that logs are written to syslog(3) with facility-type <code>LOG_AUTHPRIV</code>.</p>
+<h3>Documentation</h3>
+<p>This was the most welcoming surprise for me. Official docs can be found in a couple of places, but the two that I found most useful were the <a href="http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html">Module Writers' Guide</a> and reading the libpam header files in the <code>/usr/include/security/</code> directory.</p>
+<p>The source code is well documented and in most cases concise.</p>
+<h3>Gotchas</h3>
+<p>I won't lie - there are a few.</p>
+<h4>Configuration</h4>
+<p>Because PAM is inherently tied to authentication, it can be incredibly easy to lock yourself out of your system if you don't take precautions. I recommend the following 3:</p>
+<p><i>ALWAYS</i> have a backup shell logged in as root while developing. If you have a bug in your PAM client or an incorrect workflow, you take the risk of completely locking yourself out.</p>
+<p>Although it might be tempting, try not to test your client on sudo where possible. I promise you'll regret this decision one day!</p>
+<p>Test your client on an ephemeral system. Use a VM, remote server, EC2 instance, literally anything that can be torn down and started up again.</p>
+<h4>Threads</h4>
+<p>You might consider making your client asynchronous, but due to the nature of certain programs, forking may occur and this really isn't handled well by libpam due to the nature of it's workflows.</p>
+<p>For example, sshd likes to do a lot of forking. If your client starts a bunch of threads, then ends up being forked, only one thread is running in the child, and this could leave your system in an unrecoverable state.</p>
+<p>After talking with colleagues and seeing a proof-of-concept in Go, we noticed that due to the multi-threaded Go runtime, we saw several occurrences of deadlocks when observing with tools such as strace and gdb.</p>
+<h4>Raw Pointers</h4>
+<p>I touched on this in a <a href="/segfaults-in-safe-code/">previous post</a>, but it's worth noting that the underlying values you receive from libpam are all raw pointers. Operating on them isn't safe and if you're not careful you can find yourself dealing with segfaults in trivial code.</p>
+<p>Create safe wrappers around these values and copy them into owned data where possible. This gives you some safety and assurances of the lifetime of the data.</p>
+<h4>pam_exec(8)</h4>
+<p>Unless you just need to display a message, or update a file, you don't want to use it. It can be simple to get something up and running, but you don't get access to the full libpam experience.</p>
+<p>For example, you won't be able to use the <code>pam_conv</code> structure which provides an easy interface to a user conversation flow. You also won't be able to use the provided auth data handlers that can be used for token management and session caching, etc.</p>
+<h3>Conclusion</h3>
+<p>Working with PAM has made for one of the most interesting challenges I've had to date. I'm looking forward to hopefully open-sourcing the code in the near future and probably fixing several bugs.</p>
+<p>If you managed to read this far, use Rust.</p>
+<h3>Resources</h3>
+<ul>
+	<li><a href="http://www.linux-pam.org/">http://www.linux-pam.org/</a></li>
+	<li><a href="https://wiki.archlinux.org/title/PAM">https://wiki.archlinux.org/title/PAM</a></li>
+</ul>
+{{end}}
