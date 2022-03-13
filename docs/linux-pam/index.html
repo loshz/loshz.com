@@ -33,7 +33,7 @@
 	<li><code>/etc/pam.d/</code>: contains configuration for system authentication schemes.</li>
 	<li><code>/usr/lib64/security/</code>: the home of PAM shared objects.</li>
 </ul>
-<p>Logging is system-specific, and not all OSs write to <code>/var/log/secure</code>. You should ensure that logs are written to syslog(3) with facility-type <code>LOG_AUTHPRIV</code>.</p>
+<p>Logging is system-specific, and not all OSs write to <code>/var/log/secure</code>. You should write to syslog(3) with facility-type <code>LOG_AUTHPRIV</code> in order to ensure authorization messages are logged to a file that has more restricted permissions.</p>
 <h3>Documentation</h3>
 <p>This was the most welcoming surprise for me. Official docs can be found in a couple of places, but the two that I found most useful were the <a href="http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_MWG.html">Module Writers' Guide</a> and reading the libpam header files in the <code>/usr/include/security/</code> directory.</p>
 <p>The source code is well documented and in most cases concise.</p>
