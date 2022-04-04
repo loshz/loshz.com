@@ -7,7 +7,7 @@
 <p class="quote">Canary release is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.</p>
 <p class="caption"><a href="https://martinfowler.com/bliki/CanaryRelease.html">https://martinfowler.com/bliki/CanaryRelease.html</a></p>
 <p>For example, let's say we want to deploy 4 stable replicas of <code>my-service</code> to a cluster. The yaml might look something like this:</p>
-<pre><code>apiVersion: <span class="red">apps/v1beta2</span>
+<pre class="yaml"><code>apiVersion: <span class="red">apps/v1beta2</span>
 kind: <span class="red">Deployment</span>
 metadata:
   name: <span class="red">my-service</span>
@@ -34,7 +34,7 @@ spec:
 			<p>We can use labels to specify information about a Deployment. (Tip: it's good practice to keep these consistent throughout each service.)</p>
 			<p>In our Deployment, we use the same <code>app</code> label from the metadata in the spec <code>selector</code>. The selector field defines how the Deployment finds which Pods to manage.</p>
 			<p>In order to expose our service to the internet, we can create a Load Balancer in the form of a Service:</p>
-			<pre><code>apiVersion: <span class="red">v1</span>
+			<pre class="yaml"><code>apiVersion: <span class="red">v1</span>
 kind: <span class="red">Service</span>
 metadata:
   name: <span class="red">my-service</span>
@@ -49,7 +49,7 @@ spec:
     app: <span class="red">my-service</span></code></pre>
 		<p>Here we will use the same <code>selector</code> field to match the <code>app</code> label of our Deployment as this enables the Service to route traffic to the correct Pods.</p>
 		<p>Now it's time to introduce our Canary release. Similarly to our stable build, we will create another Deployment:</p>
-		<pre><code>apiVersion: <span class="red">apps/v1beta2</span>
+		<pre class="yaml"><code>apiVersion: <span class="red">apps/v1beta2</span>
 kind: <span class="red">Deployment</span>
 metadata:
   name: <span class="red">my-canary-service</span>

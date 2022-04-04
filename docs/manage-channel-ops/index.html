@@ -38,7 +38,7 @@
 			<p class="caption"><a href="https://blog.golang.org/context">https://blog.golang.org/context</a></p>
 			<p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
 			<p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
-			<pre><code><span class="red">package</span> main
+			<pre class="go"><code><span class="red">package</span> main
 
 <span class="red">import</span> (
     "context"
