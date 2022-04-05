@@ -177,7 +177,8 @@ pre {
 pre::after {
 	content: "utf-8[unix]";
 	display: block;
-	background: #262627;
+	background: #DEDEFF;
+	font-size: 0.9rem;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -200,18 +201,6 @@ pre.c::after {
 
 pre.yaml::after {
 	content: "yaml:utf-8[unix]";
-}
-
-pre::after {
-	content: "utf-8[unix]";
-	display: block;
-	background: #262627;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: absolute;
-	padding: 5px 10px;
-	text-align: right;
 }
 
 pre code .red {
@@ -273,6 +262,10 @@ pre code {
 
 	pre, code {
 		background: #2E2E2E;
+	}
+
+	pre::after {
+		background: #262627;
 	}
 
 	a, pre code .blue {
