@@ -21,7 +21,8 @@ header {
 	text-align: center;
 }
 
-header p {
+header h1 a {
+	text-decoration: underline;
 	font-style: italic;
 }
 
