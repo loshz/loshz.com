@@ -28,6 +28,13 @@ var pages = []Page{
 		Tmpl:  "etc",
 	},
 	{
+		Title:       "Arch Linux: LVM on LUKS",
+		Description: "Simple Arch Linux instructions for setting up LVM on top of a LUKS encrypted partition.",
+		Tmpl:        "arch-linux",
+		DateTime:    time.Date(2022, time.May, 9, 12, 0, 0, 0, time.UTC),
+		RSS:         true,
+	},
+	{
 		Title:       "A Linux PAM development story",
 		Description: "Wading through the weeds of a custom Pluggable Authentication Module.",
 		Tmpl:        "linux-pam",

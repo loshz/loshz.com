@@ -5,13 +5,21 @@
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, networking and everything distributed.</description>
     <language>en-gb</language>
-    <lastBuildDate>12 Mar 22 04:27 UTC</lastBuildDate>
+    <lastBuildDate>09 May 22 16:27 UTC</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
 	
     
 	
     
+	
+    <item>
+      <title>Arch Linux: LVM on LUKS</title>
+      <link>https://loshz.com/arch-linux/</link>
+      <guid>https://loshz.com/arch-linux/</guid>
+      <pubDate>09 May 22 12:00 UTC</pubDate>
+      <description>Simple Arch Linux instructions for setting up LVM on top of a LUKS encrypted partition.</description>
+    </item>
 	
     <item>
       <title>A Linux PAM development story</title>

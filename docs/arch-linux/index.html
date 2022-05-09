@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Programming thoughts and paradigms: A collection of articles focused on systems programming, networking and everything distributed.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Arch Linux: LVM on LUKS</title>
+	<link rel="stylesheet" href="/site.css" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+	<link rel="alternate" type="application/rss+xml" href="https://loshz.com/index.xml" title="Programming thoughts and paradigms" />
+</head>
+<body>
+	<header>
+		<h1><a href="/">loshz.com</a></h1>
+		<p>Programming thoughts and paradigms.</p>
+		<ul>
+			<li><a href="https://github.com/loshz">[GitHub]</a></li>
+			<li><a href="https://twitter.com/loshz">[Twitter]</a></li>
+		</ul>
+	</header>
+	<div class="content">
+<p class="previous">&larr; <a href="/linux-pam/">Previous</a></p>
+<p class="next"></p>
+<p class="date">2022-05-09</p>
+<h2>Arch Linux: LVM on LUKS</h2>
+<p>After countless installs of Arch Linux, I want to document a simple LVM on LUKS install that has worked flawlessly for me over the years.</p>
+<h3>Assumptions</h3>
+<ul>
+	<li>You have followed the <a href="https://wiki.archlinux.org/title/USB_flash_installation_medium">instructions</a> for creating a USB flash installation medium.</li>
+	<li>You are installing in <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface">UEFI mode</a>.</li>
+	<li>You are using and AMD CPU (For Intel: <code>sed 's/amd-ucode/intel-ucode'</code>).</li>
+	<li>You are using and NVMe drive mounted at <code>/dev/nvme0n1</code> (Check <code>lsblk</code> and ensure you are using the correct drive).</li>
+</ul>
+<h3>Installation Process</h3>
+<p>After booting from the USB installer, you should be dropped into a terminal shell:</p>
+<pre><code><span class="grey">// Connect to a wireless network</span>
+# iwctl station [station] connect [ssid]
+
+<span class="grey">// Synchronize the machine's clock</span>
+# timedatectl set-ntp true
+
+<span class="grey">// Partition the disk:
+// 1. Wipe the device
+// 2. Create a 512MiB boot partition
+// 3. Create a 100%FREE root partition</span>
+# wipefs -af /dev/nvme0n1
+# parted -s /dev/nvme0n1 mklabel gpt
+# parted -s /dev/nvme0n1 mkpart primary fat32 1MiB 512MiB
+# parted -s /dev/nvme0n1 set 1 esp on
+# parted -s /dev/nvme0n1 mkpart primary ext4 512MiB 100%
+
+<span class="grey">// Format the newly created partitions:
+// 1. Set the boot partition to FAT32
+// 2. LUKS encrypt the root partition
+// 3. Open the encrypted device</span>
+# mkfs.fat -F32 /dev/nvme0n1p1
+# cryptsetup -y -v luksFormat /dev/nvme0n1p2
+# cryptsetup open /dev/nvme0n1p2 cryptlvm
+
+<span class="grey">// Prepare the logical volumes:
+// 1. Create a physical volume on top of the opened LUKS container
+// 2. Create a new volume group from the physical volume
+// 3. Create required logical volumes on the volume group</span>
+# pvcreate /dev/mapper/cryptlvm
+# vgcreate archvg /dev/mapper/cryptlvm
+# lvcreate -L 32G archvg -n swap
+# lvcreate -L 100G archvg -n root
+# lvcreate -l 100%FREE archvg -n home
+
+<span class="grey">// Format the filesystems on each logical volume</span>
+# mkfs.ext4 /dev/archvg/root
+# mkfs.ext4 /dev/archvg/home
+# mkswap /dev/archvg/swap
+
+<span class="grey">// Mount the filesystems</span>
+# mount /dev/archvg/root /mnt
+# mount --mkdir /dev/archvg/home /mnt/home
+# swapon /dev/archvg/swap
+# mount --mkdir /dev/nvme0n1p1 /mnt/boot
+
+<span class="grey">// Install system software</span>
+# pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 iwd neovim
+
+<span class="grey">// Generate an fstab file using UUIDs and chroot into the new system</span>
+# genfstab -U /mnt >> /mnt/etc/fstab
+# arch-chroot /mnt
+
+<span class="grey">// Set the timezone and locale</span>
+# ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
+# hwclock --systohc
+# echo "LANG=en_US.UTF-8" > /etc/locale.conf
+# echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+# locale-gen
+
+<span class="grey">// Enable networking services</span>
+# systemctl enable systemd-networkd systemd-resolved iwd
+# echo "[General]
+EnableNetworkConfiguration=True" >> /etc/iwd/main.conf
+
+<span class="grey">// Set hostname and local network conf</span>
+# echo [hostname] > /etc/hostname
+# echo "127.0.0.1 localhost
+::1 localhost
+127.0.1.1 [hostname].localdomain [hostname]" >> /etc/hosts
+
+<span class="grey">// Configure mkinitcpio to ensure the required hooks are present
+// and in the correct order:
+// HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)</span>
+# nvim /etc/mkinitcpio.conf
+# mkinitcpio -p linux
+
+<span class="grey">// Set the root password</span>
+# passwd
+
+<span class="grey">// Install the bootloader:
+// 1. Configure the bootloader entry
+// 2. Set the default bootloader entry
+// 3. Install systemd-boot
+// 4. Verify the default bootloader entry</span>
+# mkdir -p /boot/loader/entries
+# UUID=$(blkid /dev/nvme0n1p2 -o value -s UUID)
+# echo "title Arch Linux
+linux /vmlinuz-linux
+initrd /amd-ucode.img
+initrd /initramfs-linux.img
+options cryptdevice=UUID=${UUID}:cryptlvm root=/dev/archvg/root quiet rw" > /boot/loader/entries/arch.conf
+# echo "default arch
+timeout 0
+editor 0" > /boot/loader/loader.conf
+# bootctl --esp-path=/boot install
+# bootctl list
+
+<span class="grey">// Exit and reboot into the new system</span>
+# exit
+# umount -R /mnt
+# reboot
+</code></pre>
+<h3>Resources</h3>
+<ul>
+	<li><a href="https://wiki.archlinux.org/title/installation_guide">Official Installation Guide</a></li>
+	<li><a href="https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS">LVM on LUKS</a></li>
+</ul>
+</div>
+	<footer>
+		<p>Looking for other <a href="/etc">configurations</a>? Use <a href="/index.xml">RSS</a>.</p>
+		<p><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+	</footer>
+</body>
+</html>
