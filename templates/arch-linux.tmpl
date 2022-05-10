@@ -8,7 +8,7 @@
 <ul>
 	<li>You have followed the <a href="https://wiki.archlinux.org/title/USB_flash_installation_medium">instructions</a> for creating a USB flash installation medium.</li>
 	<li>You are installing in <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface">UEFI mode</a>.</li>
-	<li>You are using and AMD CPU (For Intel: <code>sed 's/amd-ucode/intel-ucode'</code>).</li>
+	<li>You are using and AMD CPU (For Intel: <code>sed 's/amd-ucode/intel-ucode/'</code>).</li>
 	<li>You are using and NVMe drive mounted at <code>/dev/nvme0n1</code> (Check <code>lsblk</code> and ensure you are using the correct drive).</li>
 </ul>
 <h3>Installation Process</h3>
@@ -23,7 +23,7 @@
 // 1. Wipe the device
 // 2. Create a 512MiB boot partition
 // 3. Create a 100%FREE root partition</span>
-# wipefs -af /dev/nvme0n1
+# wipefs -a /dev/nvme0n1
 # parted -s /dev/nvme0n1 mklabel gpt
 # parted -s /dev/nvme0n1 mkpart primary fat32 1MiB 512MiB
 # parted -s /dev/nvme0n1 set 1 esp on
