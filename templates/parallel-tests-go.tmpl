@@ -1,11 +1,11 @@
 {{define "content"}}
 <p class="previous">&larr; <a href="/kubecon-18/">Previous</a></p>
 <p class="next"><a href="/understanding-mutexes/">Next</a> &rarr;</p>
-<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
 <h2>{{.Title}}</h2>
-			<p>A great feature of Go is the ability to run tests in parallel using the default <a href="https://golang.org/pkg/testing/">testing package</a>.</p>
-			<p>Here's an example of a very basic mock function with 2 unit tests:</p>
-			<pre class="go"><code><span class="red">package</span> main
+<p class="date">{{.DateTime.Format "2006-01-02"}} / 2 min read</p>
+<p>A great feature of Go is the ability to run tests in parallel using the default <a href="https://golang.org/pkg/testing/">testing package</a>.</p>
+<p>Here's an example of a very basic mock function with 2 unit tests:</p>
+<pre class="go"><code><span class="red">package</span> main
 
 <span class="red">import</span> (
     "errors"
@@ -43,8 +43,8 @@
 PASS
 ok      command-line-arguments  2.003s
 </code></pre>
-			<p>Now here's the fun part. We can add a single line of code to both tests to allow them to run in Parallel:</p>
-            <pre class="go"><code><span class="red">func</span> TestMockNoError(t <span class="red">*</span>testing.<span class="orange">T</span>) {
+<p>Now here's the fun part. We can add a single line of code to both tests to allow them to run in Parallel:</p>
+<pre class="go"><code><span class="red">func</span> TestMockNoError(t <span class="red">*</span>testing.<span class="orange">T</span>) {
     t.Parallel()
     ...
 }
@@ -53,8 +53,8 @@ ok      command-line-arguments  2.003s
     t.Parallel()
     ...
 }</code></pre>
-			<p>We now see a noticable improvement as both tests take only 1 second to run:</p>
-			<pre><code>$ go test -v main_test.go
+<p>We now see a noticable improvement as both tests take only 1 second to run:</p>
+<pre><code>$ go test -v main_test.go
 === RUN   TestMockNoError
 --- PASS: TestMockNoError (1.00s)
 === RUN   TestMockError
@@ -62,9 +62,9 @@ ok      command-line-arguments  2.003s
 PASS
 ok      command-line-arguments  1.002s
 </code></pre>
-			<p>Using <code>t.Parallel()</code> is a great way to test your applications for race conditions without the need to manually bootstrap test functions to run in separate goroutines. Not only that, but it also significantly speeds up the run time of your test suites.</p>
-			<p>As a bonus, this function can also be called inside subtests with the difference being a parent test will only complete once all of its subtests complete:</p>
-			<pre class="go"><code><span class="red">func</span> TestMock(t <span class="red">*</span>testing.<span class="orange">T</span>) {
+<p>Using <code>t.Parallel()</code> is a great way to test your applications for race conditions without the need to manually bootstrap test functions to run in separate goroutines. Not only that, but it also significantly speeds up the run time of your test suites.</p>
+<p>As a bonus, this function can also be called inside subtests with the difference being a parent test will only complete once all of its subtests complete:</p>
+<pre class="go"><code><span class="red">func</span> TestMock(t <span class="red">*</span>testing.<span class="orange">T</span>) {
     t.Run("TestMockNoError", <span class="red">func</span>(t <span class="red">*</span>testing.<span class="orange">T</span>) {
         t.Parallel()
         ...

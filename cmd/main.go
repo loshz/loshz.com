@@ -93,8 +93,8 @@ func compileRSS(pages []Page) error {
 		Pages    []Page
 	}{time.Now().UTC().Format(time.RFC822), pages}
 
-	rss := template.Must(template.ParseFiles("./templates/rss.tmpl"))
-	if err := rss.ExecuteTemplate(f, "rss", Data); err != nil {
+	tmpl := template.Must(template.ParseFiles("./templates/rss.tmpl"))
+	if err := tmpl.ExecuteTemplate(f, "rss", Data); err != nil {
 		return fmt.Errorf("err executing template: %w", err)
 	}
 
@@ -124,10 +124,10 @@ func compileHTML(pages []Page, verbose bool) error {
 		defer f.Close()
 
 		// read and parse templates
-		t := template.Must(template.ParseFiles(fmt.Sprintf("./templates/%s.tmpl", p.Tmpl), "./templates/site.tmpl"))
+		tmpl := template.Must(template.ParseFiles(fmt.Sprintf("./templates/%s.tmpl", p.Tmpl), "./templates/site.tmpl"))
 
 		// write template to static html file
-		if err := t.ExecuteTemplate(f, "site", p); err != nil {
+		if err := tmpl.ExecuteTemplate(f, "site", p); err != nil {
 			return fmt.Errorf("error executing template: %w", err)
 		}
 

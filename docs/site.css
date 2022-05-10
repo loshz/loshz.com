@@ -56,11 +56,10 @@ h1 {
 
 h2 {
 	font-size: 1.4rem;
-	margin-bottom: 10px;
 }
 
 h3 {
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	margin: 15px 0 5px;
 }
 
@@ -90,7 +89,7 @@ h1 a:hover, h2 a:hover {
 	font-size: 0.9rem;
 	color: #828282;
 	font-style: italic;
-	margin: 0;
+	margin: 0 0 20px;
 }
 
 img {
@@ -151,6 +150,7 @@ p:last-child {
 
 .content ul#posts .date {
 	float: right;
+	margin: 0;
 }
 
 p.previous, p.next {
@@ -247,6 +247,10 @@ pre code {
 
 	h2 {
 		font-size: 1.6rem;
+	}
+
+	h3 {
+		font-size: 1.4rem;
 	}
 }
 
