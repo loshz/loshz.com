@@ -48,6 +48,7 @@ footer {
 h1 {
 	font-size: 1.8rem;
 	font-style: italic;
+	text-decoration: underline;
 }
 
 h2 {
