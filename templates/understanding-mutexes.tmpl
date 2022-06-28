@@ -15,9 +15,9 @@
 }
 
 <span class="red">func</span> (p <span class="red">*</span><span class="blue">protected</span>) inc() {
-    p.<span class="orange">mtx</span>.Lock()
-    p.<span class="orange">count</span><span class="red">++</span>
-    p.<span class="orange">mtx</span>.Unlock()
+    p.mtx.Lock()
+    p.count<span class="red">++</span>
+    p.mtx.Unlock()
 }</code></pre>
 <p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>p.count</code>?</p>
 <p>While many other languages have similar implementations, for the purposes of this post I'm going to refer to a mutex in <a href="https://golang.org/pkg/sync/#Mutex">Go</a>.</p>

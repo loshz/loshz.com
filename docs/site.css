@@ -203,27 +203,15 @@ pre.yaml::after {
 }
 
 pre code .red {
-	color: #D14;
+	color: #900;
 }
 
 pre code .blue {
 	color: #0000EE;
 }
 
-pre code .orange {
-	color: #FF5F00;
-}
-
-pre code .purple {
-	color: #AF0087;
-}
-
 pre code .grey {
 	color: #767676;
-}
-
-pre code .green {
-	color: #44BD32;
 }
 
 code {
@@ -279,11 +267,7 @@ pre code {
 		color: #8D8D8D;
 	}
 
-	pre code .green {
-		color: #00FF00;
-	}
-
-	a:visited {
+	a:visited, pre code .red {
 		color: #AF0087;
 	}
 

@@ -51,13 +51,13 @@
     ctx  <span class="blue">context.Context</span>
 }
 
-<span class="red">func</span> handler(reqStream <span class="blue">chan</span> dataRequest) http.<span class="orange">HandlerFunc</span> {
-    <span class="red">return func</span>(w http.<span class="orange">ResponseWriter</span>, r *http.<span class="orange">Request</span>) {
-        ctx, cancel <span class="red">:=</span> context.WithTimeout(r.Context(), <span class="purple">5</span>*time.<span class="orange">Second</span>)
+<span class="red">func</span> handler(reqStream <span class="blue">chan</span> dataRequest) http.HandlerFunc {
+    <span class="red">return func</span>(w http.ResponseWriter, r *http.Request) {
+        ctx, cancel <span class="red">:=</span> context.WithTimeout(r.Context(), 5*time.Second)
         <span class="red">defer</span> cancel()
 
         req <span class="red">:=</span> <span class="blue">dataRequest</span>{
-            data: <span class="orange">make</span>(<span class="blue">chan string</span>, <span class="purple">1</span>),
+            data: make(<span class="blue">chan string</span>, 1),
             ctx:  ctx,
         }
 
@@ -71,29 +71,29 @@
         <span class="red">select</span> {
         case <span class="red"><-</span>ctx.Done():
             <span class="grey">// don't try and serve content if ctx done</span>
-        case data <span class="red">:= <-</span>req.<span class="orange">data</span>:
+        case data <span class="red">:= <-</span>req.data:
             <span class="grey">// return data to client</span>
         }
     }
 }
 
 <span class="red">func</span> main() {
-    dataReqs <span class="red">:=</span> <span class="orange">make</span>(<span class="blue">chan</span> dataRequest)
+    dataReqs <span class="red">:=</span> make(<span class="blue">chan</span> dataRequest)
     <span class="red">go func</span>() {
         <span class="red">for</span> {
             <span class="red">select</span> {
             case req <span class="red">:= <-</span>dataReqs:
                 <span class="red">select</span> {
-                case <span class="red"><-</span>req.<span class="orange">ctx</span>.Done():
+                case <span class="red"><-</span>req.ctx.Done():
                     <span class="grey">// don't push onto data channel if ctx done</span>
-                case req.<span class="orange">data</span> <span class="red"><-</span> "some data":
+                case req.data <span class="red"><-</span> "some data":
                     <span class="grey">// get data from store</span>
                 }
             }
         }
     }()
     http.HandleFunc("/", handler(dataReqs))
-    http.ListenAndServe(":8080", <span class="purple">nil</span>)
+    http.ListenAndServe(":8080", nil)
 }</code></pre>
 			<h3>Resources</h3>
 			<ul>
