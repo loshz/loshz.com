@@ -25,17 +25,17 @@
 <p class="date">2021-12-14 &sdot; 2 min read</p>
 <p>I was recently working on an interesting usecase in a Rust project, specifically a Linux PAM library, where we pass a raw pointer to a C function.</p>
 <p>For the sake of brevity, the code looks something like this:</p>
-<pre class="rust"><code><strong>use</strong> std::os::raw::c_uint;
+<pre class="rust"><code><span class="r">use</span> std::os::raw::c_uint;
 
-<span class="grey">// Let's create a type that represents a raw pointer
+<span class="c">// Let's create a type that represents a raw pointer
 // we might receive from a C function.</span>
-<strong>type</strong> SomeT = *const c_uint;
+<span class="r">type</span> SomeT <span class="r">=</span> *const c_uint;
 
-<span class="grey">// This function disguises the raw pointer behing the SomeT type.
+<span class="c">// This function disguises the raw pointer behing the SomeT type.
 // In Rust, this is considered to be unsound, meaning that undefined
 // behavior is possible from safe code.</span>
-<strong>fn</strong> <span class="red">maybe_safe_who_knows</span>(x: SomeT) <strong>-></strong> c_uint {
-    <strong>unsafe</strong> { *x } 
+<span class="r">fn</span> <span class="g">maybe_safe_who_knows</span>(x: SomeT) <span class="r">-></span> c_uint {
+    <span class="g">unsafe</span> { *x }
 }
 </code></pre>
 <p>This disguises the raw pointer behing the <code>SomeT</code> type. Constructing a dangling pointer isn't considered unsafe in itself - but using it is. In Rust, a function like this is considered to be unsound, meaning that undefined behavior is possible from safe code. Therefore, nothing stops us from doing <code>maybe_safe_who_knows(0x1234 as _)</code> and causing a segfault. <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f7172373a3a03fee244127fe3942a3d9">See for yourself.</a></p>

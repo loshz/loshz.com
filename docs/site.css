@@ -27,6 +27,10 @@ header ul {
 	display: inline-block;
 }
 
+header p {
+	margin: 5px 0;
+}
+
 header ul a {
 	text-decoration: none;
 }
@@ -164,7 +168,7 @@ p.next {
 }
 
 pre {
-	background: #EEF;
+	background: #282828;
 	white-space: pre-wrap;
 	padding: 10px 10px 40px;
 	margin: 0 0 10px;
@@ -176,7 +180,7 @@ pre {
 pre::after {
 	content: "utf-8[unix]";
 	display: block;
-	background: #DEDEFF;
+	background: #222;
 	font-size: 0.9rem;
 	left: 0;
 	right: 0;
@@ -184,6 +188,7 @@ pre::after {
 	position: absolute;
 	padding: 5px 10px;
 	text-align: right;
+	color: #AAA;
 }
 
 pre.rust::after {
@@ -202,28 +207,35 @@ pre.yaml::after {
 	content: "yaml:utf-8[unix]";
 }
 
-pre code .red {
-	color: #900;
+pre code .c {
+	color: #AAA;
 }
 
-pre code .blue {
-	color: #0000EE;
+pre code .g {
+	color: #00FF00;
 }
 
-pre code .grey {
-	color: #767676;
+pre code .r {
+	color: #D70000;
+}
+
+pre code .y {
+	color: #ffd75f;
 }
 
 code {
-	background: #EEF;
+	background: #f9f9f9;
 	padding: 3px 5px;
 	font-family: Monospace;
 	font-size: 0.9rem;
+	color: #D70000;
 }
 
 pre code {
 	padding: 0;
 	border: 0;
+	background: #282828;
+	color: #FFF;
 }
 
 @media only screen and (min-width: 600px) {
@@ -250,28 +262,19 @@ pre code {
 		color: #C9D1D9;
 	}
 
-	pre, code {
-		background: #2D2D2D;
-		color: #DDD;
-	}
-
-	pre::after {
-		background: #262627;
-	}
-
-	a, pre code .blue {
+	a {
 		color: #6479FF;
 	}
 
-	pre code .grey {
-		color: #8D8D8D;
-	}
-
-	a:visited, pre code .red {
+	a:visited {
 		color: #AF0087;
 	}
 
 	.quote {
 		border-left: 3px solid #C9D1D9;
+	}
+
+	code {
+		background: #282828;
 	}
 }
