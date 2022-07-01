@@ -176,7 +176,7 @@ pre {
 	padding: 10px 10px 40px;
 	margin: 0 0 10px;
 	overflow-x: auto;
-	line-height: 1.3;
+	line-height: 1.2;
     position: relative;
 }
 
@@ -231,7 +231,7 @@ code {
 	background: #EEF;
 	padding: 3px 5px;
 	font-family: Monospace;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
 
 pre code {
