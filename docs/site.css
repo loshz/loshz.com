@@ -49,8 +49,12 @@ footer {
 	text-align: center;
 }
 
+footer p {
+	margin: 0 0 5px;
+}
+
 h1 {
-	font-size: 1.8rem;
+	font-size: 2rem;
 	font-style: italic;
 	text-decoration: underline;
 }
@@ -169,7 +173,6 @@ p.next {
 
 pre {
 	background: #282828;
-	white-space: pre-wrap;
 	padding: 10px 10px 40px;
 	margin: 0 0 10px;
 	overflow-x: auto;
@@ -208,7 +211,8 @@ pre.yaml::after {
 }
 
 pre code .c {
-	color: #AAA;
+	color: #C9D1D9;
+	font-weight: normal;
 }
 
 pre code .g {
@@ -224,11 +228,10 @@ pre code .y {
 }
 
 code {
-	background: #f9f9f9;
+	background: #EEF;
 	padding: 3px 5px;
 	font-family: Monospace;
 	font-size: 0.9rem;
-	color: #D70000;
 }
 
 pre code {
@@ -236,6 +239,7 @@ pre code {
 	border: 0;
 	background: #282828;
 	color: #FFF;
+	font-weight: bold;
 }
 
 @media only screen and (min-width: 600px) {
@@ -272,6 +276,11 @@ pre code {
 
 	.quote {
 		border-left: 3px solid #C9D1D9;
+	}
+
+
+	pre code {
+		font-weight: normal;
 	}
 
 	code {
