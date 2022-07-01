@@ -18,62 +18,62 @@
 			<p class="caption"><a href="https://blog.golang.org/context">https://blog.golang.org/context</a></p>
 			<p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
 			<p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
-			<pre class="go"><code><span class="red">package</span> main
+			<pre class="go"><code><span class="r">package</span> main
 
-<span class="red">import</span> (
-    "context"
+<span class="r">import</span> (
+    <span class="y">"context"
     "net/http"
-    "time"
+    "time"</span>
 )
 
-<span class="red">type</span> <span class="blue">dataRequest</span> <span class="red">struct</span> {
-    data <span class="blue">chan string</span>
-    ctx  <span class="blue">context.Context</span>
+<span class="r">type</span> dataRequest <span class="r">struct</span> {
+    data chan string
+    ctx  context.Context
 }
 
-<span class="red">func</span> handler(reqStream <span class="blue">chan</span> dataRequest) http.HandlerFunc {
-    <span class="red">return func</span>(w http.ResponseWriter, r *http.Request) {
-        ctx, cancel <span class="red">:=</span> context.WithTimeout(r.Context(), 5*time.Second)
-        <span class="red">defer</span> cancel()
+<span class="r">func</span> <span class="g">handler</span>(reqStream chan dataRequest) http.HandlerFunc {
+    <span class="r">return func</span>(w http.ResponseWriter, r <span class="r">*</span>http.Request) {
+        ctx, cancel <span class="r">:=</span> context.WithTimeout(r.Context(), 5<span class="r">*</span>time.Second)
+        <span class="r">defer</span> cancel()
 
-        req <span class="red">:=</span> <span class="blue">dataRequest</span>{
-            data: make(<span class="blue">chan string</span>, 1),
+        req <span class="r">:=</span> dataRequest{
+            data: make(chan string, 1),
             ctx:  ctx,
         }
 
-        <span class="red">select</span> {
-        case reqStream <span class="red"><-</span> req:
-            <span class="grey">// request pushed to que</span>
-        case <span class="red"><-</span>ctx.Done():
-            <span class="grey">// don't push onto reqStream if ctx done</span>
+        <span class="r">select</span> {
+        case reqStream <span class="r"><-</span> req:
+            <span class="c">// request pushed to que</span>
+        case <span class="r"><-</span>ctx.Done():
+            <span class="c">// don't push onto reqStream if ctx done</span>
         }
 
-        <span class="red">select</span> {
-        case <span class="red"><-</span>ctx.Done():
-            <span class="grey">// don't try and serve content if ctx done</span>
-        case data <span class="red">:= <-</span>req.data:
-            <span class="grey">// return data to client</span>
+        <span class="r">select</span> {
+        case <span class="r"><-</span>ctx.Done():
+            <span class="c">// don't try and serve content if ctx done</span>
+        case data <span class="r">:= <-</span>req.data:
+            <span class="c">// return data to client</span>
         }
     }
 }
 
-<span class="red">func</span> main() {
-    dataReqs <span class="red">:=</span> make(<span class="blue">chan</span> dataRequest)
-    <span class="red">go func</span>() {
-        <span class="red">for</span> {
-            <span class="red">select</span> {
-            case req <span class="red">:= <-</span>dataReqs:
-                <span class="red">select</span> {
-                case <span class="red"><-</span>req.ctx.Done():
-                    <span class="grey">// don't push onto data channel if ctx done</span>
-                case req.data <span class="red"><-</span> "some data":
-                    <span class="grey">// get data from store</span>
+<span class="r">func</span> <span class="g">main</span>() {
+    dataReqs <span class="r">:=</span> make(chan dataRequest)
+    <span class="r">go func</span>() {
+        <span class="r">for</span> {
+            <span class="r">select</span> {
+            case req <span class="r">:= <-</span>dataReqs:
+                <span class="r">select</span> {
+                case <span class="r"><-</span>req.ctx.Done():
+                    <span class="c">// don't push onto data channel if ctx done</span>
+                case req.data <span class="r"><-</span> <span class="y">"some data"</span>:
+                    <span class="c">// get data from store</span>
                 }
             }
         }
     }()
-    http.HandleFunc("/", handler(dataReqs))
-    http.ListenAndServe(":8080", nil)
+    http.HandleFunc(<span class="y">"/"</span>, handler(dataReqs))
+    http.ListenAndServe(<span class="y">":8080"</span>, nil)
 }</code></pre>
 			<h3>Resources</h3>
 			<ul>
