@@ -73,8 +73,9 @@ h4 {
 	margin: 15px 0 5px;
 }
 
-a {
+a, a:visited {
 	text-decoration: none;
+	color: #0000EE;
 }
 
 a:hover {
@@ -265,12 +266,8 @@ pre code {
 		color: #C9D1D9;
 	}
 
-	a {
+	a, a:visited {
 		color: #6479FF;
-	}
-
-	a:visited {
-		color: #AF0087;
 	}
 
 	.quote {
