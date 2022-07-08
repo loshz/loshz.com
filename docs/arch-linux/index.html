@@ -34,13 +34,13 @@
 </ul>
 <h3>Installation Process</h3>
 <p>After booting from the USB installer, you should be dropped into a terminal shell:</p>
-<pre><code><span class="grey">// Connect to a wireless network</span>
+<pre><code><span class="c">// Connect to a wireless network</span>
 # iwctl station [station] connect [ssid]
 
-<span class="grey">// Synchronize the machine's clock</span>
+<span class="c">// Synchronize the machine's clock</span>
 # timedatectl set-ntp true
 
-<span class="grey">// Partition the disk:
+<span class="c">// Partition the disk:
 // 1. Wipe the device
 // 2. Create a 512MiB boot partition
 // 3. Create a 100%FREE root partition</span>
@@ -50,7 +50,7 @@
 # parted -s /dev/nvme0n1 set 1 esp on
 # parted -s /dev/nvme0n1 mkpart primary ext4 512MiB 100%
 
-<span class="grey">// Format the newly created partitions:
+<span class="c">// Format the newly created partitions:
 // 1. Set the boot partition to FAT32
 // 2. LUKS encrypt the root partition
 // 3. Open the encrypted device</span>
@@ -58,7 +58,7 @@
 # cryptsetup -y -v luksFormat /dev/nvme0n1p2
 # cryptsetup open /dev/nvme0n1p2 cryptlvm
 
-<span class="grey">// Prepare the logical volumes:
+<span class="c">// Prepare the logical volumes:
 // 1. Create a physical volume on top of the opened LUKS container
 // 2. Create a new volume group from the physical volume
 // 3. Create required logical volumes on the volume group</span>
@@ -68,47 +68,47 @@
 # lvcreate -L 100G archvg -n root
 # lvcreate -l 100%FREE archvg -n home
 
-<span class="grey">// Format the filesystems on each logical volume</span>
+<span class="c">// Format the filesystems on each logical volume</span>
 # mkfs.ext4 /dev/archvg/root
 # mkfs.ext4 /dev/archvg/home
 # mkswap /dev/archvg/swap
 
-<span class="grey">// Mount the filesystems</span>
+<span class="c">// Mount the filesystems</span>
 # mount /dev/archvg/root /mnt
 # mount --mkdir /dev/archvg/home /mnt/home
 # swapon /dev/archvg/swap
 # mount --mkdir /dev/nvme0n1p1 /mnt/boot
 
-<span class="grey">// Install system software</span>
+<span class="c">// Install system software</span>
 # pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 iwd neovim
 
-<span class="grey">// Generate an fstab file using UUIDs and chroot into the new system</span>
+<span class="c">// Generate an fstab file using UUIDs and chroot into the new system</span>
 # genfstab -U /mnt >> /mnt/etc/fstab
 # arch-chroot /mnt
 
-<span class="grey">// Set the timezone and locale</span>
+<span class="c">// Set the timezone and locale</span>
 # ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
 # hwclock --systohc
 # echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 # locale-gen
 
-<span class="grey">// Set hostname and local network conf</span>
+<span class="c">// Set hostname and local network conf</span>
 # echo [hostname] > /etc/hostname
 # echo "127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 [hostname].localdomain [hostname]" >> /etc/hosts
 
-<span class="grey">// Configure mkinitcpio to ensure the required hooks are present
+<span class="c">// Configure mkinitcpio to ensure the required hooks are present
 // and in the correct order:
 // HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)</span>
 # nvim /etc/mkinitcpio.conf
 # mkinitcpio -p linux
 
-<span class="grey">// Set the root password</span>
+<span class="c">// Set the root password</span>
 # passwd
 
-<span class="grey">// Install the bootloader:
+<span class="c">// Install the bootloader:
 // 1. Configure the bootloader entry
 // 2. Set the default bootloader entry
 // 3. Install systemd-boot
@@ -126,7 +126,7 @@ editor 0" > /boot/loader/loader.conf
 # bootctl --esp-path=/boot install
 # bootctl list
 
-<span class="grey">// Exit and reboot into the new system</span>
+<span class="c">// Exit and reboot into the new system</span>
 # exit
 # umount -R /mnt
 # reboot
