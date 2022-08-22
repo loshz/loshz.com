@@ -18,17 +18,12 @@ body {
 }
 
 header {
-	text-align: center;
+	margin-bottom: 40px;
 }
 
 header ul {
 	list-style: none;
-	margin: 5px auto 0;
-	display: inline-block;
-}
-
-header p {
-	margin: 5px 0;
+	display: flex;
 }
 
 header ul a {
@@ -39,8 +34,17 @@ header li {
 	float: left;
 }
 
-header li:last-child {
-	margin: 0 0 0 10px;
+header li:first-child {
+	margin-right: auto;
+	max-width: 50%;
+}
+
+header li:nth-child(3) {
+	margin: 0 5px;
+}
+
+header p {
+	margin: 5px 0;
 }
 
 footer {
@@ -54,7 +58,7 @@ footer p {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: 2.2rem;
 	font-style: italic;
 	text-decoration: underline;
 	font-weight: bold;

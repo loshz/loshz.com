@@ -11,13 +11,15 @@
 </head>
 <body>
 	<header>
-		<h1><a href="/">Loshz</a></h1>
-		<p>Programming thoughts and paradigms.</p>
 		<ul>
-			<li><a href="https://github.com/loshz">[GitHub]</a></li>
-			<li><a href="https://twitter.com/loshz">[Twitter]</a></li>
+			<li style="max-width: 50%;margin-right: auto;"><h1><a href="/">Loshz</a></h1></li>
+			<li style="margin-top: 15px;"><a href="https://github.com/loshz">GitHub</a></li>
+			<li style="margin: 15px 5px;">/</li>
+			<li style="margin-top: 15px;"><a href="https://twitter.com/loshz">Twitter</a></li>
 		</ul>
+		<p>Programming thoughts and paradigms.</p>
 	</header>
+	
 	<div class="content">
 <p class="previous">&larr; <a href="/message-privacy-security/">Previous</a></p>
 <p class="next"><a href="/linux-pam/">Next</a> &rarr;</p>
@@ -48,6 +50,7 @@
 <p>While the first option is the easiest to implement, it's also the dirtiest. Marking a whole function as <code>unsafe</code> means we are opting out of having the compiler enforce certain guarantees. This might be useful when we want to give up guaranteed safety in exchange for greater performance, or in this case the ability to interface with another language where Rust’s guarantees don’t apply, but it is possible to write a safe wrapper around the types we need allowing the best of both worlds.</p>
 <p>Credit to one of my awesome colleagues for pointing this out to me during code review, and introducing me to <a href="https://doc.rust-lang.org/nomicon/">The Rustonomicon</a>.</p>
 </div>
+	
 	<footer>
 		<p><a href="/etc">Looking for other configurations?</a></p>
 		<p><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
