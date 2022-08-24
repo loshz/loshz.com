@@ -228,18 +228,15 @@ pre code .y {
 }
 
 code {
-	background: #EEF;
-	padding: 3px 5px;
 	font-family: Monospace;
-	font-size: 0.8rem;
-	color: #D70000;
+	font-size: 0.9rem;
 }
 
 pre code {
 	padding: 0;
 	border: 0;
 	background: #282828;
-	color: #FFF;
+	color: #EEE;
 }
 
 @media only screen and (min-width: 600px) {
@@ -272,9 +269,5 @@ pre code {
 
 	.quote {
 		border-left: 3px solid #C9D1D9;
-	}
-
-	code {
-		background: #282828;
 	}
 }
