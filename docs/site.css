@@ -18,7 +18,7 @@ body {
 }
 
 header {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 header ul {
@@ -48,9 +48,11 @@ header p {
 }
 
 footer {
-	margin: 35px 0 0;
+	margin: 20px 0 0;
+	padding: 20px 0 0;
 	font-size: 0.7rem;
 	text-align: center;
+	border-top: 1px solid #EEE;
 }
 
 footer p {
@@ -265,6 +267,10 @@ pre code {
 
 	a, a:visited {
 		color: #6479FF;
+	}
+
+	footer {
+		border-top: 1px solid #282828;
 	}
 
 	.quote {
