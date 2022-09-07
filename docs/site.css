@@ -17,10 +17,6 @@ body {
 	padding: 10px;
 }
 
-header {
-	margin-bottom: 20px;
-}
-
 header ul {
 	list-style: none;
 	display: flex;
@@ -32,15 +28,16 @@ header ul a {
 
 header li {
 	float: left;
+	margin-top: 15px;
 }
 
 header li:first-child {
-	margin-right: auto;
+	margin: 0 auto 0 0;
 	max-width: 50%;
 }
 
 header li:nth-child(3) {
-	margin: 0 5px;
+	margin: 15px 5px 0;
 }
 
 header p {
@@ -48,15 +45,26 @@ header p {
 }
 
 footer {
-	margin: 20px 0 0;
-	padding: 20px 0 0;
+	padding: 15px 0 0;
 	font-size: 0.7rem;
 	text-align: center;
 	border-top: 1px solid #EEE;
+	display: flex;
 }
 
 footer p {
-	margin: 0 0 5px;
+	display: flex;
+	float: left;
+	margin: 0;
+}
+
+footer p:first-child {
+	max-width: 50%;
+	margin-right: auto;
+}
+
+footer p:last-child {
+	text-align: right;
 }
 
 h1 {
@@ -163,7 +171,7 @@ p:last-child {
 
 p.previous, p.next {
 	display: inline-block;
-	margin: 0 0 20px;
+	margin: 0 0 5px;
 	font-style: italic;
 	width: 50%;
 }
