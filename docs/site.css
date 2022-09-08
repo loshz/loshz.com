@@ -36,8 +36,17 @@ header li:first-child {
 	max-width: 50%;
 }
 
+header li svg {
+	fill: #121212;
+	width: 19px;
+}
+
 header li:nth-child(3) {
-	margin: 15px 5px 0;
+	margin: 15px 0 0 10px;
+}
+
+header li:nth-child(3) svg {
+	width: 20px;
 }
 
 header p {
@@ -266,11 +275,14 @@ pre code {
 @media (prefers-color-scheme: dark) {
 	body {
 		background: #121212;
-		color: #C9D1D9;
 	}
 
-	h1 a {
+	body, h1 a {
 		color: #C9D1D9!important;
+	}
+
+	header li svg {
+		fill: #C9D1D9;
 	}
 
 	a, a:visited {
