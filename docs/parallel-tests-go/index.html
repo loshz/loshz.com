@@ -83,7 +83,7 @@ ok      command-line-arguments  2.003s
 PASS
 ok      command-line-arguments  1.002s
 </code></pre>
-<p>Using <code>t.Parallel()</code> is a great way to test your applications for race conditions without the need to manually bootstrap test functions to run in separate goroutines. Not only that, but it also significantly speeds up the run time of your test suites.</p>
+<p>Using <code>`t.Parallel()`</code> is a great way to test your applications for race conditions without the need to manually bootstrap test functions to run in separate goroutines. Not only that, but it also significantly speeds up the run time of your test suites.</p>
 <p>As a bonus, this function can also be called inside subtests with the difference being a parent test will only complete once all of its subtests complete:</p>
 <pre class="go"><code><span class="r">func</span> <span class="g">TestMock</span>(t <span class="r">*</span>testing.T) {
     t.Run(<span class="y">"TestMockNoError"</span>, <span class="r">func</span>(t <span class="r">*</span>testing.T) {

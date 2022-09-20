@@ -18,13 +18,13 @@
     <span class="g">unsafe</span> { *x }
 }
 </code></pre>
-<p>This disguises the raw pointer behind the <code>SomeT</code> type. Constructing a dangling pointer isn't considered unsafe in itself - but using it is. In Rust, a function like this is considered to be unsound, meaning that undefined behavior is possible from safe code. Therefore, nothing stops us from doing <code>maybe_safe_who_knows(0x1234 as _)</code> and causing a segfault. <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f7172373a3a03fee244127fe3942a3d9">See for yourself.</a></p>
+<p>This disguises the raw pointer behind the <code>`SomeT`</code> type. Constructing a dangling pointer isn't considered unsafe in itself - but using it is. In Rust, a function like this is considered to be unsound, meaning that undefined behavior is possible from safe code. Therefore, nothing stops us from doing <code>`maybe_safe_who_knows(0x1234 as _)`</code> and causing a segfault. <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f7172373a3a03fee244127fe3942a3d9">See for yourself.</a></p>
 <p>This is because raw pointers are not guaranteed to point to a valid instance of the data they represent, which means that dereferencing them can lead to unaligned or null behaviour - or even worse, a segmentation fault. In severe cases, this could also lead to type confusion where data is misrepresented, thus corrupting the state of a program.</p>
 <h3>Potential improvements</h3>
 <ul>
-	<li>Mark the function as <code>unsafe</code>.</li>
-	<li>Create a wrapper around <code>SomeT</code> that ensures the validity of the pointer.</li>
+	<li>Mark the function as <code>`unsafe`</code>.</li>
+	<li>Create a wrapper around <code>`SomeT`</code> that ensures the validity of the pointer.</li>
 </ul>
-<p>While the first option is the easiest to implement, it's also the dirtiest. Marking a whole function as <code>unsafe</code> means we are opting out of having the compiler enforce certain guarantees. This might be useful when we want to give up guaranteed safety in exchange for greater performance, or in this case the ability to interface with another language where Rust’s guarantees don’t apply, but it is possible to write a safe wrapper around the types we need allowing the best of both worlds.</p>
+<p>While the first option is the easiest to implement, it's also the dirtiest. Marking a whole function as <code>`unsafe`</code> means we are opting out of having the compiler enforce certain guarantees. This might be useful when we want to give up guaranteed safety in exchange for greater performance, or in this case the ability to interface with another language where Rust’s guarantees don’t apply, but it is possible to write a safe wrapper around the types we need allowing the best of both worlds.</p>
 <p>Credit to one of my awesome colleagues for pointing this out to me during code review, and introducing me to <a href="https://doc.rust-lang.org/nomicon/">The Rustonomicon</a>.</p>
 {{end}}

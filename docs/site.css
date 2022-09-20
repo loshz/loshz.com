@@ -88,7 +88,7 @@ h1 a {
 }
 
 h2 {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 
 h3 {
@@ -249,6 +249,8 @@ pre code .y {
 code {
 	font-family: Monospace;
 	font-size: 0.9rem;
+	font-weight: bold;
+	line-height: 1;
 }
 
 pre code {
@@ -256,6 +258,7 @@ pre code {
 	border: 0;
 	background: #282828;
 	color: #EEE;
+	font-weight: normal;
 }
 
 @media only screen and (min-width: 600px) {
@@ -264,7 +267,7 @@ pre code {
 	}
 
 	h2 {
-		font-size: 1.6rem;
+		font-size: 1.9rem;
 	}
 
 	h3 {
