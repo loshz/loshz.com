@@ -28,7 +28,6 @@ header ul a {
 
 header li {
 	float: left;
-	margin-top: 15px;
 }
 
 header li:first-child {
@@ -42,15 +41,11 @@ header li svg {
 }
 
 header li:nth-child(3) {
-	margin: 15px 0 0 10px;
+	margin-left: 10px;
 }
 
 header li:nth-child(3) svg {
 	width: 20px;
-}
-
-header p {
-	margin: 5px 0;
 }
 
 footer {
@@ -77,18 +72,19 @@ footer p:last-child {
 }
 
 h1 {
-	font-size: 2.2rem;
+	font-size: 1.6rem;
+	clear: both;
+}
+
+h2 {
+	font-size: 1.4rem;
 	font-style: italic;
 	text-decoration: underline;
 	font-weight: bold;
 }
 
-h1 a {
+h2 a {
 	color: #121212!important;
-}
-
-h2 {
-	font-size: 1.6rem;
 }
 
 h3 {
@@ -266,7 +262,7 @@ pre code {
 		padding: 20px;
 	}
 
-	h2 {
+	h1 {
 		font-size: 1.9rem;
 	}
 
