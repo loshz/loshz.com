@@ -91,7 +91,7 @@ func compileRSS(pages []Page) error {
 	var Data = struct {
 		DateTime string
 		Pages    []Page
-	}{time.Now().UTC().Format(time.RFC822), pages}
+	}{time.Now().UTC().Format(time.RFC1123Z), pages}
 
 	tmpl := template.Must(template.ParseFiles("./templates/rss.tmpl"))
 	if err := tmpl.ExecuteTemplate(f, "rss", Data); err != nil {

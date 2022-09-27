@@ -1,19 +1,18 @@
 {{define "rss"}}<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming thoughts and paradigms</title>
+  <title>Dan Bond</title>
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, Linux networking and security.</description>
     <language>en-gb</language>
     <lastBuildDate>{{.DateTime}}</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
-	{{range .Pages}}
-    {{if .RSS}}<item>
+    {{range .Pages}}{{if .RSS}}<item>
       <title>{{.Title}}</title>
       <link>https://loshz.com/{{.Tmpl}}/</link>
       <guid>https://loshz.com/{{.Tmpl}}/</guid>
-      <pubDate>{{.DateTime.Format "02 Jan 06 15:04 MST"}}</pubDate>
+      <pubDate>{{.DateTime.Format "Mon, 02 Jan 2006 15:04:05 -0700"}}</pubDate>
       <description>{{.Description}}</description>
     </item>{{end}}
 	{{end}}
