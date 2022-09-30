@@ -188,11 +188,23 @@ p.next {
 
 pre {
 	background: #282828;
-	padding: 10px 10px 40px;
+	padding: 10px 10px 30px 10px;
 	margin: 0 0 10px;
 	overflow-x: auto;
 	line-height: 1.2;
     position: relative;
+	counter-reset: line;
+}
+
+pre.lines code::before {
+	width: 20px;
+	content: counter(line);
+	counter-increment: line;
+	color: #AAA;
+	display: inline-block;
+	text-align: right;
+	margin-right: 10px;
+	-webkit-user-select: none;
 }
 
 pre::after {
