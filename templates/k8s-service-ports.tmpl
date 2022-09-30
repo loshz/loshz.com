@@ -9,28 +9,30 @@
 <p class="quote">...the Kubernetes master will allocate a port from a flag-configuw range (default: 30000-32767), and each Node will proxy that port (the same port number on every Node) into your Service...</p>
 <p class="caption"><a href="https://kubernetes.io/docs/concepts/services-networking/service">https://kubernetes.io/docs/concepts/services-networking/service</a></p>
 <p>For example, if I were to apply the following YAML:</p>
-<pre class="yaml"><code><span class="r">apiVersion:</span> v1
-<span class="r">kind:</span> Service
-<span class="r">metadata:</span>
-  <span class="r">name:</span> my-service
-  <span class="r">labels:</span>
-    <span class="r">app:</span> my-service
-  <span class="r">annotations:</span>
-    <span class="r">service.beta.kubernetes.io/aws-load-balancer-ssl-cert:</span> [AWS ARN]
-    <span class="r">service.beta.kubernetes.io/aws-load-balancer-ssl-ports:</span> <span class="y">"443"</span>
-<span class="r">spec:</span>
-  <span class="r">ports:</span>
-  - <span class="r">name:</span> http
-    <span class="r">protocol:</span> TCP
-    <span class="r">port:</span> 80
-    <span class="r">targetPort:</span> 6000
-  - <span class="r">name:</span> https
-    <span class="r">protocol:</span> TCP
-    <span class="r">port:</span> 443
-    <span class="r">targetPort:</span> 6000
-  <span class="r">type:</span> LoadBalancer
-  <span class="r">selector:</span>
-    <span class="r">app:</span> my-service</code></pre>
+<pre class="yaml lines">
+<code><span class="r">apiVersion:</span> v1</code>
+<code><span class="r">kind:</span> Service</code>
+<code><span class="r">metadata:</span></code>
+<code> <span class="r">name:</span> my-service</code>
+<code> <span class="r">labels:</span></code>
+<code>   <span class="r">app:</span> my-service</code>
+<code> <span class="r">annotations:</span></code>
+<code>   <span class="r">service.beta.kubernetes.io/aws-load-balancer-ssl-cert:</span> [AWS ARN]</code>
+<code>   <span class="r">service.beta.kubernetes.io/aws-load-balancer-ssl-ports:</span> <span class="y">"443"</span></code>
+<code><span class="r">spec:</span></code>
+<code> <span class="r">ports:</span></code>
+<code> - <span class="r">name:</span> http</code>
+<code>   <span class="r">protocol:</span> TCP</code>
+<code>   <span class="r">port:</span> 80</code>
+<code>   <span class="r">targetPort:</span> 6000</code>
+<code> - <span class="r">name:</span> https</code>
+<code>   <span class="r">protocol:</span> TCP</code>
+<code>   <span class="r">port:</span> 443</code>
+<code>   <span class="r">targetPort:</span> 6000</code>
+<code> <span class="r">type:</span> LoadBalancer</code>
+<code> <span class="r">selector:</span></code>
+<code>   <span class="r">app:</span> my-service</code>
+</pre>
 <p>I would see something like this in the AWS Console:</p>
 <a href="/images/aws-elb-listeners.png"><img src="/images/aws-elb-listeners.png" alt="AWS ELB Listeners" /></a>
 <p class="caption">AWS Console: Load Balancer Listeners</p>

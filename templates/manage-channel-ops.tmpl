@@ -18,65 +18,67 @@
 			<p class="caption"><a href="https://blog.golang.org/context">https://blog.golang.org/context</a></p>
 			<p>As mentioned earlier, the request can be cancelled at any time, therefore we have to check for this in several different places. Initially, I did this in the request handler, but after some more testing I realised the request could have made its way to the read channel. In that case, we also have to check for any cancellation while getting data from the data store.</p>
 			<p>I am still unsure if this is the <em>best</em> approach, but I have manually and unit tested several scenarios and I am pretty confident with this solution. Some basic pseudo code is as follows:</p>
-			<pre class="go"><code><span class="r">package</span> main
-
-<span class="r">import</span> (
-    <span class="y">"context"
-    "net/http"
-    "time"</span>
-)
-
-<span class="r">type</span> dataRequest <span class="r">struct</span> {
-    data chan string
-    ctx  context.Context
-}
-
-<span class="r">func</span> <span class="g">handler</span>(reqStream chan dataRequest) http.HandlerFunc {
-    <span class="r">return func</span>(w http.ResponseWriter, r <span class="r">*</span>http.Request) {
-        ctx, cancel <span class="r">:=</span> context.WithTimeout(r.Context(), 5<span class="r">*</span>time.Second)
-        <span class="r">defer</span> cancel()
-
-        req <span class="r">:=</span> dataRequest{
-            data: make(chan string, 1),
-            ctx:  ctx,
-        }
-
-        <span class="r">select</span> {
-        case reqStream <span class="r"><-</span> req:
-            <span class="c">// request pushed to que</span>
-        case <span class="r"><-</span>ctx.Done():
-            <span class="c">// don't push onto reqStream if ctx done</span>
-        }
-
-        <span class="r">select</span> {
-        case <span class="r"><-</span>ctx.Done():
-            <span class="c">// don't try and serve content if ctx done</span>
-        case data <span class="r">:= <-</span>req.data:
-            <span class="c">// return data to client</span>
-        }
-    }
-}
-
-<span class="r">func</span> <span class="g">main</span>() {
-    dataReqs <span class="r">:=</span> make(chan dataRequest)
-    <span class="r">go func</span>() {
-        <span class="r">for</span> {
-            <span class="r">select</span> {
-            case req <span class="r">:= <-</span>dataReqs:
-                <span class="r">select</span> {
-                case <span class="r"><-</span>req.ctx.Done():
-                    <span class="c">// don't push onto data channel if ctx done</span>
-                case req.data <span class="r"><-</span> <span class="y">"some data"</span>:
-                    <span class="c">// get data from store</span>
-                }
-            }
-        }
-    }()
-    http.HandleFunc(<span class="y">"/"</span>, handler(dataReqs))
-    http.ListenAndServe(<span class="y">":8080"</span>, nil)
-}</code></pre>
-			<h3>Resources</h3>
-			<ul>
-				<li><a href="https://blog.golang.org/context">Go Concurrency Patterns: Context</a></li>
-			</ul>
+<pre class="go lines">
+<code><span class="r">package</span> main</code>
+<code></code>
+<code><span class="r">import</span> (</code>
+<code>    <span class="y">"context"<span></code>
+<code>    <span class="y">"net/http"</span></code>
+<code>    <span class="y">"time"</span></code>
+<code>)</code>
+<code></code>
+<code><span class="r">type</span> dataRequest <span class="r">struct</span> {</code>
+<code>    data chan string</code>
+<code>    ctx  context.Context</code>
+<code>}</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">handler</span>(reqStream chan dataRequest) http.HandlerFunc {</code>
+<code>    <span class="r">return func</span>(w http.ResponseWriter, r <span class="r">*</span>http.Request) {</code>
+<code>        ctx, cancel <span class="r">:=</span> context.WithTimeout(r.Context(), 5<span class="r">*</span>time.Second)</code>
+<code>        <span class="r">defer</span> cancel()</code>
+<code></code>
+<code>        req <span class="r">:=</span> dataRequest{</code>
+<code>            data: make(chan string, 1),</code>
+<code>            ctx:  ctx,</code>
+<code>        }</code>
+<code></code>
+<code>        <span class="r">select</span> {</code>
+<code>        case reqStream <span class="r"><-</span> req:</code>
+<code>            <span class="c">// request pushed to que</span></code>
+<code>        case <span class="r"><-</span>ctx.Done():</code>
+<code>            <span class="c">// don't push onto reqStream if ctx done</span></code>
+<code>        }</code>
+<code></code>
+<code>        <span class="r">select</span> {</code>
+<code>        case <span class="r"><-</span>ctx.Done():</code>
+<code>            <span class="c">// don't try and serve content if ctx done</span></code>
+<code>        case data <span class="r">:= <-</span>req.data:</code>
+<code>            <span class="c">// return data to client</span></code>
+<code>        }</code>
+<code>    }</code>
+<code>}</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">main</span>() {</code>
+<code>    dataReqs <span class="r">:=</span> make(chan dataRequest)</code>
+<code>    <span class="r">go func</span>() {</code>
+<code>        <span class="r">for</span> {</code>
+<code>            <span class="r">select</span> {</code>
+<code>            case req <span class="r">:= <-</span>dataReqs:</code>
+<code>                <span class="r">select</span> {</code>
+<code>                case <span class="r"><-</span>req.ctx.Done():</code>
+<code>                    <span class="c">// don't push onto data channel if ctx done</span></code>
+<code>                case req.data <span class="r"><-</span> <span class="y">"some data"</span>:</code>
+<code>                    <span class="c">// get data from store</span></code>
+<code>                }</code>
+<code>            }</code>
+<code>        }</code>
+<code>    }()</code>
+<code>    http.HandleFunc(<span class="y">"/"</span>, handler(dataReqs))</code>
+<code>    http.ListenAndServe(<span class="y">":8080"</span>, nil)</code>
+<code>}</code>
+</pre>
+<h3>Resources</h3>
+<ul>
+    <li><a href="https://blog.golang.org/context">Go Concurrency Patterns: Context</a></li>
+</ul>
 {{end}}

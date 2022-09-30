@@ -5,37 +5,39 @@
 <p class="date">{{.DateTime.Format "2006-01-02"}} &sdot; 2 min read</p>
 <p>A great feature of Go is the ability to run tests in parallel using the default <a href="https://golang.org/pkg/testing/">testing package</a>.</p>
 <p>Here's an example of a very basic mock function with 2 unit tests:</p>
-<pre class="go"><code><span class="r">package</span> main
-
-<span class="r">import</span> (
-    <span class="y">"errors"
-    "testing"
-    "time"</span>
-)
-
-<span class="r">func</span> <span class="g">mock</span>(input interface{}) error {
-    <span class="c">// simulate stuff happening</span>
-    time.Sleep(1 <span class="r">*</span> time.Second)
-
-    <span class="r">if</span> input <span class="r">==</span> nil {
-        <span class="r">return</span> errors.New("<span class="y">input must not be nil"</span>)
-    }
-    <span class="r">return</span> nil
-}
-
-<span class="r">func</span> <span class="g">TestMockNoError</span>(t <span class="r">*</span>testing.T) {
-    <span class="r">if</span> err <span class="r">:=</span> mock(true); err <span class="r">!=</span> nil {
-        t.Errorf(<span class="y">"expected no error, got: %v"</span>, err)
-    }
-}
-
-<span class="r">func</span> <span class="g">TestMockError</span>(t <span class="r">*</span>testing.T) {
-    <span class="r">if</span> err <span class="r">:=</span> mock(nil); err <span class="r">==</span> nil {
-        t.Errorf(<span class="y">"expected error, got: %v"</span>, err)
-    }
-}</code></pre>
-			<p>And as expected, the tests took a total of 2 seconds to run:</p>
-			<pre><code>$ go test -v main_test.go
+<pre class="go lines">
+<code><span class="r">package</span> main</code>
+<code></code>
+<code><span class="r">import</span> (</code>
+<code>    <span class="y">"errors"</code>
+<code>    "testing"</code>
+<code>    "time"</span></code>
+<code>)</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">mock</span>(input interface{}) error {</code>
+<code>    <span class="c">// simulate stuff happening</span></code>
+<code>    time.Sleep(1 <span class="r">*</span> time.Second)</code>
+<code></code>
+<code>    <span class="r">if</span> input <span class="r">==</span> nil {</code>
+<code>        <span class="r">return</span> errors.New("<span class="y">input must not be nil"</span>)</code>
+<code>    }</code>
+<code>    <span class="r">return</span> nil</code>
+<code>}</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">TestMockNoError</span>(t <span class="r">*</span>testing.T) {</code>
+<code>    <span class="r">if</span> err <span class="r">:=</span> mock(true); err <span class="r">!=</span> nil {</code>
+<code>        t.Errorf(<span class="y">"expected no error, got: %v"</span>, err)</code>
+<code>    }</code>
+<code>}</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">TestMockError</span>(t <span class="r">*</span>testing.T) {</code>
+<code>   <span class="r">if</span> err <span class="r">:=</span> mock(nil); err <span class="r">==</span> nil {</code>
+<code>       t.Errorf(<span class="y">"expected error, got: %v"</span>, err)</code>
+<code>   }</code>
+<code>}</code>
+</pre>
+<p>And as expected, the tests took a total of 2 seconds to run:</p>
+<pre><code>$ go test -v main_test.go
 === RUN   TestMockNoError
 --- PASS: TestMockNoError (1.00s)
 === RUN   TestMockError
@@ -44,15 +46,17 @@ PASS
 ok      command-line-arguments  2.003s
 </code></pre>
 <p>Now here's the fun part. We can add a single line of code to both tests to allow them to run in Parallel:</p>
-<pre class="go"><code><span class="r">func</span> <span class="g">TestMockNoError</span>(t <span class="r">*</span>testing.T) {
-    t.Parallel()
-    ...
-}
-
-<span class="r">func</span> <span class="g">TestMockError</span>(t <span class="r">*</span>testing.T) {
-    t.Parallel()
-    ...
-}</code></pre>
+<pre class="go lines">
+<code><span class="r">func</span> <span class="g">TestMockNoError</span>(t <span class="r">*</span>testing.T) {</code>
+<code>    t.Parallel()</code>
+<code>    <span class="c">// assertions</span></code>
+<code>}</code>
+<code></code>
+<code><span class="r">func</span> <span class="g">TestMockError</span>(t <span class="r">*</span>testing.T) {</code>
+<code>    t.Parallel()</code>
+<code>    <span class="c">// assertions</span></code>
+<code>}</code>
+</pre>
 <p>We now see a noticable improvement as both tests take only 1 second to run:</p>
 <pre><code>$ go test -v main_test.go
 === RUN   TestMockNoError
@@ -64,16 +68,18 @@ ok      command-line-arguments  1.002s
 </code></pre>
 <p>Using <code>`t.Parallel()`</code> is a great way to test your applications for race conditions without the need to manually bootstrap test functions to run in separate goroutines. Not only that, but it also significantly speeds up the run time of your test suites.</p>
 <p>As a bonus, this function can also be called inside subtests with the difference being a parent test will only complete once all of its subtests complete:</p>
-<pre class="go"><code><span class="r">func</span> <span class="g">TestMock</span>(t <span class="r">*</span>testing.T) {
-    t.Run(<span class="y">"TestMockNoError"</span>, <span class="r">func</span>(t <span class="r">*</span>testing.T) {
-        t.Parallel()
-        ...
-    })
-    t.Run(<span class="y">"TestMockError"</span>, <span class="r">func</span>(t <span class="r">*</span>testing.T) {
-        t.Parallel()
-        ...
-    })
-}</code></pre>
+<pre class="go lines">
+<code><span class="r">func</span> <span class="g">TestMock</span>(t <span class="r">*</span>testing.T) {</code>
+<code>    t.Run(<span class="y">"TestMockNoError"</span>, <span class="r">func</span>(t <span class="r">*</span>testing.T) {</code>
+<code>        t.Parallel()</code>
+<code>        <span class="c">// assertions</span></code>
+<code>    })</code>
+<code>    t.Run(<span class="y">"TestMockError"</span>, <span class="r">func</span>(t <span class="r">*</span>testing.T) {</code>
+<code>        t.Parallel()</code>
+<code>        <span class="c">// assertions</span></code>
+<code>    })</code>
+<code>}</code>
+</pre>
 			<h3>Resources</h3>
 			<ul>
 				<li><a href="https://golang.org/pkg/testing/">Go Package: testing</a></li>
