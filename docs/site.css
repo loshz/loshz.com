@@ -191,7 +191,7 @@ pre {
 	padding: 5px 5px 25px;
 	margin: 0 0 10px;
 	overflow-x: auto;
-	line-height: 1.2;
+	line-height: 1;
     position: relative;
 	counter-reset: line;
 }
