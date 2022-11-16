@@ -9,7 +9,6 @@
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
-	
 	<item>
       <title>Arch Linux: LVM on LUKS</title>
       <link>https://loshz.com/arch-linux/</link>
