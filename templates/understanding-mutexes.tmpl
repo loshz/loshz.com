@@ -21,10 +21,10 @@
 <code>    p.mtx.Unlock()</code>
 <code>}</code>
 </pre>
-<p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>`p.count`</code>?</p>
+<p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>p.count</code>?</p>
 <p>While many other languages have similar implementations, for the purposes of this post I'm going to refer to a mutex in <a href="https://golang.org/pkg/sync/#Mutex">Go</a>.</p>
 <h3>Lock/Unlock</h3>
-<p>Under the hood, when <code>`Lock()`</code> is called, the mutex will attempt to perform an atomic compare-and-swap operation on an unexported <code>`int32`</code> field. As the default "unlocked" value of this field is 0, if successful, this field will now equal 1 and we can consider the mutex to be locked. Similarly, <code>`Unlock()`</code> attempts to set the field back to 0.</p>
+<p>Under the hood, when <code>Lock()</code> is called, the mutex will attempt to perform an atomic compare-and-swap operation on an unexported <code>int32</code> field. As the default "unlocked" value of this field is 0, if successful, this field will now equal 1 and we can consider the mutex to be locked. Similarly, <code>Unlock()</code> attempts to set the field back to 0.</p>
 <p>So what happens if we attempt to lock a mutex that is already locked? This depends on the current mode of the mutex, which is one of either normal or starvation.</p>
 <h3>Normal</h3>
 <p>In normal mode, calls to Lock/Unlock are queued in <a href="https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting#FIFO">FIFO</a> order. Each call will continually attempt to operate the mutex until eventually failing if it has been trying for more than 1ms - at which point it enters starvation mode.</p>

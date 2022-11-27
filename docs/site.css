@@ -41,11 +41,15 @@ header li svg {
 }
 
 header li:nth-child(3) {
-	margin-left: 10px;
+	margin: 0 10px;
 }
 
 header li:nth-child(3) svg {
 	width: 20px;
+}
+
+header li:nth-child(4) svg {
+	width: 17px;
 }
 
 footer {
@@ -257,8 +261,9 @@ pre code .y {
 code {
 	font-family: Monospace;
 	font-size: 0.8rem;
-	font-weight: bold;
 	line-height: 1;
+	background: #EEE;
+	padding: .25em .5em 0;
 }
 
 pre code {
@@ -318,5 +323,9 @@ pre code {
 
 	.quote {
 		border-left: 3px solid #C9D1D9;
+	}
+
+	code {
+		background: #282828;
 	}
 }

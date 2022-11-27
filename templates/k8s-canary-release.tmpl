@@ -6,7 +6,7 @@
 <p>Kubernetes makes light work of giving us the ability to deploy a canary release.</p>
 <p class="quote">Canary release is a technique to wuce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.</p>
 <p class="caption"><a href="https://martinfowler.com/bliki/CanaryRelease.html">https://martinfowler.com/bliki/CanaryRelease.html</a></p>
-<p>For example, let's say we want to deploy 4 stable replicas of <code>`my-service`</code> to a cluster. The yaml might look something like this:</p>
+<p>For example, let's say we want to deploy 4 stable replicas of <code>my-service</code> to a cluster. The yaml might look something like this:</p>
 <pre class="yaml lines">
 <code><span class="r">apiVersion:</span> apps/v1beta2</code>
 <code><span class="r">kind:</span> Deployment</code>
@@ -34,7 +34,7 @@
 <code>        - <span class="r">containerPort:</span> 6000</code>
 </pre>
 <p>We can use labels to specify information about a Deployment. (Tip: it's good practice to keep these consistent throughout each service.)</p>
-<p>In our Deployment, we use the same <code>`app`</code> label from the metadata in the spec <code>`selector`</code>. The selector field defines how the Deployment finds which Pods to manage.</p>
+<p>In our Deployment, we use the same <code>app</code> label from the metadata in the spec <code>selector</code>. The selector field defines how the Deployment finds which Pods to manage.</p>
 <p>In order to expose our service to the internet, we can create a Load Balancer in the form of a Service:</p>
 <pre class="yaml lines">
 <code><span class="r">apiVersion:</span> v1</code>
@@ -51,7 +51,7 @@
 <code> <span class="r">selector:</span></code>
 <code>   <span class="r">app:</span> my-service</code>
 </pre>
-<p>Here we will use the same <code>`selector`</code> field to match the <code>`app`</code> label of our Deployment as this enables the Service to route traffic to the correct Pods.</p>
+<p>Here we will use the same <code>selector</code> field to match the <code>app</code> label of our Deployment as this enables the Service to route traffic to the correct Pods.</p>
 <p>Now it's time to introduce our Canary release. Similarly to our stable build, we will create another Deployment:</p>
 <pre class="yaml lines">
 <code><span class="r">apiVersion:</span> apps/v1beta2</code>
