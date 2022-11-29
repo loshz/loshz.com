@@ -111,7 +111,6 @@ a:hover {
 }
 
 .date {
-	font-size: 0.9rem;
 	color: #828282;
 	font-style: italic;
 	margin: 0 0 20px;
@@ -133,7 +132,6 @@ p:last-child {
 
 .caption {
 	text-align: center;
-	font-size: 0.9rem;
 	color: #828282;
 }
 
@@ -260,7 +258,6 @@ pre code .y {
 
 code {
 	font-family: Monospace;
-	font-size: 0.9rem;
 	line-height: 1;
 	background: #EEE;
 	padding: .25em .5em 0;
