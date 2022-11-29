@@ -260,7 +260,7 @@ pre code .y {
 
 code {
 	font-family: Monospace;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	line-height: 1;
 	background: #EEE;
 	padding: .25em .5em 0;
@@ -291,12 +291,9 @@ pre code {
 		padding: 10px 10px 30px;
 	}
 
-	pre::after,	code {
-		font-size: 0.9rem;
-	}
-
-	pre::after {
+	pre::after  {
 		padding: 5px 10px;
+		font-size: 0.9rem;
 	}
 }
 
