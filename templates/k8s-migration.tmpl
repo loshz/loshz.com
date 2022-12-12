@@ -2,7 +2,7 @@
 <p class="previous">&larr; <a href="/k8s-canary-release/">Previous</a></p>
 <p class="next"><a href="/remote-cohesion/">Next</a> &rarr;</p>
 <h1>{{.Title}}</h1>
-<p class="date">{{.DateTime.Format "2006-01-02"}} &sdot; 3 min read</p>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
 <p>Firstly, let me explain what I mean by a <em>legacy</em> service: code that has never run on a container orchestration platform. The chances are your services were designed to run independently, on a node with plenty of resources, without being constantly restarted.</p>
 <p>A lot of time can be spent trying to perfect your Kubernetes setup while striving to ensure you have the most reliable cluster configuration. But a question that is arguably more important and commonly overlooked: are your services ready for Kubernetes?</p>
 <h3>Startup operations</h3>

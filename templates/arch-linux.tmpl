@@ -2,7 +2,7 @@
 <p class="previous">&larr; <a href="/linux-pam/">Previous</a></p>
 <p class="next"></p>
 <h1>{{.Title}}</h1>
-<p class="date">{{.DateTime.Format "2006-01-02"}} &sdot; 4 min read</p>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
 <p>After countless installs of Arch Linux, I want to document a simple LVM on LUKS install that has worked flawlessly for me over the years.</p>
 <h3>Assumptions</h3>
 <ul>
@@ -15,101 +15,101 @@
 <h3>Installation Process</h3>
 <p>After booting from the USB installer, you should be dropped into a terminal shell:</p>
 <pre><code><span class="c">// Connect to a wireless network</span>
-# iwctl station [station] connect [ssid]
+iwctl station [station] connect [ssid]
 
 <span class="c">// Synchronize the machine's clock</span>
-# timedatectl set-ntp true
+timedatectl set-ntp true
 
 <span class="c">// Partition the disk:
 // 1. Wipe the device
 // 2. Create a 512MiB boot partition
 // 3. Create a 100%FREE root partition</span>
-# wipefs -a /dev/nvme0n1
-# parted -s /dev/nvme0n1 mklabel gpt
-# parted -s /dev/nvme0n1 mkpart primary fat32 1MiB 512MiB
-# parted -s /dev/nvme0n1 set 1 esp on
-# parted -s /dev/nvme0n1 mkpart primary ext4 512MiB 100%
+wipefs -a /dev/nvme0n1
+parted -s /dev/nvme0n1 mklabel gpt
+parted -s /dev/nvme0n1 mkpart primary fat32 1MiB 512MiB
+parted -s /dev/nvme0n1 set 1 esp on
+parted -s /dev/nvme0n1 mkpart primary ext4 512MiB 100%
 
 <span class="c">// Format the newly created partitions:
 // 1. Set the boot partition to FAT32
 // 2. LUKS encrypt the root partition
 // 3. Open the encrypted device</span>
-# mkfs.fat -F32 /dev/nvme0n1p1
-# cryptsetup -y -v luksFormat /dev/nvme0n1p2
-# cryptsetup open /dev/nvme0n1p2 cryptlvm
+mkfs.fat -F32 /dev/nvme0n1p1
+cryptsetup -y -v luksFormat /dev/nvme0n1p2
+cryptsetup open /dev/nvme0n1p2 cryptlvm
 
 <span class="c">// Prepare the logical volumes:
 // 1. Create a physical volume on top of the opened LUKS container
 // 2. Create a new volume group from the physical volume
 // 3. Create required logical volumes on the volume group</span>
-# pvcreate /dev/mapper/cryptlvm
-# vgcreate archvg /dev/mapper/cryptlvm
-# lvcreate -L 32G archvg -n swap
-# lvcreate -L 100G archvg -n root
-# lvcreate -l 100%FREE archvg -n home
+pvcreate /dev/mapper/cryptlvm
+vgcreate archvg /dev/mapper/cryptlvm
+lvcreate -L 32G archvg -n swap
+lvcreate -L 100G archvg -n root
+lvcreate -l 100%FREE archvg -n home
 
 <span class="c">// Format the filesystems on each logical volume</span>
-# mkfs.ext4 /dev/archvg/root
-# mkfs.ext4 /dev/archvg/home
-# mkswap /dev/archvg/swap
+mkfs.ext4 /dev/archvg/root
+mkfs.ext4 /dev/archvg/home
+mkswap /dev/archvg/swap
 
 <span class="c">// Mount the filesystems</span>
-# mount /dev/archvg/root /mnt
-# mount --mkdir /dev/archvg/home /mnt/home
-# swapon /dev/archvg/swap
-# mount --mkdir /dev/nvme0n1p1 /mnt/boot
+mount /dev/archvg/root /mnt
+mount --mkdir /dev/archvg/home /mnt/home
+swapon /dev/archvg/swap
+mount --mkdir /dev/nvme0n1p1 /mnt/boot
 
 <span class="c">// Install system software</span>
-# pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 iwd neovim
+pacstrap /mnt base base-devel linux linux-firmware amd-ucode lvm2 iwd neovim
 
 <span class="c">// Generate an fstab file using UUIDs and chroot into the new system</span>
-# genfstab -U /mnt >> /mnt/etc/fstab
-# arch-chroot /mnt
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
 
 <span class="c">// Set the timezone and locale</span>
-# ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
-# hwclock --systohc
-# echo "LANG=en_US.UTF-8" > /etc/locale.conf
-# echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-# locale-gen
+ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
+hwclock --systohc
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
 
 <span class="c">// Set hostname and local network conf</span>
-# echo [hostname] > /etc/hostname
-# echo "127.0.0.1 localhost
+echo [hostname] > /etc/hostname
+echo "127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 [hostname].localdomain [hostname]" >> /etc/hosts
 
 <span class="c">// Configure mkinitcpio to ensure the required hooks are present
 // and in the correct order:
 // HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)</span>
-# nvim /etc/mkinitcpio.conf
-# mkinitcpio -p linux
+nvim /etc/mkinitcpio.conf
+mkinitcpio -p linux
 
 <span class="c">// Set the root password</span>
-# passwd
+passwd
 
 <span class="c">// Install the bootloader:
 // 1. Configure the bootloader entry
 // 2. Set the default bootloader entry
 // 3. Install systemd-boot
 // 4. Verify the default bootloader entry</span>
-# mkdir -p /boot/loader/entries
-# UUID=$(blkid /dev/nvme0n1p2 -o value -s UUID)
-# echo "title Arch Linux
+mkdir -p /boot/loader/entries
+UUID=$(blkid /dev/nvme0n1p2 -o value -s UUID)
+echo "title Arch Linux
 linux /vmlinuz-linux
 initrd /amd-ucode.img
 initrd /initramfs-linux.img
 options cryptdevice=UUID=${UUID}:cryptlvm root=/dev/archvg/root quiet rw" > /boot/loader/entries/arch.conf
-# echo "default arch
+echo "default arch
 timeout 0
 editor 0" > /boot/loader/loader.conf
-# bootctl --esp-path=/boot install
-# bootctl list
+bootctl --esp-path=/boot install
+bootctl list
 
 <span class="c">// Exit and reboot into the new system</span>
-# exit
-# umount -R /mnt
-# reboot
+exit
+umount -R /mnt
+reboot
 </code></pre>
 <h3>Resources</h3>
 <ul>
