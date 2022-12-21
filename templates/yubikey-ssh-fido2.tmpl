@@ -1,0 +1,52 @@
+{{define "content"}}
+<p class="previous">&larr; <a href="/arch-linux/">Previous</a></p>
+<p class="next"></p>
+<h1>{{.Title}}</h1>
+<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
+<p><a hred="https://www.openssh.com/txt/release-8.2">OpenSSH 8.2</a> added support for registering and authenticating with FIDO2 Credentials, which is possible on YubiKey series 5 devices. When used for SSH operations, the sensitive part of your SSH key is moved from your computer to an external security key. To get started you’ll need OpenSSH version 8.2 or later, as well as <a href="https://github.com/Yubico/libfido2">libfido2</a>.</p>
+<h3>Discoverable vs Non-Discoverable Credentials</h3>
+<p>Before generating a keypair, you should decide between discoverable (aka resident) or non-discoverable keys. Discoverable credentials means that the private key and associated metadata is stored in persistent memory on the device. For maximum security, choose non-discoverable as the credentials cannot be used if someone else were to steal the physical YubiKey. Non-Discoverable credentials will also require the private key to be stored within the <code>~/.ssh</code> folder of the logged in user as well as the YubiKey.</p>
+<p>Yubico has a great <a href="https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Resident_Keys.html">developer guide</a> on this topic.</p>
+<h3>Configure YubiKey</h3>
+<p>Before creating new keys, optionally reset the FIDO application on the YubiKey. You can do this using the <a href="https://github.com/Yubico/yubikey-manager">ykman</a> command:</p>
+<p class="quote"><strong>NOTE: THIS IS DESTRUCTIVE, USE WITH CAUTION!</strong></p>
+<pre><code>$ ykman fido reset
+WARNING! This will delete all FIDO credentials, including FIDO U2F credentials, and restore factory settings. Proceed? [y/N]:
+...</code></pre>
+<p>Optionally set the PIN for FIDO (required if you want to force verification or manage credentials):</p>
+<pre><code>$ ykman fido access change-pin
+Enter your new PIN:
+...</code></pre>
+<h3>Configure Git</h3>
+<p>It can be trivial to save your private key on a physical machine, but this isn't secure. Generating keys, for a common use case as Git, is almost identical to the standard <code>ssh-keygen</code> workflow. However, there are a few additional things to note:</p>
+<ul>
+	<li>The "sk" suffix (short for "security key") is appended to the type (<code>-t</code>) value. E.g. <code>ed25519-sk</code> or <code>ecdsa-sk</code>.</li>
+	<li>There is a new option to create a discoverable (resident) key: <code>-O resident</code>.</li>
+	<li>There is a new option to require the security key PIN in order to use the credentials: <code>-O verify-required</code>.</li>
+	<li>Giving the key a name makes it more distinguishable when listing them from the YubiKey. E.g. <code>-O application=ssh:github</code>.</li>
+</ul>
+<p>To create a non-discoverable key without requiring verification, use the following command:<p>
+<pre><code>$ ssh-keygen -t ed25519-sk -C [email] -O application=ssh:github
+Generating public/private ed25519-sk key pair.
+You may need to touch your authenticator to authorize key generation.
+
+$ ykman fido credentials list
+Enter your PIN:
+ssh:github 0000000000000000000000000000000000000000000000000000000000000000 openssh
+
+$ ls ~/.ssh
+...
+id_ed25519_sk
+id_ed25519_sk.pub</code></pre>
+<p>You should then be able to add the public key to GitHub and authenticate as usual, entering your PIN and/or touching the YubiKey when prompted:</p>
+<pre><code>$ ssh -T git@github.com
+Confirm user presence for key ED25519-SK [key]
+User presence confirmed
+Hi [username]! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<p>It's worth noting that some operations might require you to touch the YubiKey without bing prompted. When running commands such as <code>git clone</code>, the device light will blink if physical input is required.</p>
+<h3>References</h3>
+<ul>
+	<li><a href="https://www.man7.org/linux/man-pages/man1/ssh-keygen.1.html">https://www.man7.org/linux/man-pages/man1/ssh-keygen.1.html</a></li>
+	<li><a href="https://developers.yubico.com/SSH/Securing_git_with_SSH_and_FIDO2.html">https://developers.yubico.com/SSH/Securing_git_with_SSH_and_FIDO2.html</a></li>
+</ul>
+{{end}}

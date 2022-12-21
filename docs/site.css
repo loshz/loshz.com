@@ -195,6 +195,7 @@ pre {
 	line-height: 1;
     position: relative;
 	counter-reset: line;
+	white-space: pre-wrap;
 }
 
 pre.lines code::before {

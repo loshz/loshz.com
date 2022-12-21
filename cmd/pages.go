@@ -28,6 +28,13 @@ var pages = []Page{
 		Tmpl:  "etc",
 	},
 	{
+		Title:       "YubiKey: Secure SSH with FIDO2",
+		Description: "Configure a YubiKey to secure OpenSSH for FIDO2 Authentication.",
+		Tmpl:        "yubikey-ssh-fido2",
+		DateTime:    time.Date(2022, time.December, 21, 12, 0, 0, 0, time.UTC),
+		RSS:         true,
+	},
+	{
 		Title:       "Arch Linux: LVM on LUKS",
 		Description: "Simple Arch Linux instructions for setting up LVM on top of a LUKS encrypted partition.",
 		Tmpl:        "arch-linux",

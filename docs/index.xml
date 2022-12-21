@@ -5,10 +5,18 @@
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, Linux networking and security.</description>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 27 Sep 2022 16:19:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Dec 2022 11:51:35 +0000</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
+	
+	<item>
+      <title>YubiKey: Secure SSH with FIDO2</title>
+      <link>https://loshz.com/yubikey-ssh-fido2/</link>
+      <guid>https://loshz.com/yubikey-ssh-fido2/</guid>
+      <pubDate>Wed, 21 Dec 2022 12:00:00 +0000</pubDate>
+      <description>Configure a YubiKey to secure OpenSSH for FIDO2 Authentication.</description>
+    </item>
 	<item>
       <title>Arch Linux: LVM on LUKS</title>
       <link>https://loshz.com/arch-linux/</link>
