@@ -24,7 +24,7 @@ var pages = []Page{
 		Root:  true,
 	},
 	{
-		Title: "/etc [et-see]",
+		Title: "/etc",
 		Tmpl:  "etc",
 	},
 	{

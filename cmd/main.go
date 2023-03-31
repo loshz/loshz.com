@@ -1,12 +1,12 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
 	"strings"
 	"text/template"
 	"time"
@@ -19,13 +19,13 @@ func main() {
 	var rss = flag.Bool("rss", false, "Compile RSS feed")
 	flag.Parse()
 
-	// Compile static HTML
+	// Compile static HTML.
 	fmt.Println("Compiling static html...")
 	if err := compileHTML(pages, true); err != nil {
 		log.Fatal(err)
 	}
 
-	// Compile RSS feed
+	// Compile RSS feed.
 	if *rss {
 		fmt.Println("\nCompiling rss feed...")
 		if err := compileRSS(pages); err != nil {
@@ -33,51 +33,49 @@ func main() {
 		}
 	}
 
-	// Run local webserver
+	// Run local webserver and watch for template changes.
 	if *local {
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+
+		go watchForChanges(ctx)
+
 		fmt.Println("\nRunning local webserver: http://localhost:8001")
-		fmt.Println("Watching for changes...")
-		go watchForChanges()
 		http.Handle("/", http.FileServer(http.Dir("./docs")))
-		log.Fatal(http.ListenAndServe(":8001", nil))
+		if err := http.ListenAndServe(":8001", nil); err != nil {
+			cancel()
+			log.Fatal(err)
+		}
 	}
 }
 
-func watchForChanges() {
+func watchForChanges(ctx context.Context) {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer watcher.Close()
 
-	done := make(chan bool)
-	go func() {
-		for {
-			select {
-			case event := <-watcher.Events:
-				if event.Op&fsnotify.Write == fsnotify.Write {
-					fmt.Println("Template changed, recompiling static html")
-					if err := compileHTML(pages, false); err != nil {
-						log.Fatal(err)
-					}
+	if err := watcher.Add("./templates/"); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Watching for changes...")
+	for {
+		select {
+		case event := <-watcher.Events:
+			if event.Has(fsnotify.Write) {
+				fmt.Println("Template changed, recompiling static html")
+				if err := compileHTML(pages, false); err != nil {
+					log.Fatal(err)
 				}
-			case err := <-watcher.Errors:
-				log.Println("error:", err)
 			}
+		case err := <-watcher.Errors:
+			log.Println("error:", err)
+		case <-ctx.Done():
+			return
 		}
-	}()
-
-	dir, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
 	}
-
-	err = watcher.Add(filepath.Join(dir, "/templates/"))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	<-done
 }
 
 func compileRSS(pages []Page) error {
