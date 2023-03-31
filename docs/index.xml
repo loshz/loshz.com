@@ -5,7 +5,7 @@
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, Linux networking and security.</description>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 21 Dec 2022 11:51:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Mar 2023 04:34:42 +0000</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -67,39 +67,11 @@
       <description>Your application code doesn't have to be the only thing that executes asynchronously.</description>
     </item>
 	<item>
-      <title>KubeCon &amp; CloudNativeCon — North America '18</title>
-      <link>https://loshz.com/kubecon-18/</link>
-      <guid>https://loshz.com/kubecon-18/</guid>
-      <pubDate>Sun, 30 Dec 2018 17:00:00 +0000</pubDate>
-      <description>8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.</description>
-    </item>
-	<item>
       <title>Remote Cohesion</title>
       <link>https://loshz.com/remote-cohesion/</link>
       <guid>https://loshz.com/remote-cohesion/</guid>
       <pubDate>Fri, 30 Nov 2018 17:00:00 +0000</pubDate>
       <description>Fusing a team together in a distant world.</description>
-    </item>
-	<item>
-      <title>Kubernetes: Migrating legacy services</title>
-      <link>https://loshz.com/k8s-migration/</link>
-      <guid>https://loshz.com/k8s-migration/</guid>
-      <pubDate>Wed, 31 Oct 2018 17:00:00 +0000</pubDate>
-      <description>Why copy/pasting your services to Kubernetes isn't always the answer.</description>
-    </item>
-	<item>
-      <title>Kubernetes: Canary release</title>
-      <link>https://loshz.com/k8s-canary-release/</link>
-      <guid>https://loshz.com/k8s-canary-release/</guid>
-      <pubDate>Fri, 11 May 2018 17:00:00 +0000</pubDate>
-      <description>Reduce the risk of introducing a new software version in Kubernets.</description>
-    </item>
-	<item>
-      <title>Kubernetes: Service ports</title>
-      <link>https://loshz.com/k8s-service-ports/</link>
-      <guid>https://loshz.com/k8s-service-ports/</guid>
-      <pubDate>Thu, 05 Apr 2018 17:00:00 +0000</pubDate>
-      <description>Balance the load.</description>
     </item>
 	<item>
       <title>Manage channel operations using context</title>

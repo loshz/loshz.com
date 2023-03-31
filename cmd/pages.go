@@ -84,38 +84,10 @@ var pages = []Page{
 		RSS:         true,
 	},
 	{
-		Title:       "KubeCon &amp; CloudNativeCon — North America '18",
-		Description: "8000 attendees, 150+ speakers, 250+ talks, 100+ sponsors and more swag than you could carry.",
-		Tmpl:        "kubecon-18",
-		DateTime:    time.Date(2018, time.December, 30, 17, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
 		Title:       "Remote Cohesion",
 		Description: "Fusing a team together in a distant world.",
 		Tmpl:        "remote-cohesion",
 		DateTime:    time.Date(2018, time.November, 30, 17, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
-		Title:       "Kubernetes: Migrating legacy services",
-		Description: "Why copy/pasting your services to Kubernetes isn't always the answer.",
-		Tmpl:        "k8s-migration",
-		DateTime:    time.Date(2018, time.October, 31, 17, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
-		Title:       "Kubernetes: Canary release",
-		Description: "Reduce the risk of introducing a new software version in Kubernets.",
-		Tmpl:        "k8s-canary-release",
-		DateTime:    time.Date(2018, time.May, 11, 17, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
-		Title:       "Kubernetes: Service ports",
-		Description: "Balance the load.",
-		Tmpl:        "k8s-service-ports",
-		DateTime:    time.Date(2018, time.April, 5, 17, 0, 0, 0, time.UTC),
 		RSS:         true,
 	},
 	{
