@@ -63,24 +63,10 @@ var pages = []Page{
 		RSS:         true,
 	},
 	{
-		Title:       "AWS ELB vs HAProxy",
-		Description: "Battle of the proxies.",
-		Tmpl:        "aws-elb-vs-haproxy",
-		DateTime:    time.Date(2020, time.August, 25, 16, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
 		Title:       "Understanding Mutexes",
 		Description: "Mutually exclusive synchronization - how does it work?",
 		Tmpl:        "understanding-mutexes",
 		DateTime:    time.Date(2019, time.October, 22, 23, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
-		Title:       "Parallel tests in Go",
-		Description: "Your application code doesn't have to be the only thing that executes asynchronously.",
-		Tmpl:        "parallel-tests-go",
-		DateTime:    time.Date(2019, time.October, 8, 17, 0, 0, 0, time.UTC),
 		RSS:         true,
 	},
 	{

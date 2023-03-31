@@ -5,7 +5,7 @@
     <link>https://loshz.com/</link>
     <description>A collection of articles focused on systems programming, Linux networking and security.</description>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 31 Mar 2023 04:34:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Mar 2023 04:49:19 +0000</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,25 +46,11 @@
       <description>Keeping your personal conversations private and secure.</description>
     </item>
 	<item>
-      <title>AWS ELB vs HAProxy</title>
-      <link>https://loshz.com/aws-elb-vs-haproxy/</link>
-      <guid>https://loshz.com/aws-elb-vs-haproxy/</guid>
-      <pubDate>Tue, 25 Aug 2020 16:00:00 +0000</pubDate>
-      <description>Battle of the proxies.</description>
-    </item>
-	<item>
       <title>Understanding Mutexes</title>
       <link>https://loshz.com/understanding-mutexes/</link>
       <guid>https://loshz.com/understanding-mutexes/</guid>
       <pubDate>Tue, 22 Oct 2019 23:00:00 +0000</pubDate>
       <description>Mutually exclusive synchronization - how does it work?</description>
-    </item>
-	<item>
-      <title>Parallel tests in Go</title>
-      <link>https://loshz.com/parallel-tests-go/</link>
-      <guid>https://loshz.com/parallel-tests-go/</guid>
-      <pubDate>Tue, 08 Oct 2019 17:00:00 +0000</pubDate>
-      <description>Your application code doesn't have to be the only thing that executes asynchronously.</description>
     </item>
 	<item>
       <title>Remote Cohesion</title>
