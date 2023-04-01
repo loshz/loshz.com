@@ -82,7 +82,6 @@ h1 {
 
 h2 {
 	font-size: 1.4rem;
-	font-style: italic;
 	text-decoration: underline;
 	font-weight: bold;
 }
@@ -154,7 +153,6 @@ p:last-child {
 }
 .content ul {
 	padding-left: 1rem;
-	list-style: square;
 }
 
 .content li {
@@ -173,18 +171,6 @@ p:last-child {
 .content ul#posts .date {
 	float: right;
 	margin: 0;
-}
-
-p.previous, p.next {
-	display: inline-block;
-	margin: 0 0 5px;
-	font-style: italic;
-	width: 50%;
-}
-
-p.next {
-	text-align: right;
-	float: right;
 }
 
 pre {
