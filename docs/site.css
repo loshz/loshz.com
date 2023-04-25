@@ -17,13 +17,14 @@ body {
 	padding: 15px;
 }
 
+header {
+	border-bottom: 1px solid #EEE;
+	padding-bottom: 10px;
+}
+
 header ul {
 	list-style: none;
 	display: flex;
-}
-
-header ul a {
-	text-decoration: none;
 }
 
 header li {
@@ -40,7 +41,7 @@ header li svg {
 	width: 19px;
 }
 
-header li:nth-child(3) {
+header li:nth-child(2) {
 	margin: 0 10px;
 }
 
@@ -53,26 +54,7 @@ header li:nth-child(4) svg {
 }
 
 footer {
-	padding: 15px 0 0;
 	font-size: 0.7rem;
-	text-align: center;
-	border-top: 1px solid #EEE;
-	display: flex;
-}
-
-footer p {
-	display: flex;
-	float: left;
-	margin: 0;
-}
-
-footer p:first-child {
-	max-width: 50%;
-	margin-right: auto;
-}
-
-footer p:last-child {
-	text-align: right;
 }
 
 h1 {
@@ -82,12 +64,15 @@ h1 {
 
 h2 {
 	font-size: 1.4rem;
-	text-decoration: underline;
-	font-weight: bold;
 }
 
 h2 a {
 	color: #121212!important;
+	text-decoration: none;
+}
+
+h2 a:hover {
+	text-decoration: underline;
 }
 
 h3 {
@@ -101,12 +86,7 @@ h4 {
 }
 
 a, a:visited {
-	text-decoration: none;
 	color: #0000EE;
-}
-
-a:hover {
-	text-decoration: underline;
 }
 
 .date {
@@ -140,7 +120,7 @@ p:last-child {
 }
 
 .content {
-	margin: 20px 0;
+	margin: 15px 0 25px;
 }
 
 .content ol, .content ul {
@@ -152,7 +132,7 @@ p:last-child {
 	padding-left: 2rem;
 }
 .content ul {
-	padding-left: 1rem;
+	list-style: none;
 }
 
 .content li {
@@ -169,8 +149,7 @@ p:last-child {
 }
 
 .content ul#posts .date {
-	float: right;
-	margin: 0;
+	margin: 0 5px 0 0;
 }
 
 pre {

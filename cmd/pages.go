@@ -24,10 +24,6 @@ var pages = []Page{
 		Root:  true,
 	},
 	{
-		Title: "/etc",
-		Tmpl:  "etc",
-	},
-	{
 		Title:       "YubiKey: Secure SSH with FIDO2",
 		Description: "Configure a YubiKey to secure OpenSSH for FIDO2 Authentication.",
 		Tmpl:        "yubikey-ssh-fido2",
