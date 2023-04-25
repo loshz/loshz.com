@@ -36,21 +36,12 @@ header li:first-child {
 	max-width: 50%;
 }
 
-header li svg {
-	fill: #121212;
-	width: 19px;
-}
-
 header li:nth-child(2) {
 	margin: 0 10px;
 }
 
-header li:nth-child(3) svg {
-	width: 20px;
-}
-
-header li:nth-child(4) svg {
-	width: 17px;
+header p {
+	margin: 5px 0 0!important;
 }
 
 footer {
@@ -68,7 +59,6 @@ h2 {
 
 h2 a {
 	color: #121212!important;
-	text-decoration: none;
 }
 
 h2 a:hover {
@@ -131,8 +121,9 @@ p:last-child {
 .content ol {
 	padding-left: 2rem;
 }
+
 .content ul {
-	list-style: none;
+	padding-left: 1rem;
 }
 
 .content li {
@@ -142,6 +133,11 @@ p:last-child {
 
 .content li:last-child {
 	margin-bottom: 0;
+}
+
+.content ul#posts {
+	list-style: none;
+	padding-left: 0;
 }
 
 .content ul#posts a {
