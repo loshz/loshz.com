@@ -157,7 +157,7 @@ p:last-child {
 
 pre {
 	background: #282828;
-	padding: 5px;
+	padding: 10px;
 	margin: 0 0 10px;
 	overflow-x: scroll;
 	line-height: 1;
@@ -178,7 +178,6 @@ pre.lines code::before {
 
 pre code .c {
 	color: #AAA;
-	font-weight: normal;
 }
 
 pre code .g {
@@ -190,7 +189,7 @@ pre code .r {
 }
 
 pre code .y {
-	color: #ffd75f;
+	color: #FFD75F;
 }
 
 code {
@@ -220,10 +219,6 @@ pre code {
 
 	h3 {
 		font-size: 1.4rem;
-	}
-
-	pre {
-		padding: 10px;
 	}
 
 	code {
