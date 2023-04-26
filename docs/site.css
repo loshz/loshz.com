@@ -159,11 +159,10 @@ pre {
 	background: #282828;
 	padding: 5px 5px 25px;
 	margin: 0 0 10px;
-	overflow-x: auto;
+	overflow-x: scroll;
 	line-height: 1;
     position: relative;
 	counter-reset: line;
-	white-space: pre-wrap;
 }
 
 pre.lines code::before {
@@ -175,36 +174,6 @@ pre.lines code::before {
 	text-align: right;
 	margin-right: 10px;
 	-webkit-user-select: none;
-}
-
-pre::after {
-	content: "utf-8[unix]";
-	display: block;
-	background: #222;
-	font-size: 0.8rem;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: absolute;
-	padding: 5px;
-	text-align: right;
-	color: #AAA;
-}
-
-pre.rust::after {
-	content: "rust:utf-8[unix]";
-}
-
-pre.go::after {
-	content: "go:utf-8[unix]";
-}
-
-pre.c::after {
-	content: "c:utf-8[unix]";
-}
-
-pre.yaml::after {
-	content: "yaml:utf-8[unix]";
 }
 
 pre code .c {
@@ -229,7 +198,7 @@ code {
 	line-height: 1;
 	background: #EEE;
 	padding: .10em .20em;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
 
 pre code {
@@ -254,11 +223,10 @@ pre code {
 	}
 
 	pre {
-		padding: 10px 10px 30px;
+		padding: 10px;
 	}
 
-	pre::after  {
-		padding: 5px 10px;
+	code {
 		font-size: 0.9rem;
 	}
 }
@@ -280,8 +248,8 @@ pre code {
 		color: #6479FF;
 	}
 
-	footer {
-		border-top: 1px solid #282828;
+	header {
+		border-bottom: 1px solid #282828;
 	}
 
 	.quote {
