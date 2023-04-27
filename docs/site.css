@@ -220,6 +220,10 @@ pre code {
 	h3 {
 		font-size: 1.4rem;
 	}
+
+	code {
+		font-size: 0.9rem;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
