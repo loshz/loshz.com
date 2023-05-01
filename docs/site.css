@@ -13,7 +13,7 @@
 }
 
 body {
-	font-size: 1rem;
+	font-size: 1.1rem;
 	line-height: 1.4;
 	font-family: Arial, Helvetica, sans-serif;
 	background: #FFF;
@@ -36,6 +36,8 @@ header ul {
 
 header li {
 	float: left;
+	display: grid;
+	place-items: center;
 }
 
 header li:first-child {
@@ -44,7 +46,7 @@ header li:first-child {
 }
 
 header li:nth-child(2) {
-	margin: 0 10px;
+	margin: 0 10px 0 0;
 }
 
 header p {
@@ -211,6 +213,7 @@ pre code {
 @media only screen and (min-width: 600px) {
 	body {
 		padding: 20px;
+		font-size: 1rem;
 	}
 
 	h1 {
