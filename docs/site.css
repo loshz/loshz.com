@@ -51,6 +51,7 @@ header li:nth-child(2) {
 
 header p {
 	margin: 5px 0 0!important;
+	font-size: 1rem;
 }
 
 footer {
