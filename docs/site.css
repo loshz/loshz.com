@@ -188,7 +188,7 @@ pre code .c {
 }
 
 pre code .g {
-	color: #00FF00;
+	color: #3AE374;
 }
 
 pre code .o {
@@ -200,7 +200,7 @@ pre code .p {
 }
 
 pre code .r {
-	color: #D70000;
+	color: #E74C3C;
 }
 
 pre code .y {
@@ -219,7 +219,7 @@ pre code {
 	padding: 0;
 	border: 0;
 	background: #282828;
-	color: #EEE;
+	color: #DDD;
 	font-weight: normal;
 }
 

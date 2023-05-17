@@ -9,14 +9,14 @@
 <code><span class="r">import</span> <span class="y">"sync"</span></code>
 <code></code>
 <code><span class="r">type</span> protected <span class="r">struct</span> {</code>
-<code>    count int</code>
-<code>    mtx   sync.Mutex</code>
+<code>    count <span class="b">int</span></code>
+<code>    mtx   <span class="b">sync.Mutex</span></code>
 <code>}</code>
 <code></code>
-<code><span class="r">func</span> (p *protected) <span class="g">inc</span>() {</code>
-<code>    p.mtx.Lock()</code>
+<code><span class="r">func</span> (p *<span class="b">protected</span>) <span class="g">inc</span>() {</code>
+<code>    p.mtx.<span class="o">Lock</span>()</code>
 <code>    p.count<span class="r">++</span></code>
-<code>    p.mtx.Unlock()</code>
+<code>    p.mtx.<span class="o">Unlock</span>()</code>
 <code>}</code>
 </pre>
 <p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>p.count</code>?</p>
