@@ -176,7 +176,11 @@ pre.lines code::before {
 	display: inline-block;
 	text-align: right;
 	margin-right: 10px;
-	-webkit-user-select: none;
+	user-select: none;
+}
+
+pre code .b {
+	color: #3FC1E0;
 }
 
 pre code .c {
@@ -185,6 +189,14 @@ pre code .c {
 
 pre code .g {
 	color: #00FF00;
+}
+
+pre code .o {
+	color: #F38600;
+}
+
+pre code .p {
+	color: #9E5EFA;
 }
 
 pre code .r {

@@ -19,18 +19,19 @@ func main() {
 	var rss = flag.Bool("rss", false, "Compile RSS feed")
 	flag.Parse()
 
-	// Compile static HTML.
-	fmt.Println("Compiling static html...")
-	if err := compileHTML(pages, true); err != nil {
-		log.Fatal(err)
-	}
-
 	// Compile RSS feed.
 	if *rss {
 		fmt.Println("\nCompiling rss feed...")
 		if err := compileRSS(pages); err != nil {
 			log.Fatal(err)
 		}
+		os.Exit(0)
+	}
+
+	// Compile static HTML.
+	fmt.Println("Compiling static html...")
+	if err := compileHTML(pages, true); err != nil {
+		log.Fatal(err)
 	}
 
 	// Run local webserver and watch for template changes.
@@ -65,7 +66,7 @@ func watchForChanges(ctx context.Context) {
 		select {
 		case event := <-watcher.Events:
 			if event.Has(fsnotify.Write) {
-				fmt.Println("Template changed, recompiling static html")
+				fmt.Println("Template changed, recompiling static html...")
 				if err := compileHTML(pages, false); err != nil {
 					log.Fatal(err)
 				}

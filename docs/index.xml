@@ -5,11 +5,17 @@
     <link>https://loshz.com/</link>
     <description>Programming thoughts and paradigms.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 02 Apr 2023 06:20:17 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 May 2023 11:45:08 +0000</lastBuildDate>
     
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
-	
+	<item>
+      <title>Useful BPF Helpers</title>
+      <link>https://loshz.com/bpf-helpers/</link>
+      <guid>https://loshz.com/bpf-helpers/</guid>
+      <pubDate>Wed, 17 May 2023 13:00:00 +0000</pubDate>
+      <description>Useful Kernel and libbpf helper functions for use in eBPF programs.</description>
+    </item>
 	<item>
       <title>YubiKey: Secure SSH with FIDO2</title>
       <link>https://loshz.com/yubikey-ssh-fido2/</link>

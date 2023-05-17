@@ -24,6 +24,13 @@ var pages = []Page{
 		Root:  true,
 	},
 	{
+		Title:       "Useful BPF Helpers",
+		Description: "Useful Kernel and libbpf helper functions for use in eBPF programs.",
+		Tmpl:        "bpf-helpers",
+		DateTime:    time.Date(2023, time.May, 17, 13, 0, 0, 0, time.UTC),
+		RSS:         true,
+	},
+	{
 		Title:       "YubiKey: Secure SSH with FIDO2",
 		Description: "Configure a YubiKey to secure OpenSSH for FIDO2 Authentication.",
 		Tmpl:        "yubikey-ssh-fido2",
