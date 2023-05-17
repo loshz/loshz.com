@@ -3,20 +3,20 @@
 <p class="date">{{.DateTime.Format "2006-01-02"}}</p>
 <p>Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?</p>
 <p>Here is a basic example, in Go, of a struct with a <code>count</code> field and a method that increments this field when called:</p>
-<pre class="lines">
+<pre class="go lines">
 <code><span class="r">package</span> main</code>
 <code></code>
 <code><span class="r">import</span> <span class="y">"sync"</span></code>
 <code></code>
 <code><span class="r">type</span> protected <span class="r">struct</span> {</code>
-<code>    count <span class="b">int</span></code>
-<code>    mtx   <span class="b">sync.Mutex</span></code>
+<code>    count int</code>
+<code>    mtx   sync.Mutex</code>
 <code>}</code>
 <code></code>
-<code><span class="r">func</span> (p *<span class="b">protected</span>) <span class="g">inc</span>() {</code>
-<code>    p.mtx.<span class="o">Lock</span>()</code>
+<code><span class="r">func</span> (p *protected) <span class="g">inc</span>() {</code>
+<code>    p.mtx.Lock()</code>
 <code>    p.count<span class="r">++</span></code>
-<code>    p.mtx.<span class="o">Unlock</span>()</code>
+<code>    p.mtx.Unlock()</code>
 <code>}</code>
 </pre>
 <p>As you can see, we lock the mutex, increment the counter, then unlock the mutex before returning. But at no point do we associate the mutex with a specific field. So how exactly does it protect access to <code>p.count</code>?</p>

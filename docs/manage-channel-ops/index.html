@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
 	<meta name="description" content="Programming thoughts and paradigms: A collection of articles focused on systems programming, Linux networking and security.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Manage channel operations using context</title>
-	<link rel="stylesheet" href="/site.css" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-	<link rel="alternate" type="application/rss+xml" href="https://loshz.com/index.xml" title="Programming thoughts and paradigms" />
+	<link rel="stylesheet" href="/site.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="alternate" type="application/rss+xml" href="https://loshz.com/index.xml" title="Programming thoughts and paradigms">
 </head>
 <body>
 	<header>
@@ -47,29 +47,29 @@
 <code>)</code>
 <code></code>
 <code><span class="r">type</span> dataRequest <span class="r">struct</span> {</code>
-<code>    data <span class="b">chan string</span></code>
-<code>    ctx  <span class="b">context.Context</span></code>
+<code>    data chan string</code>
+<code>    ctx  context.Context</code>
 <code>}</code>
 <code></code>
-<code><span class="r">func</span> <span class="g">handler</span>(reqStream <span class="b">chan dataRequest</span>) <span class="b">http.HandlerFunc</span> {</code>
-<code>    <span class="r">return func</span>(w http.<span class="b">ResponseWriter</span>, r <span class="r">*</span>http.<span class="b">Request</span>) {</code>
-<code>        ctx, cancel <span class="r">:=</span> context.<span class="o">WithTimeout</span>(r.<span class="o">Context</span>(), 5<span class="r">*</span>time.<span class="b">Second</span>)</code>
+<code><span class="r">func</span> <span class="g">handler</span>(reqStream chan dataRequest) http.HandlerFunc {</code>
+<code>    <span class="r">return func</span>(w http.ResponseWriter, r <span class="r">*</span>http.Request) {</code>
+<code>        ctx, cancel <span class="r">:=</span> context.WithTimeout(r.Context(), 5<span class="r">*</span>time.Second)</code>
 <code>        <span class="r">defer</span> cancel()</code>
 <code></code>
 <code>        req <span class="r">:=</span> dataRequest{</code>
-<code>            data: make(<span class="b">chan string</span>, 1),</code>
+<code>            data: make(chan string, 1),</code>
 <code>            ctx:  ctx,</code>
 <code>        }</code>
 <code></code>
 <code>        <span class="r">select</span> {</code>
 <code>        case reqStream <span class="r"><-</span> req:</code>
 <code>            <span class="c">// request pushed to que</span></code>
-<code>        case <span class="r"><-</span>ctx.<span class="o">Done</span>():</code>
+<code>        case <span class="r"><-</span>ctx.Done():</code>
 <code>            <span class="c">// don't push onto reqStream if ctx done</span></code>
 <code>        }</code>
 <code></code>
 <code>        <span class="r">select</span> {</code>
-<code>        case <span class="r"><-</span>ctx.<span class="o">Done</span>():</code>
+<code>        case <span class="r"><-</span>ctx.Done():</code>
 <code>            <span class="c">// don't try and serve content if ctx done</span></code>
 <code>        case data <span class="r">:= <-</span>req.data:</code>
 <code>            <span class="c">// return data to client</span></code>
@@ -78,13 +78,13 @@
 <code>}</code>
 <code></code>
 <code><span class="r">func</span> <span class="g">main</span>() {</code>
-<code>    dataReqs <span class="r">:=</span> make(<span class="b">chan dataRequest</span>)</code>
+<code>    dataReqs <span class="r">:=</span> make(chan dataRequest)</code>
 <code>    <span class="r">go func</span>() {</code>
 <code>        <span class="r">for</span> {</code>
 <code>            <span class="r">select</span> {</code>
 <code>            case req <span class="r">:= <-</span>dataReqs:</code>
 <code>                <span class="r">select</span> {</code>
-<code>                case <span class="r"><-</span>req.ctx.<span class="o">Done</span>():</code>
+<code>                case <span class="r"><-</span>req.ctx.Done():</code>
 <code>                    <span class="c">// don't push onto data channel if ctx done</span></code>
 <code>                case req.data <span class="r"><-</span> <span class="y">"some data"</span>:</code>
 <code>                    <span class="c">// get data from store</span></code>
@@ -92,8 +92,8 @@
 <code>            }</code>
 <code>        }</code>
 <code>    }()</code>
-<code>    http.<span class="o">HandleFunc</span>(<span class="y">"/"</span>, handler(dataReqs))</code>
-<code>    http.<span class="o">ListenAndServe</span>(<span class="y">":8080"</span>, <span class="p">nil</span>)</code>
+<code>    http.HandleFunc(<span class="y">"/"</span>, handler(dataReqs))</code>
+<code>    http.ListenAndServe(<span class="y">":8080"</span>, nil)</code>
 <code>}</code>
 </pre>
 <h3>Resources</h3>
