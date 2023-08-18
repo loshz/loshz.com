@@ -59,13 +59,6 @@ var pages = []Page{
 		RSS:         true,
 	},
 	{
-		Title:       "Message Privacy &amp; Security",
-		Description: "Keeping your personal conversations private and secure.",
-		Tmpl:        "message-privacy-security",
-		DateTime:    time.Date(2021, time.January, 07, 15, 0, 0, 0, time.UTC),
-		RSS:         true,
-	},
-	{
 		Title:       "Understanding Mutexes",
 		Description: "Mutually exclusive synchronization - how does it work?",
 		Tmpl:        "understanding-mutexes",

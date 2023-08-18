@@ -5,8 +5,8 @@
     <link>https://loshz.com/</link>
     <description>Programming thoughts and paradigms.</description>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 17 May 2023 11:45:08 +0000</lastBuildDate>
-    
+    <lastBuildDate>Fri, 18 Aug 2023 17:50:01 +0000</lastBuildDate>
+
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
     
 	<item>
@@ -43,13 +43,6 @@
       <guid>https://loshz.com/segfaults-in-safe-code/</guid>
       <pubDate>Tue, 14 Dec 2021 17:00:00 +0000</pubDate>
       <description>Constructing a dangling pointer isn't considered unsafe in itself - but using it is.</description>
-    </item>
-	<item>
-      <title>Message Privacy &amp; Security</title>
-      <link>https://loshz.com/message-privacy-security/</link>
-      <guid>https://loshz.com/message-privacy-security/</guid>
-      <pubDate>Thu, 07 Jan 2021 15:00:00 +0000</pubDate>
-      <description>Keeping your personal conversations private and secure.</description>
     </item>
 	<item>
       <title>Understanding Mutexes</title>
