@@ -1,7 +1,8 @@
 :root {
     --max-width: 700px;
-	--min-padding: 5px;
+	--min-padding: 10px;
 	--font-small: 0.8rem;
+	--colour-purple: #EEF;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 }
 
 header {
-	background: #EEF;
+	background: var(--colour-purple);
 	font-size: var(--font-small);
 }
 
@@ -37,7 +38,7 @@ header li {
 	float: left;
 	display: grid;
 	place-items: center;
-	padding-left: var(--min-padding);
+	padding-left: 5px;
 }
 
 header li:first-child {
@@ -45,7 +46,7 @@ header li:first-child {
 }
 
 header li:nth-child(2) {
-	margin: 0 auto 0 var(--min-padding);
+	margin: 0 auto 0 5px;
 	max-width: 60%;
 }
 
@@ -216,7 +217,7 @@ pre code .y {
 code {
 	font-family: monospace;
 	line-height: 1;
-	background: #EEE;
+	background: var(--colour-purple);
 	padding: .10em .20em;
 	font-size: var(--font-small);
 }
@@ -230,6 +231,10 @@ pre code {
 }
 
 @media only screen and (min-width: 600px) {
+	:root {
+		--min-padding: 5px;
+	}
+
 	h1 {
 		font-size: 1.9rem;
 	}
