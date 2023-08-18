@@ -1,3 +1,9 @@
+:root {
+    --max-width: 700px;
+	--min-padding: 5px;
+	--font-small: 0.8rem;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -11,42 +17,42 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	background: #FFF;
 	color: #121212;
-	margin: 0 auto;
 	width: 100%;
-	max-width: 700px;
-	padding: 10px;
 }
 
 header {
-	border-bottom: 2px solid #121212;
-	padding-bottom: 5px;
+	background: #EEF;
+	font-size: var(--font-small);
 }
 
 header ul {
 	list-style: none;
 	display: flex;
+	margin: 0 auto;
+	max-width: var(--max-width);
+	padding: var(--min-padding);
 }
 
 header li {
 	float: left;
 	display: grid;
 	place-items: center;
+	padding-left: var(--min-padding);
 }
 
 header li:first-child {
-	margin: 0 auto 0 0;
-	max-width: 50%;
+	padding: 0;
 }
 
 header li:nth-child(2) {
-	margin: 0 10px 0 0;
-}
-
-header p {
-	font-size: 0.9rem;
+	margin: 0 auto 0 var(--min-padding);
+	max-width: 60%;
 }
 
 footer {
+	margin: 0 auto 10px auto;
+	max-width: var(--max-width);
+	padding: var(--min-padding);
 	font-size: 0.7rem;
 }
 
@@ -56,12 +62,12 @@ h1 {
 }
 
 h2 {
-	font-size: 1.4rem;
+	font-size: 1rem;
+	font-style: italic;
 }
 
 h2 a {
 	color: #121212!important;
-	text-decoration: none;
 }
 
 h2 a:hover {
@@ -80,7 +86,6 @@ h4 {
 
 a, a:visited {
 	color: #00F;
-	text-decoration: none;
 }
 
 a:hover {
@@ -90,7 +95,7 @@ a:hover {
 .date {
 	color: #828282;
 	margin: 0 0 20px;
-	font-size: 0.9rem;
+	font-size: var(--font-small);
 }
 
 img {
@@ -119,7 +124,9 @@ p:last-child {
 }
 
 .content {
-	margin: 10px 0;
+	margin: 10px auto;
+	max-width: var(--max-width);
+	padding: 0 var(--min-padding);
 }
 
 .content ol, .content ul {
@@ -211,7 +218,7 @@ code {
 	line-height: 1;
 	background: #EEE;
 	padding: .10em .20em;
-	font-size: 0.8rem;
+	font-size: var(--font-small);
 }
 
 pre code {
@@ -250,6 +257,7 @@ pre code {
 	}
 
 	header {
+		background: none;
 		border-bottom: 2px solid #282828;
 	}
 
