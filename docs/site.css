@@ -137,13 +137,14 @@ p:last-child {
 
 .caption {
 	text-align: center;
-	color: #828282;
+	font-size: var(--font-small);
 }
 
 .quote {
 	border-left: 3px solid #121212;
 	font-style: italic;
 	padding-left: 10px;
+	margin: 0;
 }
 
 .content {
