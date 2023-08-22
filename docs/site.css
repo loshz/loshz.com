@@ -51,10 +51,33 @@ header li:nth-child(2) {
 }
 
 footer {
-	margin: 0 auto 10px auto;
+	border-top: 1px solid #DDD;
+	margin: 15px auto 0;
 	max-width: var(--max-width);
-	padding: var(--min-padding);
-	font-size: 0.7rem;
+	padding: 15px;
+	font-size: var(--font-small);
+}
+
+footer ul {
+	list-style: none;
+	width: 100%;
+}
+
+footer ul li:first-child {
+	width: 50%;
+	float: left;
+	text-align: right;
+	padding-right: var(--min-padding);
+}
+
+footer ul li:nth-child(2) {
+	width: 50%;
+	float: left;
+}
+
+footer ul li:last-child {
+	width: 100%;
+	text-align: center;
 }
 
 h1 {
@@ -94,7 +117,6 @@ a:hover {
 }
 
 .date {
-	color: #828282;
 	margin: 0 0 20px;
 	font-size: var(--font-small);
 }
@@ -125,7 +147,7 @@ p:last-child {
 }
 
 .content {
-	margin: 10px auto;
+	margin: 10px auto 0;
 	max-width: var(--max-width);
 	padding: 0 var(--min-padding);
 }
@@ -217,7 +239,7 @@ pre code .y {
 code {
 	font-family: monospace;
 	line-height: 1;
-	background: var(--colour-purple);
+	background: #DDD;
 	padding: .10em .20em;
 	font-size: var(--font-small);
 }
