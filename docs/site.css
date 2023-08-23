@@ -3,6 +3,7 @@
 	--min-padding: 10px;
 	--font-small: 0.8rem;
 	--colour-purple: #EEF;
+	--colour-grey: #EEE;
 }
 
 * {
@@ -51,7 +52,7 @@ header li:nth-child(2) {
 }
 
 footer {
-	border-top: 1px solid #DDD;
+	border-top: 1px solid var(--colour-grey);
 	margin: 15px auto 0;
 	max-width: var(--max-width);
 	padding: 15px;
@@ -240,7 +241,7 @@ pre code .y {
 code {
 	font-family: monospace;
 	line-height: 1;
-	background: #DDD;
+	background: var(--colour-grey);
 	padding: .10em .20em;
 	font-size: var(--font-small);
 }
@@ -249,7 +250,7 @@ pre code {
 	padding: 0;
 	border: 0;
 	background: #282828;
-	color: #DDD;
+	color: var(--colour-grey);
 	font-weight: normal;
 }
 
