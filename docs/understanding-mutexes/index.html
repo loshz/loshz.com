@@ -25,18 +25,18 @@
 <p>Those of us familiar with concurrency and parallelism know just how useful a mutex can be when protecting access to resources. But how do they work?</p>
 <p>Here is a basic example, in Go, of a struct with a <code>count</code> field and a method that increments this field when called:</p>
 <pre class="go lines">
-<code><span class="r">package</span> main</code>
+<code>package main</code>
 <code></code>
-<code><span class="r">import</span> <span class="y">"sync"</span></code>
+<code>import "sync"</code>
 <code></code>
-<code><span class="r">type</span> protected <span class="r">struct</span> {</code>
+<code>type protected struct {</code>
 <code>    count int</code>
 <code>    mtx   sync.Mutex</code>
 <code>}</code>
 <code></code>
-<code><span class="r">func</span> (p *protected) <span class="g">inc</span>() {</code>
+<code>func (p *protected) inc() {</code>
 <code>    p.mtx.Lock()</code>
-<code>    p.count<span class="r">++</span></code>
+<code>    p.count++</code>
 <code>    p.mtx.Unlock()</code>
 <code>}</code>
 </pre>
