@@ -4,6 +4,7 @@
 	--font-small: 0.8rem;
 	--colour-purple: #EEF;
 	--colour-grey: #EEE;
+	--colour-grey-alt: #282828;
 	--colour-black: #121212;
 }
 
@@ -288,7 +289,11 @@ pre code {
 
 	header {
 		background: none;
-		border-bottom: 2px solid #282828;
+		border-bottom: 2px solid var(--colour-grey-alt);
+	}
+
+	footer {
+		border-top: 1px solid var(--colour-grey-alt);
 	}
 
 	.quote {
@@ -296,7 +301,7 @@ pre code {
 	}
 
 	pre, pre code, code {
-		background: #282828;
+		background: var(--colour-grey-alt);
 		color: var(--colour-grey);
 	}
 
