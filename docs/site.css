@@ -27,6 +27,7 @@ body {
 header {
 	background: var(--colour-purple);
 	font-size: var(--font-small);
+	border-bottom: none;
 }
 
 header ul {
@@ -289,7 +290,7 @@ pre code {
 
 	header {
 		background: none;
-		border-bottom: 2px solid var(--colour-grey-alt);
+		border-bottom: 1px solid var(--colour-grey-alt);
 	}
 
 	footer {
