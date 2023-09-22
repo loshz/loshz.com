@@ -90,6 +90,7 @@ h2 {
 
 h2 a {
 	color: var(--colour-black)!important;
+	overflow-wrap: normal;
 }
 
 h2 a:hover {
