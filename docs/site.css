@@ -28,6 +28,7 @@ header {
 	background: var(--colour-purple);
 	font-size: var(--font-small);
 	border-bottom: none;
+	font-style: italic;
 }
 
 header ul {
@@ -85,7 +86,6 @@ h1 {
 
 h2 {
 	font-size: 1rem;
-	font-style: italic;
 }
 
 h2 a {
