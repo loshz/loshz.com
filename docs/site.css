@@ -50,33 +50,15 @@ header li:first-child {
 }
 
 footer {
-	border-top: 1px solid var(--colour-grey);
-	margin: 10px auto 0;
+	margin: 10px auto;
 	max-width: var(--max-width);
-	padding: 10px var(--min-padding);
+	padding: 0 var(--min-padding);
 	font-size: var(--font-small);
 }
 
-footer ul {
-	list-style: none;
-	width: 100%;
-}
-
-footer ul li:first-child {
-	width: 50%;
-	float: left;
-	text-align: right;
-	padding-right: var(--min-padding);
-}
-
-footer ul li:nth-child(2) {
-	width: 50%;
-	float: left;
-}
-
-footer ul li:last-child {
-	width: 100%;
-	text-align: center;
+footer p {
+	border-top: 1px solid var(--colour-grey);
+	padding-top: 10px;
 }
 
 h1 {
@@ -289,7 +271,7 @@ pre code {
 		border-bottom: 1px solid var(--colour-grey-alt);
 	}
 
-	footer {
+	footer p {
 		border-top: 1px solid var(--colour-grey-alt);
 	}
 
