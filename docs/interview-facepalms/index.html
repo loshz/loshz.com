@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Programming thoughts and paradigms: A collection of articles focused on systems programming, Linux networking and security.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Interview Facepalms</title>
+	<link rel="stylesheet" href="/site.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="alternate" type="application/rss+xml" href="https://loshz.com/index.xml" title="Programming thoughts and paradigms">
+</head>
+<body>
+	<header>
+		<ul>
+			<li><h2><a href="/">Loshz</a></h2></li>
+			<li>Programming thoughts and paradigms.</li>
+		</ul>
+	</header>
+
+	<div class="content">
+<h1>Interview Facepalms</h1>
+<p class="date">2023-12-22</p>
+<p>Throughout my software engineering career, I've been through the tedious interview ringer on numerous occasions - and I've been spat out more times that I'd like to admit. Sometimes it's just the luck of the draw, but I can't deny that I've made some stupid mistakes under pressure.</p>
+<p>Immediately after a failed interview, I'd almost always blame myself or doubt my actual skill. But upon reflection, I know I cannot value my whole professional worth based off a 20 minute binary search or scrabble solver implementation. I wanted to write a blog post, that I can update over time, laughing at some hilarious hiccups that have rewarded me with the dreaded <i>"We will not be moving forward with your application at this time"</i> email.</p>
+<ul>
+	<li>I once needed to serialise some bytes into a buffer in order to parse it as a concrete type. I knew the incoming data was an int32, so I initiated a byte array of fixed size <code>maxint32</code> (first mistake). In an unbound loop (second mistake). For every TCP accept in a stream (third mistake). As you can imagine, it quickly ran out of memory.</li>
+	<li>This one is short but sweet, and I genuinely laughed out loud during the interview after spending almost 15 minutes figuring out the difference between <code>&&</code> and <code>||</code> in an <code>if</code> statement condition... </li>
+	<li>During a classic Leetcode medium DFS, I assigned a pointer to the next element instead of comparing it's equality. In a loop. So my traversal was going around in indefinite circles. A simple <code>x = y</code> should have been <code>x == y</code>.</li>
+</ul>
+<p>Inevitably, more facepalms to come!</p>
+</div>
+
+	<footer>
+		<p>Site content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> unless stated otherwise. View the <a href="/index.xml">RSS</a> feed.</p>
+	</footer>
+</body>
+</html>
