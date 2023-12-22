@@ -8,7 +8,7 @@
     <lastBuildDate>{{.DateTime}}</lastBuildDate>
 
     <atom:link href="https://loshz.com/index.xml" rel="self" type="application/rss+xml" />
-    {{range .Pages}}{{if .RSS}}<item>
+{{range .Pages}}{{if .RSS}}<item>
       <title>{{.Title}}</title>
       <link>https://loshz.com/{{.Tmpl}}/</link>
       <guid>https://loshz.com/{{.Tmpl}}/</guid>

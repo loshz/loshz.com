@@ -24,6 +24,13 @@ var pages = []Page{
 		Root:  true,
 	},
 	{
+		Title:       "Interview Facepalms",
+		Description: "Documenting interview mistakes I've made during my career as a software engineer.",
+		Tmpl:        "interview-facepalms",
+		DateTime:    time.Date(2023, time.December, 22, 16, 0, 0, 0, time.UTC),
+		RSS:         true,
+	},
+	{
 		Title:       "Useful BPF Helpers",
 		Description: "Useful Kernel and libbpf helper functions for use in eBPF programs.",
 		Tmpl:        "bpf-helpers",
