@@ -120,19 +120,20 @@ func compileHTML(pages []Page, verbose bool) error {
 		if err != nil {
 			return fmt.Errorf("error opening static page: %w", err)
 		}
-		defer f.Close()
 
 		// read and parse templates
 		tmpl := template.Must(template.ParseFiles(fmt.Sprintf("./templates/%s.tmpl", p.Tmpl), "./templates/site.tmpl"))
 
 		// write template to static html file
 		if err := tmpl.ExecuteTemplate(f, "site", p); err != nil {
+			f.Close()
 			return fmt.Errorf("error executing template: %w", err)
 		}
 
 		if verbose {
 			fmt.Println(f.Name())
 		}
+		f.Close()
 	}
 
 	return nil
