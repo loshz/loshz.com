@@ -1,6 +1,6 @@
 {{define "content"}}
 <h1>{{.Title}}</h1>
-<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
+<p class="date">[{{.DateTime.Format "2006-01-02"}}]</p>
 			<p>I was recently working on a small personal project when I came across a problem during some testing. I had written an application that starts a HTTP server, accepts requests, and serves content from an in-memory data store.</p>
 			<p>The basic application logic is as follows:</p>
 			<ol>

@@ -1,6 +1,6 @@
 {{define "content"}}
 <h1>{{.Title}}</h1>
-<p class="date">{{.DateTime.Format "2006-01-02"}}</p>
+<p class="date">[{{.DateTime.Format "2006-01-02"}}]</p>
 <p>The eBPF subsystem provides some useful out-of-the-box helper functions which can be used to interact with the system they run on. For example, there are helpers to print debugging messages, get the time since the system was booted, interact with eBPF maps, or manipulate network packets, and much more. However, it's worth noting that since there are several eBPF program types, and they do not run in the same context, each program type can only call a subset of these helpers.</p>
 <p>Let's create a simple program that gets the name and pid of every process that makes a raw syscall, and print it to <a href="https://docs.kernel.org/filesystems/debugfs.html">DebugFS</a>:</p>
 <pre class="lines">
