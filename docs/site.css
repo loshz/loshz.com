@@ -232,4 +232,8 @@ pre code {
 	pre code .c {
 		color: #888;
 	}
+
+	footer {
+		border-top: 1px solid var(--colour-grey-alt);
+	}
 }
