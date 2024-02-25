@@ -19,8 +19,13 @@ type Page struct {
 
 var pages = []Page{
 	{
-		Title: "Loshz.com",
+		Title: "Dan Bond",
 		Tmpl:  "index",
+		Root:  true,
+	},
+	{
+		Title: "404 Page Not Found",
+		Tmpl:  "404",
 		Root:  true,
 	},
 	{

@@ -17,66 +17,38 @@
 
 body {
 	font-size: 1rem;
-	line-height: 1.4;
+	line-height: 1.5;
 	font-family: Arial, Helvetica, sans-serif;
-	background: #FFF;
+	background: #FCFCFC;
 	color: var(--colour-black);
 	width: 100%;
-}
-
-header {
-	background: var(--colour-purple);
-	font-size: var(--font-small);
-	border-bottom: none;
-	font-style: italic;
-}
-
-header ul {
-	list-style: none;
-	display: flex;
-	margin: 0 auto;
 	max-width: var(--max-width);
+	margin: 0 auto;
 	padding: var(--min-padding);
-}
-
-header li {
-	float: left;
-	display: grid;
-	place-items: center;
-}
-
-header li:first-child {
-	padding-right: 10px;
 }
 
 footer {
 	margin: 10px auto;
-	max-width: var(--max-width);
-	padding: 0 var(--min-padding);
+	border-top: 1px solid var(--colour-grey-alt);
 	font-size: var(--font-small);
 }
 
 footer p {
-	border-top: 1px solid var(--colour-grey);
 	padding-top: 10px;
 }
 
+header a {
+	margin-top: 10px;
+}
+
 h1 {
+	margin: var(--min-padding) 0;
 	font-size: 1.6rem;
-	clear: both;
+	line-height: 1;
 }
 
 h2 {
 	font-size: 1rem;
-}
-
-h2 a {
-	color: var(--colour-black)!important;
-	overflow-wrap: normal;
-}
-
-h2 a:hover {
-	text-decoration: underline;
 }
 
 h3 {
@@ -132,7 +104,6 @@ p:last-child {
 .content {
 	margin: 10px auto 0;
 	max-width: var(--max-width);
-	padding: 0 var(--min-padding);
 }
 
 .content ol, .content ul {
@@ -228,7 +199,7 @@ pre code {
 	}
 
 	h1 {
-		font-size: 1.9rem;
+		font-size: 2rem;
 	}
 
 	h3 {
@@ -241,25 +212,12 @@ pre code {
 		background: var(--colour-black);
 	}
 
-	body, h2 a {
-		color: #C9D1D9!important;
-	}
-
-	header li svg {
-		fill: #C9D1D9;
+	body {
+		color: #C9D1D9;
 	}
 
 	a, a:visited {
 		color: #6479FF;
-	}
-
-	header {
-		background: none;
-		border-bottom: 1px solid var(--colour-grey-alt);
-	}
-
-	footer p {
-		border-top: 1px solid var(--colour-grey-alt);
 	}
 
 	.quote {
