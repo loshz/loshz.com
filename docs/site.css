@@ -29,7 +29,7 @@ body {
 
 footer {
 	margin: 10px auto;
-	border-top: 1px solid var(--colour-grey-alt);
+	border-top: 1px solid var(--colour-grey);
 	font-size: var(--font-small);
 }
 
