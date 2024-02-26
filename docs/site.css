@@ -6,6 +6,7 @@
 	--colour-grey: #EEE;
 	--colour-grey-alt: #282828;
 	--colour-black: #121212;
+	--color-red: #E74C3C;
 }
 
 * {
@@ -98,7 +99,14 @@ p:last-child {
 	border-left: 3px solid var(--colour-black);
 	font-style: italic;
 	padding-left: 10px;
-	margin: 0;
+}
+
+.warning {
+	padding: 5px;
+	border: 1px solid var(--color-red);
+	background: #F8D7DA;
+	font-weight: bold;
+	color: var(--colour-black);
 }
 
 .content {
@@ -170,7 +178,7 @@ pre code .p {
 }
 
 pre code .r {
-	color: #E74C3C;
+	color: var(--color-red);
 }
 
 pre code .y {
@@ -222,6 +230,10 @@ pre code {
 
 	.quote {
 		border-left: 3px solid #C9D1D9;
+	}
+
+	.warning {
+		background: var(--color-red);
 	}
 
 	pre, pre code, code {
